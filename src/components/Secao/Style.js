@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-const Bloco = styled.article`
+const SecaoStyle = styled.article`
     background-color: var(--detalhe);
-    padding: 20px;
-    margin: 20px 10px;
     border-radius: 100px;
+    height: 100%;
   
     img{
         height: 30px;
@@ -59,6 +58,7 @@ const Bloco = styled.article`
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        padding: 50px;
     }
     
     .infoButton{
@@ -72,4 +72,4 @@ const Bloco = styled.article`
 
 `;
 
-export {Bloco};
+export {SecaoStyle};

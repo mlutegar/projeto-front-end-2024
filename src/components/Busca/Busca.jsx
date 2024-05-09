@@ -1,23 +1,40 @@
 import { BuscaEstilo } from "./Style";
 
 
-const Busca = () => (
+const Busca = (props) => (
   <BuscaEstilo>
-    <div class="busca">
-        <div class="dropdown">
-            <button class="dropbtn">Dropdown</button>
-            <div class="dropdown-content">
-              <a href="#">Usuario</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
+    <div className="busca">
+        <div className="dropdown">
+            <button className="dropbtn">
+                <span>
+                    {props.opcao}
+                </span>
+                <span>
+                    ▼
+                </span>
+            </button>
+            <div className="dropdown-content">
+                {props.opcoes}
             </div>
           </div>
-          <div class="search-box">
-            <input type="text" class="input-busca" placeholder="Digite para pesquisar..."/>
-            <button name="button" type="submit" class="btn btn-flat">
-                <i class="fas fa-search"></i> Search
-              </button>
-          </div>
+        <div className="search-box">
+            <div>
+                <input onChange={props.onChance} type="text" className="input-busca" placeholder="Digite para pesquisar..."/>
+            </div>
+
+            <div>
+                <button
+                    onClick={props.onClick}
+                    name="button"
+                    type="submit"
+                    className="btn btn-flat"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg>
+                </button>
+            </div>
+        </div>
     </div>
   </BuscaEstilo>
 )
