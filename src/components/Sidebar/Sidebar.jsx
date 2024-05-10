@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Content } from './styles'
+import { Container, Content } from './Style'
 import { 
   FaTimes, 
   FaHome, 
@@ -12,7 +12,7 @@ import {
   FaCocktail
 } from 'react-icons/fa'
 
-import SidebarItem from '../SidebarItem'
+import SidebarItem from '../SidebarItem/SidebarItem'
 
 const Sidebar = ({ active }) => {
 

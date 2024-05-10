@@ -1,6 +1,6 @@
     import styled from "styled-components"
 
-const Top = styled.header`
+const HeaderStyle = styled.header`
   padding: .5em 2em;
   background-color: var(--background);
   display: flex;
@@ -47,4 +47,4 @@ const Top = styled.header`
 
 
 
-export {Top}
+export {HeaderStyle}
