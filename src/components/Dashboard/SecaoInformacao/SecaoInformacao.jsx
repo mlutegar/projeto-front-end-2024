@@ -1,9 +1,9 @@
 import { SecaoInfoStyle } from "./Style";
-import SecaoGenerio from "../SecaoGenerico/SecaoGenerio";
-import BotaoAvancarVoltar from "../BotaoAvancarVoltar/BotaoAvancarVoltar";
+import SecaoGenerio from "../../SecaoGenerico/SecaoGenerio";
+import BotaoAvancarVoltar from "../../BotaoAvancarVoltar/BotaoAvancarVoltar";
 import { useState } from "react";
 
-const SecaoInfo = (props) => {
+const SecaoInformacao = (props) => {
     // contarSolicitação: função que pega o json de solicitações e conta quantas solicitações estão abertas e fechadas do tipo do parâmetro e do status especificado no parâmetro
     const contarSolicitacao = (solicitacoes, tipo, status) => {
         return solicitacoes.filter((solicitacao) => solicitacao.tipo === tipo && solicitacao.status === status).length;
@@ -74,4 +74,4 @@ const SecaoInfo = (props) => {
     );
 }
 
-export default SecaoInfo;
+export default SecaoInformacao;

@@ -1,5 +1,5 @@
 import {ArquivoServicoStyle} from "./Style";
-import SecaoGenerio from "../SecaoGenerico/SecaoGenerio";
+import SecaoGenerio from "../../SecaoGenerico/SecaoGenerio";
 import {useState} from "react";
 
 // // estadoRelatorio: estado que guarda a situação do relatório

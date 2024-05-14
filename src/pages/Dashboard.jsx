@@ -7,9 +7,9 @@ import dadosAtualizacoes from "../data/atualizacoes.json";
 import Tabela from "../components/Tabela/Tabela";
 import {useEffect, useState} from "react";
 import Botao from "../components/Botao/Botao";
-import DashboadLayout from "../components/DashboadLayout/DashboadLayout";
+import DashboadLayout from "../components/Dashboard/DashboadLayout/DashboadLayout";
 import AtualizacaoCard from "../components/AtualizacaoCard/AtualizacaoCard";
-import SecaoInfo from "../components/SecaoInfo/SecaoInfo";
+import SecaoInformacao from "../components/Dashboard/SecaoInformacao/SecaoInformacao";
 import BotaoAvancarVoltar from "../components/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import SecaoCalibracao from "../components/Dashboard/SecaoCalibracao/SecaoCalibracao";
 import SecaoAtualizacao from "../components/Dashboard/SecaoAtualizacao/SecaoAtualizacao";
@@ -98,7 +98,7 @@ const Dashboard = () => {
                   )}/>
               }
               informacao={
-                  <SecaoInfo
+                  <SecaoInformacao
                       solicitacoes={solicitacoes}
                   />
               }
