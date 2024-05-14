@@ -10,6 +10,10 @@ import Botao from "../components/Botao/Botao";
 import DashboadLayout from "../components/DashboadLayout/DashboadLayout";
 import AtualizacaoCard from "../components/AtualizacaoCard/AtualizacaoCard";
 import SecaoInfo from "../components/SecaoInfo/SecaoInfo";
+import BotaoAvancarVoltar from "../components/BotaoAvancarVoltar/BotaoAvancarVoltar";
+import SecaoCalibracao from "../components/Dashboard/SecaoCalibracao/SecaoCalibracao";
+import SecaoAtualizacao from "../components/Dashboard/SecaoAtualizacao/SecaoAtualizacao";
+
 const Dashboard = () => {
     // Array com as possíveis opções da filtragem
     const tipos = [
@@ -82,60 +86,34 @@ const Dashboard = () => {
                   />
               }
               calibracao={
-                  <Secao
-                      pai="/calibracoes"
-                      nome="Calibrações"
-                      conteudo={
-                          <div>
-                              <Tabela
-                                  tipo="calibracao"
-                                  linha={
-                                      <>
-                                          {dadosCalibracoes.map(
-                                              (calibracao) => (
-                                                  <tr key={calibracao.id}>
-                                                      <td>{calibracao.id}</td>
-                                                      <td>{calibracao.nome}</td>
-                                                      <td>{calibracao.usuario}</td>
-                                                      <td>{calibracao.isotopo}</td>
-                                                      <td>{calibracao.imagem}</td>
-                                                      <td>{calibracao.date}</td>
-                                                  </tr>
-                                              ))}
-                                      </>
-                                  }
-                              />
-
-                              <button>Voltar</button>
-                              <button>Avançar</button>
-                          </div>
-                      }
-                  />
+                  <SecaoCalibracao prop={(calibracao) => (
+                      <tr key={calibracao.id}>
+                          <td>{calibracao.id}</td>
+                          <td>{calibracao.nome}</td>
+                          <td>{calibracao.usuario}</td>
+                          <td>{calibracao.isotopo}</td>
+                          <td>{calibracao.imagem}</td>
+                          <td>{calibracao.date}</td>
+                      </tr>
+                  )}/>
               }
               informacao={
                   <SecaoInfo
-                      tipo="Clinica Dosimetria"
-                      aberto={34}
-                      fechado={134}
+                      solicitacoes={solicitacoes}
                   />
               }
               atualizacao={
-                  <Secao nome="Atualizações" conteudo={
-                      <>
-                          {atualizacoes.slice(0, 4).map((atualizacao) => (
-                              <AtualizacaoCard
-                                  icone={
-                                        <a href={"/servico/" + atualizacao.id}> a </a>
+                  <SecaoAtualizacao atualizacoes={atualizacoes} prop1={(atualizacao) => (
+                      <AtualizacaoCard
+                          icone={
+                              <a href={"/servico/" + atualizacao.id}> a </a>
 
-                                  }
-                                  id={atualizacao.id}
-                                  acao={atualizacao.acao}
-                                  tempo={atualizacao.tempo}
-                              />
-                          ))}
-                      </>
-                  }
-                  />
+                          }
+                          id={atualizacao.id}
+                          acao={atualizacao.acao}
+                          tempo={atualizacao.tempo}
+                      />
+                  )}/>
               }
           />
       </Base>
