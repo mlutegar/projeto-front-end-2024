@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const SecaoAtualizacaoStyle = styled.div`
+const SecaoSolicitacaoStyle = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
 
-    button {
+    .btn {
         background-color: white;  // Cor azul para os botões
         color: rgb(2, 56, 89);
         border: none;
@@ -25,10 +25,6 @@ const SecaoAtualizacaoStyle = styled.div`
             transform: scale(0.95);  // Efeito de clique reduzindo ligeiramente o tamanho
         }
     }
-
-    .voltar-button, .avancar-button {
-        // Se necessário, estilos específicos para voltar ou avançar podem ser adicionados aqui
-    }
 `
 
-export { SecaoAtualizacaoStyle };
+export { SecaoSolicitacaoStyle };

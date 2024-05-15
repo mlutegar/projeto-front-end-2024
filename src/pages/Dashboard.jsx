@@ -13,6 +13,7 @@ import SecaoInformacao from "../components/Dashboard/SecaoInformacao/SecaoInform
 import BotaoAvancarVoltar from "../components/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import SecaoCalibracao from "../components/Dashboard/SecaoCalibracao/SecaoCalibracao";
 import SecaoAtualizacao from "../components/Dashboard/SecaoAtualizacao/SecaoAtualizacao";
+import SecaoComponente from "../components/Dashboard/SecaoSolicitacao/SecaoSolicitacao";
 
 const Dashboard = () => {
     // Array com as possíveis opções da filtragem
@@ -56,34 +57,22 @@ const Dashboard = () => {
       <Base titulo="Dashboard">
           <DashboadLayout
               solicitacao={
-                  <Secao nome="Solicitações"
-                         pai={"/servicos"}
-                         navbar={
-                             tipos.map((tipo, indexo) => (
-                                 <Botao
-                                     key={indexo}
-                                     isActive={tipoConsulta.includes(tipo)}
-                                     onClick={() => adicionarTipoConsulta(tipo)}
-                                     text={tipo}
-                                 />
-                             ))
-                         }
-                         conteudo={
-                             <>
-                                 {solicitacoes.slice(0, 5).map(
-                                     (solicitacao) => (
-                                         <SolicitacaoCard
-                                             key={solicitacao.id}
-                                             id={solicitacao.id}
-                                             cliente={solicitacao.cliente}
-                                             data={solicitacao.date}
-                                             link={"/servico/" + solicitacao.id}
-                                         />
-                                     )
-                                 )}
-                             </>
-                         }
-                  />
+                  <SecaoComponente strings={tipos} callbackfn={(tipo, indexo) => (
+                      <Botao
+                          key={indexo}
+                          isActive={tipoConsulta.includes(tipo)}
+                          onClick={() => adicionarTipoConsulta(tipo)}
+                          text={tipo}
+                      />
+                  )} solicitacoes={solicitacoes} prop3={(solicitacao) => (
+                      <SolicitacaoCard
+                          key={solicitacao.id}
+                          id={solicitacao.id}
+                          cliente={solicitacao.cliente}
+                          data={solicitacao.date}
+                          link={"/servico/" + solicitacao.id}
+                      />
+                  )}/>
               }
               calibracao={
                   <SecaoCalibracao prop={(calibracao) => (
