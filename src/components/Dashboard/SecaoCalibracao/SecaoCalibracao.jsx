@@ -26,22 +26,26 @@ function SecaoCalibracao(props) {
         pai="/calibracoes"
         nome="Calibrações"
         conteudo={
-            <div>
-                <Tabela
-                    tipo="calibracao"
-                    linha={
-                        <>
-                            {dadosCalibracoes.slice(sliceIndex, sliceIndex + itemsPerPage).map(
-                                props.prop)}
-                        </>
-                    }
-                />
+            <SecaoCalibracaoStyle>
+                <div>
+                    <Tabela
+                        tipo="calibracao"
+                        linha={
+                            <>
+                                {dadosCalibracoes.slice(sliceIndex, sliceIndex + itemsPerPage).map(
+                                    props.prop)}
+                            </>
+                        }
+                    />
 
-                <BotaoAvancarVoltar
-                    avancar={avancar}
-                    voltar={voltar}
-                />
-            </div>
+                    <div style={{marginTop: 20}}>
+                        <BotaoAvancarVoltar
+                            avancar={avancar}
+                            voltar={voltar}
+                        />
+                    </div>
+                </div>
+            </SecaoCalibracaoStyle>
         }
     />;
 }

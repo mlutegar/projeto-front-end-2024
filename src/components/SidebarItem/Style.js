@@ -18,4 +18,9 @@ export const Container = styled.div`
   &:hover {
     background-color: black;
   }
+    
+    a {
+        text-decoration: none;
+        color: white;
+    }
 `;

@@ -24,14 +24,11 @@ const Sidebar = ({ active }) => {
     <Container sidebar={active}>
       <FaTimes onClick={closeSidebar} />  
       <Content>
-        <SidebarItem Icon={FaHome} Text="Menu" />
-        <SidebarItem Icon={FaChartBar} Text="Serviços" />
-        <SidebarItem Icon={FaBell} Text="Notificação" />
-        <SidebarItem Icon={FaClock} Text="Recentes" />
-        <SidebarItem Icon={FaUser} Text="Conta" />
-        <SidebarItem Icon={FaRegSun} Text="Login" />
-        
-        
+        <SidebarItem Icon={FaHome} Text="Menu" link={"/dashboard"} />
+        <SidebarItem Icon={FaChartBar} Text="Serviços" link={"/servicos"} />
+        <SidebarItem Icon={FaBell} Text="Notificação" link={"/notificacoes"} />
+        <SidebarItem Icon={FaClock} Text="Recentes" link={"/recentes"} />
+        <SidebarItem Icon={FaUser} Text="Conta" link={"/perfil"} />
       </Content>
     </Container>
   )

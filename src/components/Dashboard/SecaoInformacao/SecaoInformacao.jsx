@@ -67,7 +67,9 @@ const SecaoInformacao = (props) => {
                         </div>
                     </div>
 
-                    <BotaoAvancarVoltar voltar={voltar} avancar={avancar} />
+                    <div style={{marginTop: 10}}>
+                        <BotaoAvancarVoltar voltar={voltar} avancar={avancar} />
+                    </div>
                 </div>
             </SecaoInfoStyle>
         </SecaoGenerio>
