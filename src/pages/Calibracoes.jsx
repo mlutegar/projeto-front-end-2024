@@ -2,10 +2,10 @@ import { onAuthStateChanged } from "firebase/auth"
 import Base from "./Base"
 import { auth } from "../config/Firebase";
 import { useEffect } from "react";
-import Secao from "../components/Secao/Secao";
+import Secao from "../components/Geral/Secoes/Secao/Secao";
 import dadosCalibracoes from "../data/calibracoes.json";
-import Tabela from "../components/Tabela/Tabela";
-import Busca from "../components/Busca/Busca";
+import Tabela from "../components/Geral/Tabela/Tabela";
+import Busca from "../components/Geral/Busca/Busca";
 
 const Calibracoes = () => {
 

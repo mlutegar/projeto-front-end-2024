@@ -1,8 +1,7 @@
-import {InformacoesServicoStyle} from "./Style";
-import SecaoGenerio from "../../Geral/Secoes/SecaoGenerico/SecaoGenerio";
+import {InformacoesPerfilStyle} from "./Style";
 
-const InformacoesServico = (props) => (
-        <InformacoesServicoStyle>
+const InformacoesPerfil = (props) => (
+        <InformacoesPerfilStyle>
             <div>
                 <h1>{props.titulo}</h1>
                 <div id="container">
@@ -83,7 +82,7 @@ const InformacoesServico = (props) => (
 
 
             </div>
-        </InformacoesServicoStyle>
+        </InformacoesPerfilStyle>
 );
 
-export default InformacoesServico;
+export default InformacoesPerfil;

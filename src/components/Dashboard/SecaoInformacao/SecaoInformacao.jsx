@@ -1,7 +1,8 @@
 import { SecaoInfoStyle } from "./Style";
-import SecaoGenerio from "../../SecaoGenerico/SecaoGenerio";
-import BotaoAvancarVoltar from "../../BotaoAvancarVoltar/BotaoAvancarVoltar";
+import SecaoGenerio from "../../Geral/Secoes/SecaoGenerico/SecaoGenerio";
+import BotaoAvancarVoltar from "../../Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import { useState } from "react";
+import Secao from "../../Geral/Secoes/Secao/Secao";
 
 const SecaoInformacao = (props) => {
     // contarSolicitação: função que pega o json de solicitações e conta quantas solicitações estão abertas e fechadas do tipo do parâmetro e do status especificado no parâmetro
@@ -47,33 +48,36 @@ const SecaoInformacao = (props) => {
     };
 
     return (
-        <SecaoGenerio titulo="Informações">
-            <SecaoInfoStyle>
-                <div className="container">
-                    <div className="tipo">
-                        {solicitacoes[index].tipo}
-                    </div>
+            <Secao
+                nome="Informações"
+                conteudo={
+                    <SecaoInfoStyle>
+                        <div className="container">
+                            <div className="tipo">
+                                {solicitacoes[index].tipo}
+                            </div>
 
-                    <div className="info">
-                        <div className="num">
-                            <span>{solicitacoes[index].aberto}</span>
-                            <div id="circulo-laranja"></div>
-                            Pedidos Abertos
-                        </div>
-                        <div className="num">
-                            <span>{solicitacoes[index].fechado}</span>
-                            <div id="circulo-verde"></div>
-                            Pedidos Fechados
-                        </div>
-                    </div>
+                            <div className="info">
+                                <div className="num">
+                                    <span>{solicitacoes[index].aberto}</span>
+                                    <div id="circulo-laranja"></div>
+                                    Pedidos Abertos
+                                </div>
+                                <div className="num">
+                                    <span>{solicitacoes[index].fechado}</span>
+                                    <div id="circulo-verde"></div>
+                                    Pedidos Fechados
+                                </div>
+                            </div>
 
-                    <div style={{marginTop: 10}}>
-                        <BotaoAvancarVoltar voltar={voltar} avancar={avancar} />
-                    </div>
-                </div>
-            </SecaoInfoStyle>
-        </SecaoGenerio>
-    );
+                            <div style={{marginTop: 10}}>
+                                <BotaoAvancarVoltar voltar={voltar} avancar={avancar} />
+                            </div>
+                        </div>
+                    </SecaoInfoStyle>
+                }
+            />
+        );
 }
 
 export default SecaoInformacao;

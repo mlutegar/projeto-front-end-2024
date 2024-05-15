@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const SecaoStyle = styled.article`
     background-color: var(--detalhe);
-    border-radius: 100px;
+    border-radius: 3rem;
     height: 100%;
   
     img{

@@ -23,11 +23,7 @@ const Header = () => {
         <div id='nav2'>
           <Link to="/dashboard">Home</Link>
           <Link to="/servicos">Serviços</Link>
-          {window.sessionStorage.getItem('accessToken') ? (
-            <Link to="/perfil">Conta</Link>
-          ) : (
-            <Link to="/login">Login</Link>
-          )}
+          <Link to="/perfil">Conta</Link>
         </div>
       </HeaderStyle>
 

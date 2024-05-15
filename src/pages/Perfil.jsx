@@ -1,85 +1,113 @@
-import Base from "./Base"
-import TestCard from "../components/TestCard/TestCard";
-import {useState} from "react";
+import {Link, useParams} from 'react-router-dom';
+import Base from './Base';
+import InformacoesServico from "../components/ServicoDetalhado/InformacoesServico/InformacoesServico";
 import dadosSolicitacoes from "../data/solicitacoes.json";
+import SecaoGenerio from "../components/Geral/Secoes/SecaoGenerico/SecaoGenerio";
+import Botao from "../components/Geral/Botoes/Botao/Botao";
+import {useRef, useState} from "react";
+import ArquivoServico from "../components/ServicoDetalhado/ArquivosServico/ArquivoServico";
+import BotaoAtencao from "../components/Geral/Botoes/BotaoAtencao/BotaoAtencao";
 
-const Calibracoes = () => {
-    const [contador, setContador] = useState(0);
-    // O useState é um hook que permite adicionar estado a um componente funcional do React.
-    // O valor dentro do useState é o valor inicial do estado.
-    // O setContador é uma função que atualiza o estado.
-    const [idade, setIdade] = useState(21);
+const ServicoPage = () => {
+    // user: variável que armazena o usuario logado
+    const { id } = useParams();
 
-    const maisUm = () => {
-        setContador(contador + 1);
+    // botaoClicado: variável que armazena o nome do botão que foi clicado, e é usada para determinar qual seção será exibida, sendo "Dados do usúario" a seção padrão exibida e "Arquivos" a seção exibida ao clicar no botão "Arquivos"
+    const [botaoClicado, setBotaoClicado] = useState("Dados do usúario");
+
+    // servico: variável que armazena as informações da solicitação que será exibida na página, buscando a solicitação com o id passado pela URL
+    const usuario = {
+        id: 1,
+        nome: "mlutegar",
+        email: "mlutegar@gmail.com",
+        telefone: "21999795887",
+        dataNascimento: "01/01/1990",
+        cpf: "123.456.789-00",
+        endereco: "Rua dos Bobos, nº 0",
+        cidade: "Rio de Janeiro",
     }
 
-    const menosUm = () => {
-        setContador(contador - 1);
+    // trocarSecao: função que recebe o nome da seção que foi clicada e altera o estado do botaoClicado para exibir a seção correspondente
+    // parâmetros:
+    // - secao: string que representa o nome da seção que foi clicada
+    const trocarSecao = (secao) => {
+        console.log(secao);
+        if (secao === "Dados do usúario") {
+            setBotaoClicado("Dados do usúario")
+        }
+        if (secao === "Arquivos") {
+            setBotaoClicado("Arquivos")
+        }
     }
 
-    const mudaIdade = () => {
-        setIdade(40);
+    // deslogar: função que exibe um prompt para confirmar a exclusão do serviço e o deleta, disparando um alerta de sucesso e em seguida redirecionando para a página de serviços
+    const deslogar = () => {
+        const confirmacao = window.confirm("Tem certeza que deseja deslogar?");
+        if (confirmacao) {
+            alert("Deslogado!");
+            window.location.href = "https://www.dosimagem.com/contact";
+        }
     }
 
-    // Criando um estado para armazenar as solicitações
-    // solicitacoes é o estado
-    // setSolicitacoes é a função que atualiza o estado
-    // dadosSolicitacoes é o valor inicial do estado
-    const [solicitacoes , setSolicitacoes] = useState(dadosSolicitacoes);
+    return (
+        <Base
+            titulo={"Usúario: " + usuario.nome}
+        >
+            <div style={{marginTop: 50}}>
 
-    const filtra = (entrada) => {
-        setSolicitacoes(dadosSolicitacoes.filter(
-            (ele) => ele.cliente.includes(entrada)
-        ));
-    }
+            </div>
+            <SecaoGenerio>
+                <div style={{display: "flex", justifyContent: "space-between", marginLeft: 50, marginRight: 50, marginBottom: 40}}>
+                    <div style={{display: "flex", justifyContent: "left", marginLeft: 50, gap: 10}}>
+                        <Botao
+                            text="Dados do usúario"
+                            isActive={botaoClicado === "Dados do usúario"}
+                            onClick={() => trocarSecao("Dados do usúario")}
+                        />
+                    </div>
+
+                    <div>
+                        <BotaoAtencao
+                            text="Deslogar"
+                            onClick={() => deslogar()}
+                        />
+                    </div>
+                </div>
+
+                <div style={{marginBottom:40, marginLeft: 20, marginRight: 20}}>
+                    {botaoClicado === "Dados do usúario" && (
+                        usuario ? (
+                            <InformacoesServico
+                                Analyses={usuario.analise}
+                                Status={usuario.status}
+                                Injetected={usuario.atividade}
+                                Data={usuario.date}
+                                Hora={usuario.date}
+                            />
+                        ) : (
+                            <p>Serviço não encontrado ou ID inválido.</p>
+                        )
+                    )}
+
+                    {botaoClicado === "Arquivos" && (
+                        usuario ? (
+                            <ArquivoServico
+                                titulo="Arquivos"
+                                cliente={usuario.cliente}
+                                situacao={usuario.status}
+                            />
+                        ) : (
+                            <p>Serviço não encontrado ou ID inválido.</p>
+                        )
+                    )}
+
+                </div>
 
 
-  return (
-      <Base>
-          <h1>
-              Aplicação React Base
-          </h1>
+            </SecaoGenerio>
+        </Base>
+    );
 
-          <div>
+};
 
-              <input type="text" onChange={(e) => filtra(e.target.value)}/>
-
-              {solicitacoes.map(
-                  (solicitacao) => (
-                      <TestCard
-                          id={solicitacao.id}
-                          cliente={solicitacao.cliente}
-                          tipo_exame={solicitacao.description}
-                          data={solicitacao.date}
-                          status={solicitacao.status}
-                      />
-                  )
-              )}
-          </div>
-
-          <div>
-              <h1>Contador: {contador}</h1>
-              <button onClick={maisUm}>+1</button>
-              <button onClick={menosUm}>-1</button>
-              <button onClick={() => setContador(0)}>zerar</button>
-          </div>
-
-          <div>
-              <h1>Idade: {idade}</h1>
-              <button onClick={mudaIdade}>Mudar Idade</button>
-              <input value={idade} onChange={(e) => setIdade(e.target.value)}/>
-              {/*
-            OnChange é um evento que será chamado toda vez que o valor do input for alterado.
-            O (e) é o evento que está sendo passado para a função. Qualquer nome que você colocar no lugar do (e) funcionará.
-            O e.target é o elemento que está sendo alterado. Que no caso é o input.
-            O e.target.value é o valor do elemento que está sendo alterado.
-            O nome desse processo é Data Binding.
-        */}
-          </div>
-
-      </Base>
-  )
-}
-
-export default Calibracoes
+export default ServicoPage;

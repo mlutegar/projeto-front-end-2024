@@ -1,9 +1,9 @@
 import {SecaoCalibracaoStyle} from "./Style";
 
-import Secao from "../../Secao/Secao";
-import Tabela from "../../Tabela/Tabela";
+import Secao from "../../Geral/Secoes/Secao/Secao";
+import Tabela from "../../Geral/Tabela/Tabela";
 import dadosCalibracoes from "../../../data/calibracoes.json";
-import BotaoAvancarVoltar from "../../BotaoAvancarVoltar/BotaoAvancarVoltar";
+import BotaoAvancarVoltar from "../../Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import {useState} from "react";
 
 function SecaoCalibracao(props) {

@@ -1,6 +1,6 @@
 import { SecaoSolicitacaoStyle } from "./Style";
 
-import Secao from "../../Secao/Secao";
+import Secao from "../../Geral/Secoes/Secao/Secao";
 import {useState} from "react";
 
 function SecaoComponente(props) {

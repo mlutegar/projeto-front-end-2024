@@ -2,11 +2,11 @@ import {Link, useParams} from 'react-router-dom';
 import Base from './Base';
 import InformacoesServico from "../components/ServicoDetalhado/InformacoesServico/InformacoesServico";
 import dadosSolicitacoes from "../data/solicitacoes.json";
-import SecaoGenerio from "../components/SecaoGenerico/SecaoGenerio";
-import Botao from "../components/Botao/Botao";
+import SecaoGenerio from "../components/Geral/Secoes/SecaoGenerico/SecaoGenerio";
+import Botao from "../components/Geral/Botoes/Botao/Botao";
 import {useRef, useState} from "react";
 import ArquivoServico from "../components/ServicoDetalhado/ArquivosServico/ArquivoServico";
-import BotaoAtencao from "../components/BotaoAtencao/BotaoAtencao";
+import BotaoAtencao from "../components/Geral/Botoes/BotaoAtencao/BotaoAtencao";
 
 const ServicoPage = () => {
     // id: variável que armazena o id da solicitação que será passado pela URL, e é usado para buscar as informações da solicitação

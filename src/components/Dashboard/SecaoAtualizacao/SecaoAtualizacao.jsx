@@ -1,5 +1,5 @@
     import React, { useState } from 'react';
-    import Secao from "../../Secao/Secao";
+    import Secao from "../../Geral/Secoes/Secao/Secao";
     import { SecaoAtualizacaoStyle } from "./Style";
 
     function SecaoAtualizacao(props) {

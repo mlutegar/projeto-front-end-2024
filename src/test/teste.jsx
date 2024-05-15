@@ -1,6 +1,6 @@
-import Base from "./Base";
-import ListContainer from "../components/ListContainer/ListContainer";
-import AtletaCard from "../components/AtletaCard/AtletaCard";
+import Base from "../pages/Base";
+import ListContainer from "./ListContainer/ListContainer";
+import AtletaCard from "./AtletaCard/AtletaCard";
 
 const Atletas = () => {
     let {id} = useParams();
