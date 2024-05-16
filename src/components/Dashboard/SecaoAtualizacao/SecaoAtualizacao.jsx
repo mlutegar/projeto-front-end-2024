@@ -26,7 +26,9 @@
                         {"<"}
                     </button>
                 </div>
-                {props.atualizacoes.slice(currentStartIndex, currentStartIndex + itemsPerPage).map(props.prop1)}
+                <div id="cards">
+                    {props.atualizacoes.slice(currentStartIndex, currentStartIndex + itemsPerPage).map(props.prop1)}
+                </div>
                 <div>
                     <button onClick={avancar}>
                         {">"}

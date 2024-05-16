@@ -37,15 +37,6 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
-div.container {
-  padding: 1rem;
-  margin: 20px 20px;
-}
-
-div.container h1 span{
-  border-bottom: 5px solid var(--primaria);
-}
-
 h1,h2,h3,h4,h5,h6{
   margin: 0;
 }
