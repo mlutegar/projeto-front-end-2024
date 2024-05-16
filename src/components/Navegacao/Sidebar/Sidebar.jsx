@@ -26,7 +26,7 @@ const Sidebar = ({ active }) => {
       <Content>
         <SidebarItem Icon={FaHome} Text="Menu" link={"/dashboard"} />
         <SidebarItem Icon={FaChartBar} Text="Serviços" link={"/servicos"} />
-        <SidebarItem Icon={FaBell} Text="Notificação" link={"/notificacoes"} />
+        <SidebarItem Icon={FaBell} Text="Calibrações" link={"/calibracoes"} />
         <SidebarItem Icon={FaClock} Text="Recentes" link={"/recentes"} />
         <SidebarItem Icon={FaUser} Text="Conta" link={"/perfil"} />
       </Content>

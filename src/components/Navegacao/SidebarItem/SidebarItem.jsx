@@ -4,12 +4,12 @@ import {Link as RouterLink} from "react-router-dom";
 
 const SidebarItem = ({ Icon, Text, link }) => {
     return (
+        <RouterLink to={link}>
         <Container>
             <Icon />
-            <RouterLink to={link}>
                 {Text}
-            </RouterLink>
         </Container>
+        </RouterLink>
     )
 }
 
