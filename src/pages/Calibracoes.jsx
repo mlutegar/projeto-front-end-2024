@@ -1,30 +1,43 @@
-import { onAuthStateChanged } from "firebase/auth"
 import Base from "./Base"
-import { auth } from "../config/Firebase";
-import { useEffect } from "react";
-import Secao from "../components/Secao/Secao";
 import dadosCalibracoes from "../data/calibracoes.json";
-import Tabela from "../components/Tabela/Tabela";
-import Busca from "../components/Busca/Busca";
+import Tabela from "../components/Geral/Tabela/Tabela";
+import Busca from "../components/Geral/Busca/Busca";
+import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 
 const Calibracoes = () => {
+    // Array com os nomes das colunas da tabela
+    const colunas = [
+        "ID",
+        "Nome da Calibracao",
+        "Usuário",
+        "Isotopo",
+        "Imagem da Calibracao",
+        "Criado em",
+    ]
 
-  /* useEffect(()=> {
-    onAuthStateChanged(auth, (user)=> {
-      if (user) {
-        window.sessionStorage.setItem("accessToken", user.accessToken);
-      } else {
-        window.sessionStorage.removeItem("accessToken");
-      }
-    })
-  },[]) */
+    // Array com os nomes das propriedades das solicitações
+    const propriedades = [
+        "id",
+        "codigo",
+        "analise",
+        "cliente",
+        "atividade",
+        "calibracao",
+        "status",
+        "imagem",
+        "relatorio",
+        "date",
+        "tipo"
+    ]
 
 
   return (
     <Base titulo="Calibrações">
 
-                            <Busca />
-                      
+        <div style={{display: "flex", flexDirection: "row-reverse"}}>
+            <Busca />
+        </div>
+
                         <div>
                             <Tabela
                                 nome="Calibrações"
@@ -46,8 +59,9 @@ const Calibracoes = () => {
                                 }
                             />
 
-                            <button>Voltar</button>
-                            <button>Avançar</button>
+                    <div style={{marginTop: 50, display: "flex", justifyContent: "center"}}>
+                            <BotaoAvancarVoltar/>
+                            </div>
                         </div>
                     
                   

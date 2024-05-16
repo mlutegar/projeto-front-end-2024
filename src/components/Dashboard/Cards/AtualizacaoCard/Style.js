@@ -17,6 +17,13 @@ const AtualizacaoCardStyle = styled.article`
     
     .icone{
         grid-area: icone;
+        border-radius: 50%;
+        background-color: var(--detalhe);
+    }
+    
+    .icone img{
+        padding: 5px;
+        height: 10px;
     }
     
     .id{

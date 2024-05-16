@@ -1,5 +1,5 @@
 import {InformacoesServicoStyle} from "./Style";
-import SecaoGenerio from "../SecaoGenerico/SecaoGenerio";
+import SecaoGenerio from "../../Geral/Secoes/SecaoGenerico/SecaoGenerio";
 
 const InformacoesServico = (props) => (
         <InformacoesServicoStyle>

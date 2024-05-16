@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import Base from "./Base"
-import { getAll, getElenco } from "../services/AtletasBotafogo";
-import AtletaCard from "../components/AtletaCard/AtletaCard";
-import ListContainer from "../components/ListContainer/ListContainer";
-import Tabela from "../components/Tabela/Tabela";
+import Tabela from "../components/Geral/Tabela/Tabela";
 import dadosSolicitacoes from "../data/solicitacoes.json";
-import Botao from "../components/Botao/Botao";
-import Busca from "../components/Busca/Busca";
-import ServicoPage from "./ServicoPage";
+import Botao from "../components/Geral/Botoes/Botao/Botao";
+import Busca from "../components/Geral/Busca/Busca";
 import {Link, Route} from "react-router-dom";
 
 const Atletas = () => {
