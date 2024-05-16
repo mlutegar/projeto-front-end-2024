@@ -15,72 +15,33 @@ const InformacoesPerfil = (props) => (
 
                     <div id="item2">
                         <label
-                            for="Analyses"
-                        >Analyses Name</label>
-                        <input
-                            type="text"
-                            placeholder={props.Analyses}
-                            name={props.Analyses}
-                        />
+                            for="Nome"
+                        >
+                            Nome: {props.Nome}
+                        </label>
                     </div>
                     <div id="item3">
                         <label
-                            for="Status"
-                        >Status</label>
-                        <input
-                            type="text"
-                            placeholder={props.Status}
-                            name={props.Status}
-                        />
+                            for="Email"
+                        >
+                            Email: {props.Email}
+                        </label>
                     </div>
                     <div id="item4">
                         <label
-                            for="Injetected"
-                        >Injetected</label>
-                        <input
-                            type="text"
-                            placeholder={props.Injetected}
-                            name={props.Injetected}
-                        />
+                            for="Data de Nascimento"
+                        >
+                            Data de Nascimento: {props.DataNascimento}
+                        </label>
                     </div>
                     <div id="item5">
                         <label
-                            for="Data"
-                        >Data</label>
-                        <input
-                            type="text"
-                            placeholder={props.Data}
-                            name={props.Data}
-                        />
-                    </div>
-                    <div id="item6">
-                        <label
-                            for="Hora"
-                        >Hora</label>
-                        <input
-                            type="text"
-                            placeholder={props.Hora}
-                            name={props.Hora}
-                        />
-                    </div>
-                    <div id="item7">
-                        <label
-                            for="Ativo?"
-                        >Ativo?</label>
-                        <input
-                            type="checkbox"
-                            placeholder={props.Ativo}
-                            name={props.Ativo}
-                        />
-                    </div>
-                    <div id="item8">
-                        <button>
-                            Salvar
-                        </button>
+                            for="CPF"
+                        >
+                            CPF: {props.CPF}
+                        </label>
                     </div>
                 </div>
-
-
             </div>
         </InformacoesPerfilStyle>
 );

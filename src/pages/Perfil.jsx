@@ -7,6 +7,7 @@ import Botao from "../components/Geral/Botoes/Botao/Botao";
 import {useRef, useState} from "react";
 import ArquivoServico from "../components/ServicoDetalhado/ArquivosServico/ArquivoServico";
 import BotaoAtencao from "../components/Geral/Botoes/BotaoAtencao/BotaoAtencao";
+import InformacoesPerfil from "../components/Perfil/InformacoesPerfil/InformacoesPerfil";
 
 const ServicoPage = () => {
     // user: variável que armazena o usuario logado
@@ -77,30 +78,16 @@ const ServicoPage = () => {
                 <div style={{marginBottom:40, marginLeft: 20, marginRight: 20}}>
                     {botaoClicado === "Dados do usúario" && (
                         usuario ? (
-                            <InformacoesServico
-                                Analyses={usuario.analise}
-                                Status={usuario.status}
-                                Injetected={usuario.atividade}
-                                Data={usuario.date}
-                                Hora={usuario.date}
+                            <InformacoesPerfil
+                                Nome={usuario.nome}
+                                Email={usuario.email}
+                                DataNascimento={usuario.dataNascimento}
+                                CPF={usuario.cpf}
                             />
                         ) : (
                             <p>Serviço não encontrado ou ID inválido.</p>
                         )
                     )}
-
-                    {botaoClicado === "Arquivos" && (
-                        usuario ? (
-                            <ArquivoServico
-                                titulo="Arquivos"
-                                cliente={usuario.cliente}
-                                situacao={usuario.status}
-                            />
-                        ) : (
-                            <p>Serviço não encontrado ou ID inválido.</p>
-                        )
-                    )}
-
                 </div>
 
 

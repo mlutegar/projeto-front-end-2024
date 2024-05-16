@@ -95,7 +95,7 @@ const Dashboard = () => {
                   <SecaoAtualizacao atualizacoes={atualizacoes} prop1={(atualizacao) => (
                       <AtualizacaoCard
                           icone={
-                              <a href={"/servico/" + atualizacao.id}> a </a>
+                              <a href={"/servico/" + atualizacao.id}> /> </a>
 
                           }
                           id={atualizacao.id}

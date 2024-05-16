@@ -13,11 +13,9 @@ const InformacoesPerfilStyle = styled.article`
             "p p p p"
             ". a b ."
             ". c d ."
-            ". g i ."
-            ". e e ."
         ;
         grid-template-columns: auto auto auto auto;
-        grid-template-rows: repeat(5,6rem);
+        grid-template-rows: repeat(3,10rem);
         gap: .3rem;
         padding: .3rem;
     }
@@ -107,21 +105,6 @@ const InformacoesPerfilStyle = styled.article`
     
     #item5{
         grid-area: d;
-    }
-    
-    #item6{
-        grid-area: g;
-    }
-    
-    #item7{
-        grid-area: i;
-    }
-    
-    #item8{
-        grid-area: e;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 `
 
