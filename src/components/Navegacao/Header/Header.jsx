@@ -17,7 +17,7 @@ const Header = () => {
       <HeaderStyle>
         <div id='nav1'>
           <button className="hamburguer" onClick={showSidebar}>☰</button>
-          <img src={logo} alt="Company Logo" />
+          <Link to="/dashboard"><img src={logo} alt="Company Logo" /></Link>
         </div>
 
         <div id='nav2'>

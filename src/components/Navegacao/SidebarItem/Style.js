@@ -3,24 +3,24 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  background-color: #1A202C; 
+  background-color: #EDEBF5; 
+  border-bottom: 0.5px solid black;
   font-size: 20px;
-  color: white;
-  padding: 10px;
+  color: black;
+  padding: 25px 0px;
   cursor: pointer;
-  border-radius: 10px;
-  margin: 0 15px 20px;
+  text-decoration: none;
 
   > svg {
     margin: 0 20px;
   }
 
   &:hover {
-    background-color: black;
+    background-color: #023859;
+    color: white
   }
     
-    a {
-        text-decoration: none;
-        color: white;
-    }
+  a {
+    text-decoration: none;
+  }
 `;
