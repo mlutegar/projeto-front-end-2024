@@ -1,5 +1,7 @@
 import { SecaoStyle } from "./Style";
 import {Link} from "react-router-dom";
+import {BsInfoCircle} from "react-icons/bs";
+import {AiOutlineInfoCircle} from "react-icons/ai";
 
 const infoImg = "imagens/icons/info.png"
 const acessar = "imagens/icons/up-arrow.png"
@@ -10,9 +12,9 @@ const Secao = (props) => (
         <div className="header">
             <div className="nav1">
                 <h1>{props.nome}</h1>
-                <a className="infoButton">
-                    <img src={infoImg}/>
-                </a>
+                <span id="infoButton">
+                    <AiOutlineInfoCircle />
+                </span>
             </div>
 
             {props.navbar}

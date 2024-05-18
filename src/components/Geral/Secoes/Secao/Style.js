@@ -4,7 +4,17 @@ const SecaoStyle = styled.article`
     background-color: var(--detalhe);
     border-radius: 3rem;
     height: 100%;
-  
+
+    #infoButton{
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    
+    #infoButton svg{
+        color: var(--secundaria);
+        font-size: 1.5rem;
+    }
+    
     img{
         height: 30px;
     }
@@ -27,11 +37,9 @@ const SecaoStyle = styled.article`
     
     div.nav1{
         display: flex;
-        align-items: center;
     }
     
     div.nav1 h1{
-        margin: 5px;
         border-bottom: var(--primaria) solid 4px;
     }
     
@@ -58,16 +66,6 @@ const SecaoStyle = styled.article`
         flex-wrap: wrap;
         justify-content: center;
     }
-    
-    .infoButton{
-    
-    }
-    
-    .acessarButton{
-
-    }
-    
-
 `;
 
 export {SecaoStyle};

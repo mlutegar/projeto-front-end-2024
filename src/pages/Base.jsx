@@ -18,7 +18,7 @@ const BaseStyle = styled.div`
     }
 
     #container h1 span{
-        border-bottom: 5px solid var(--primaria);
+        border-bottom: 3px solid var(--primaria);
     }
     
     #container h1 {
