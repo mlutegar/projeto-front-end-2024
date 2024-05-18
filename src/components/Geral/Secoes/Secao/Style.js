@@ -1,9 +1,35 @@
 import styled from "styled-components";
 
 const SecaoStyle = styled.article`
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    
     background-color: var(--detalhe);
     border-radius: 3rem;
     height: 100%;
+    color: var(--secundaria);
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    
+    #header {
+        grid-area: header;
+    }
+    
+    #content {
+        grid-area: content;
+        padding: 1rem;
+    }
+    
+    #footer {
+        grid-area: footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     #infoButton{
         cursor: pointer;
@@ -17,13 +43,6 @@ const SecaoStyle = styled.article`
     
     img{
         height: 30px;
-    }
-    
-    div.secao{
-        color: var(--secundaria);
-        text-align: center;
-        font-size: larger;
-        font-weight: bold;
     }
     
     div.header {

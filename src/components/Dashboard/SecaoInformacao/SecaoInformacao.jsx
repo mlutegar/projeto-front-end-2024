@@ -69,12 +69,13 @@ const SecaoInformacao = (props) => {
                                     Pedidos Fechados
                                 </div>
                             </div>
-
-                            <div style={{marginTop: 10}}>
-                                <BotaoAvancarVoltar voltar={voltar} avancar={avancar} />
-                            </div>
                         </div>
                     </SecaoInfoStyle>
+                }
+                footer={
+                    <>
+                        <BotaoAvancarVoltar voltar={voltar} avancar={avancar} />
+                    </>
                 }
             />
         );

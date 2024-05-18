@@ -8,7 +8,6 @@ const acessar = "imagens/icons/up-arrow.png"
 
 const Secao = (props) => (
   <SecaoStyle>
-    <div className="secao">
         <div className="header">
             <div className="nav1">
                 <h1>{props.nome}</h1>
@@ -23,10 +22,8 @@ const Secao = (props) => (
                 <img src={acessar}/>
             </Link>
         </div>
-        <div className="content">
-            {props.conteudo}
-        </div>
-    </div>
+        <div className="content"> {props.conteudo} </div>
+        <div id="footer"> {props.footer} </div>
   </SecaoStyle>
 )
 

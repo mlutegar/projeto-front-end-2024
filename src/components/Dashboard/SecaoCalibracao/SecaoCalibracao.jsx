@@ -47,15 +47,16 @@ function SecaoCalibracao(props) {
                             </>
                         }
                     />
-
-                    <div style={{marginTop: 20}}>
-                        <BotaoAvancarVoltar
-                            avancar={avancar}
-                            voltar={voltar}
-                        />
-                    </div>
                 </div>
             </SecaoCalibracaoStyle>
+        }
+        footer={
+            <>
+                <BotaoAvancarVoltar
+                    avancar={avancar}
+                    voltar={voltar}
+                />
+            </>
         }
     />;
 }
