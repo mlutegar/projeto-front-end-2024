@@ -23,8 +23,8 @@ const TabelaEstilo = styled.article`
   }
 
   span {
+      width: 100%;
     padding: 0.1rem 0.7rem;
-    border-radius: 10px;
     color: white;
     font-weight: 400;
   }

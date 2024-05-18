@@ -31,6 +31,13 @@ const Atletas = () => {
         "Tipo"
     ]
 
+    // Array com os nomes dos status das solicitações
+    const status = [
+        "Pendente",
+        "Em andamento",
+        "Concluído"
+    ]
+
     // Array com os nomes das propriedades das solicitações
     const propriedades = [
         "id",
@@ -133,9 +140,19 @@ const Atletas = () => {
               <Busca
                   opcoes={
                       <>
-                          {colunas.map((coluna, index) => (
-                              <button key={index} onClick={() => alterarOpcao(colunas.indexOf(coluna))}>{coluna}</button>
-                          ))}
+                          {opcao === "Status" ? (
+                              <>
+                                  {status.map((opcao, index) => (
+                                      <button key={index} onClick={(e) => pesquisar(opcao)}>{opcao}</button>
+                                  ))}
+                              </>
+                          ) : (
+                              <>
+                                  {colunas.map((coluna, index) => (
+                                      <button key={index} onClick={() => alterarOpcao(colunas.indexOf(coluna))}>{coluna}</button>
+                                  ))}
+                              </>
+                          )}
                       </>
                   }
                   opcao={opcao}
@@ -157,10 +174,30 @@ const Atletas = () => {
                       <td>{solicitacao.analise}</td>
                       <td>{solicitacao.cliente}</td>
                       <td>{solicitacao.atividade}</td>
-                      <td>{solicitacao.calibracao} <a href=""><i></i></a></td>
-                      <td><span className="nao-visto">{solicitacao.status}</span></td>
-                      <td>{solicitacao.imagem} <button onClick={() => baixarArquivo(solicitacao.imagem)}>Baixar</button></td>
-                      <td> {solicitacao.relatorio} <a href=""><i></i></a></td>
+                      <td>
+                          {solicitacao.calibracao}
+                          <button onClick={() => baixarArquivo(solicitacao.imagem)}>Baixar</button>
+                      </td>
+                            {solicitacao.status === "Pendente" ? (
+                                <td className="nao-visto">
+                                    {solicitacao.status}
+                                </td>
+                            ) : solicitacao.status === "Em andamento" ? (
+                                <td className="andamento">
+                                    {solicitacao.status}
+                                </td>
+                            ) : solicitacao.status === "Concluído" ? (
+                                <td className="realizado">
+                                    {solicitacao.status}
+                                </td>
+                            ) : (
+                                solicitacao.status
+                            )}
+                      <td>
+                          {solicitacao.imagem}
+                          <button onClick={() => baixarArquivo(solicitacao.imagem)}>Baixar</button>
+                      </td>
+                      <td>{solicitacao.relatorio}</td>
                       <td>{solicitacao.date}</td>
                       <td>{solicitacao.tipo}</td>
                   </tr>
