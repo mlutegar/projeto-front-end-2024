@@ -31,6 +31,7 @@ body {
   font-family: 'Lora', serif;
   background-color: var(--background);
   color:var(--primaria);
+  font-size: 10px;
 }
 
 a {

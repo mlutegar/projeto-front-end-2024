@@ -14,7 +14,6 @@ const SecaoStyle = styled.article`
         text-align: center;
         font-size: larger;
         font-weight: bold;
-        padding: 10px;
     }
     
     div.header {
@@ -58,7 +57,6 @@ const SecaoStyle = styled.article`
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 50px;
     }
     
     .infoButton{

@@ -1,7 +1,6 @@
     import styled from "styled-components"
 
 const HeaderStyle = styled.header`
-  padding: .4em 2em;
   background-color: var(--background);
   display: flex;
   margin: 0;
@@ -13,6 +12,10 @@ const HeaderStyle = styled.header`
   img {
     height: 50px;
   }
+
+    #nav2{
+        font-size: 1rem;
+    }
     
   
   #nav2 a {
@@ -21,7 +24,7 @@ const HeaderStyle = styled.header`
     padding-top: 0.5em;
     margin: 0 .3em;
     min-width: 5em;
-    background-color: var(--background);
+    background-color: transparent;
     text-decoration: none;
     font-weight: bold;
     color: var(--secundaria);
