@@ -42,6 +42,13 @@ const Calibracoes = () => {
                             <Tabela
                                 nome="Calibrações"
                                 tipo="calibracao"
+                                head={
+                                    <>
+                                        {colunas.map((coluna) => (
+                                            <th>{coluna}</th>
+                                        ))}
+                                    </>
+                                }
                                 linha={
                                     <>
                                         {dadosCalibracoes.map(

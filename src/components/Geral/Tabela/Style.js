@@ -33,6 +33,17 @@ const TabelaEstilo = styled.article`
         margin: auto;
         width: 100%;
     }
+    
+  //  Botão transparente para download
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        color: #002D55;
+    }
 
   .nao-visto {
     background-color: #CF8686;

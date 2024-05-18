@@ -21,14 +21,14 @@ const Busca = (props) => (
             <div className="dropdown">
                 <button className="dropbtn">
                     <span>
-                        {props.opcao}
+                        {props.opcaoStatus}
                     </span>
                     <span>
                         ▼
                     </span>
                 </button>
                 <div className="dropdown-content">
-                    {props.opcoes}
+                    {props.opcoesStatus}
                 </div>
             </div>
         ) : (

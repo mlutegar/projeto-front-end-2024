@@ -30,6 +30,16 @@ function SecaoCalibracao(props) {
                 <div>
                     <Tabela
                         tipo="calibracao"
+                        head={
+                            <>
+                                <th>ID</th>
+                                <th>Nome da Calibração</th>
+                                <th>Usuário</th>
+                                <th>Isótopo</th>
+                                <th>Imagem da Calibração</th>
+                                <th>Criado em</th>
+                            </>
+                        }
                         linha={
                             <>
                                 {dadosCalibracoes.slice(sliceIndex, sliceIndex + itemsPerPage).map(

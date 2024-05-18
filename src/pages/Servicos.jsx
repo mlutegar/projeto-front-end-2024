@@ -5,6 +5,8 @@ import dadosSolicitacoes from "../data/solicitacoes.json";
 import Botao from "../components/Geral/Botoes/Botao/Botao";
 import Busca from "../components/Geral/Busca/Busca";
 import {Link, Route} from "react-router-dom";
+import { AiOutlineDownload } from "react-icons/ai";
+import {BsChevronDown, BsCloudDownloadFill} from "react-icons/bs";
 
 const Atletas = () => {
 
@@ -62,6 +64,9 @@ const Atletas = () => {
     // Criação de um estado que define a opção de busca
     const [opcao, setOpcao] = useState(colunas[0])
 
+    // Criação de um estado que define a opção de busca de status
+    const [opcaoStatus, setOpcaoStatus] = useState("")
+
     // Função que adiciona o filtro
     const adicionarTipoConsulta = (tipo) => {
         if(!tipoConsulta.includes(tipo)){
@@ -84,7 +89,32 @@ const Atletas = () => {
 
     const alterarOpcao = (index) => {
         console.log("opção alterada")
+        setOpcaoStatus("")
+        setSolicitacoes(dadosSolicitacoes)
         setOpcao(colunas[index])
+    }
+
+    const alterarOpcaoStatus = (index) => {
+        console.log("opção alterada")
+        setOpcaoStatus(status[index])
+
+        if (status[index] === "Pendente") {
+            setSolicitacoes(dadosSolicitacoes.filter(
+                (ele) => ele.status === "Pendente"
+            ));
+        }
+
+        if (status[index] === "Em andamento") {
+            setSolicitacoes(dadosSolicitacoes.filter(
+                (ele) => ele.status === "Em andamento"
+            ));
+        }
+
+        if (status[index] === "Concluído") {
+            setSolicitacoes(dadosSolicitacoes.filter(
+                (ele) => ele.status === "Concluído"
+            ));
+        }
     }
 
     const pesquisar = (e) => {
@@ -139,23 +169,22 @@ const Atletas = () => {
           <div style={{display: 'flex', flexDirection: "row-reverse", marginBottom: 50}}>
               <Busca
                   opcoes={
-                      <>
-                          {opcao === "Status" ? (
-                              <>
-                                  {status.map((opcao, index) => (
-                                      <button key={index} onClick={(e) => pesquisar(opcao)}>{opcao}</button>
-                                  ))}
-                              </>
-                          ) : (
-                              <>
-                                  {colunas.map((coluna, index) => (
-                                      <button key={index} onClick={() => alterarOpcao(colunas.indexOf(coluna))}>{coluna}</button>
-                                  ))}
-                              </>
-                          )}
-                      </>
+                  <>
+                      {colunas.map((coluna, index) => (
+                          <button key={index} onClick={() => alterarOpcao(colunas.indexOf(coluna))}>{coluna}</button>
+                      ))}
+                  </>
+
                   }
+                  opcoesStatus={
+                        <>
+                            {status.map((opcao, index) => (
+                                <button key={index} onClick={() => alterarOpcaoStatus(status.indexOf(opcao))}>{opcao}</button>
+                            ))}
+                        </>
+                    }
                   opcao={opcao}
+                  opcaoStatus={opcaoStatus}
                   onClick={filtrar}
                   onChance={(e) => pesquisar(e.target.value)}
               />
@@ -163,6 +192,30 @@ const Atletas = () => {
 
           <Tabela
               tipo="servico"
+              head={
+    <>
+                      <th>ID</th>
+                      <th>Código</th>
+                      <th>Nome da Análise</th>
+                      <th>Usuário</th>
+                      <th>Atividade Injetada</th>
+                      <th>Calibração</th>
+                      <th>
+                          Status
+                      {/*Um botão que coloca as solicitações em ordem alfabética*/}
+                        <button
+                            onClick={() => setSolicitacoes(solicitacoes.sort((a, b) => a.status.localeCompare(b.status)))}
+                            style={{color:"white"}}
+                        >
+                            <BsChevronDown />
+                        </button>
+                      </th>
+                      <th>Imagem do Paciente</th>
+                      <th>Relatório</th>
+                      <th>Criado em</th>
+                      <th>Tipo</th>
+                  </>
+              }
             linha={
                 <>
 
@@ -176,7 +229,11 @@ const Atletas = () => {
                       <td>{solicitacao.atividade}</td>
                       <td>
                           {solicitacao.calibracao}
-                          <button onClick={() => baixarArquivo(solicitacao.imagem)}>Baixar</button>
+                          <button
+                              onClick={() => baixarArquivo(solicitacao.imagem)}
+                          >
+                              <BsCloudDownloadFill />
+                          </button>
                       </td>
                             {solicitacao.status === "Pendente" ? (
                                 <td className="nao-visto">
@@ -195,7 +252,7 @@ const Atletas = () => {
                             )}
                       <td>
                           {solicitacao.imagem}
-                          <button onClick={() => baixarArquivo(solicitacao.imagem)}>Baixar</button>
+                          <button onClick={() => baixarArquivo(solicitacao.imagem)}><BsCloudDownloadFill /></button>
                       </td>
                       <td>{solicitacao.relatorio}</td>
                       <td>{solicitacao.date}</td>
