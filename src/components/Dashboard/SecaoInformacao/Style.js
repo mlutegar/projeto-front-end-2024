@@ -7,6 +7,9 @@ const SecaoInfoStyle = styled.article`
     ;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    gap: 10px;
+    justify-items: end;
+    justify-content: space-evenly;
     
     
     .geral{

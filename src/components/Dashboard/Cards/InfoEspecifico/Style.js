@@ -37,6 +37,7 @@ const InfoEspecificoStyle = styled.div`
             "info"
             "setas"
     ;
+        grid-template-rows: 1fr;
         width: 100%;
         gap: 1px;
     }
