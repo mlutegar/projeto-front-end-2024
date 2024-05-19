@@ -6,7 +6,8 @@ const SecaoStyle = styled.article`
         "header"
         "content"
         "footer";
-    grid-template-rows: .2fr 1fr .2fr;
+    grid-template-rows: 100px auto 50px;
+    grid-template-columns: auto;
     background-color: var(--detalhe);
     border-radius: 3rem;
     height: 100%;

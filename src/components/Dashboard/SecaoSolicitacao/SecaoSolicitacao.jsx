@@ -2,6 +2,7 @@ import { SecaoSolicitacaoStyle } from "./Style";
 
 import Secao from "../../Geral/Secoes/Secao/Secao";
 import {useState} from "react";
+import BotaoAvancarVoltar from "../../Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 
 function SecaoComponente(props) {
     const [currentStartIndex, setCurrentStartIndex] = useState(0);
@@ -28,23 +29,18 @@ function SecaoComponente(props) {
                   }
                   conteudo={
                       <SecaoSolicitacaoStyle>
-
-                          <div>
-                              <button className="btn" onClick={voltar}>
-                                  {"<"}
-                              </button>
-                          </div>
-
                           {props.solicitacoes.slice(currentStartIndex, currentStartIndex + itemsPerPage).map(
                               props.prop3
                           )}
-
-                          <div>
-                              <button className="btn" onClick={avancar}>
-                                  {">"}
-                              </button>
-                          </div>
                       </SecaoSolicitacaoStyle>
+                  }
+                  footer={
+                        <>
+                        <BotaoAvancarVoltar
+                            avancar={avancar}
+                            voltar={voltar}
+                        />
+                        </>
                   }
     />;
 }

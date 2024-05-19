@@ -1,8 +1,8 @@
-import {Solicit} from "./Style";
+import {SolicitacaoCardStyle} from "./Style";
 import {Link} from "react-router-dom";
 
 const SolicitacaoCard = (props) => (
-    <Solicit>
+    <SolicitacaoCardStyle>
         <div id='navbar'>
             <Link to={props.link}>
                 <button className="button">Acessar</button>
@@ -13,7 +13,7 @@ const SolicitacaoCard = (props) => (
             <span>User: {props.cliente}</span>
             <span>Data: {props.data}</span>
         </div>
-    </Solicit>
+    </SolicitacaoCardStyle>
 );
 
 export default SolicitacaoCard;

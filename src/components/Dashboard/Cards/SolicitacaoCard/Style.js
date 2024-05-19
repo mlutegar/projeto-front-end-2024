@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Solicit = styled.div`
+const SolicitacaoCardStyle = styled.div`
     margin: 20px;
     padding: 10px;
     width: 300px;
@@ -43,4 +43,4 @@ const Solicit = styled.div`
 
 `;
 
-export {Solicit};
+export {SolicitacaoCardStyle};

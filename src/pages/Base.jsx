@@ -6,6 +6,8 @@ const BaseStyle = styled.div`
     grid-template-areas: 
             "header"
             "container";
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
     
     #header {
         grid-area: header;
@@ -14,7 +16,9 @@ const BaseStyle = styled.div`
     #container {
         grid-area: container;
         padding: 1rem;
-        margin: 20px 20px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
     }
 
     #container h1 span{

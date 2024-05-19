@@ -8,8 +8,8 @@ const DashboadLayoutStyle = styled.div`
             "calibracao informacao"
             "atualizacao atualizacao"
         ;
+        grid-template-columns: 2fr 1.5fr;
         gap: 20px;
-        padding: 10px;
     }
     
     .solicitacao{
@@ -28,6 +28,7 @@ const DashboadLayoutStyle = styled.div`
     .atualizacao{
         grid-area: atualizacao;
     }
+    
     
 `;
 

@@ -3,11 +3,18 @@ import SecaoGenerio from "../../Geral/Secoes/SecaoGenerico/SecaoGenerio";
 import BotaoAvancarVoltar from "../../Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import { useState } from "react";
 import Secao from "../../Geral/Secoes/Secao/Secao";
+import InfoEspecifico from "../Cards/InfoEspecifico/InfoEspecifico";
+import InfoGeral from "../Cards/InfoGeral/InfoGeral";
 
 const SecaoInformacao = (props) => {
     // contarSolicitação: função que pega o json de solicitações e conta quantas solicitações estão abertas e fechadas do tipo do parâmetro e do status especificado no parâmetro
     const contarSolicitacao = (solicitacoes, tipo, status) => {
         return solicitacoes.filter((solicitacao) => solicitacao.tipo === tipo && solicitacao.status === status).length;
+    }
+
+    // contarSolicitacaoTotal: função que pega o json de solicitações e conta quantas solicitações a partir do status especificado no parâmetro
+    const contarSolicitacaoTotal = (solicitacoes, status) => {
+        return solicitacoes.filter((solicitacao) => solicitacao.status === status).length;
     }
 
     // solicitacoes: array que armazena os tipos de solicitações e seus respectivos status "aberto" e "fechado"
@@ -34,6 +41,14 @@ const SecaoInformacao = (props) => {
         }
     ];
 
+    //solicitacoesTotal: array que armazena o total de solicitações abertas e fechadas
+    const solicitacoesTotal = [
+        {
+            aberto: contarSolicitacaoTotal(props.solicitacoes, "Pendente") + contarSolicitacaoTotal(props.solicitacoes, "Em andamento"),
+            fechado: contarSolicitacaoTotal(props.solicitacoes, "Concluído")
+        }
+    ];
+
     // index: índice do array solicitacoes
     const [index, setIndex] = useState(0);
 
@@ -52,23 +67,11 @@ const SecaoInformacao = (props) => {
                 nome="Informações"
                 conteudo={
                     <SecaoInfoStyle>
-                        <div className="container">
-                            <div className="tipo">
-                                {solicitacoes[index].tipo}
-                            </div>
-
-                            <div className="info">
-                                <div className="num">
-                                    <span>{solicitacoes[index].aberto}</span>
-                                    <div id="circulo-laranja"></div>
-                                    Pedidos Abertos
-                                </div>
-                                <div className="num">
-                                    <span>{solicitacoes[index].fechado}</span>
-                                    <div id="circulo-verde"></div>
-                                    Pedidos Fechados
-                                </div>
-                            </div>
+                        <div className="geral">
+                            <InfoGeral solicitacoes={solicitacoesTotal} index={0}/>
+                        </div>
+                        <div className="especifico">
+                            <InfoEspecifico solicitacoes={solicitacoes} index={index}/>
                         </div>
                     </SecaoInfoStyle>
                 }

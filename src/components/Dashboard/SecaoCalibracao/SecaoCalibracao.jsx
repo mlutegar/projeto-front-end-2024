@@ -8,7 +8,7 @@ import {useState} from "react";
 
 function SecaoCalibracao(props) {
     const [sliceIndex, setSliceIndex] = useState(0);
-    const itemsPerPage = 5;
+    const itemsPerPage = 3;
 
     const avancar = () => {
         if (sliceIndex < dadosCalibracoes.length - itemsPerPage) {
