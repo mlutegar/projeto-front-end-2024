@@ -14,6 +14,7 @@ import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/Bo
 import SecaoCalibracao from "../components/Dashboard/SecaoCalibracao/SecaoCalibracao";
 import SecaoAtualizacao from "../components/Dashboard/SecaoAtualizacao/SecaoAtualizacao";
 import SecaoComponente from "../components/Dashboard/SecaoSolicitacao/SecaoSolicitacao";
+import {BsCloudDownloadFill} from "react-icons/bs";
 
 const Dashboard = () => {
     // Array com as possíveis opções da filtragem
@@ -40,6 +41,19 @@ const Dashboard = () => {
         } else {
             setTipoConsulta(tipoConsulta.filter((ele) => ele !== tipo))
         }
+    }
+
+    const baixarArquivo = (link) => {
+        fetch(link)
+            .then(response => {
+                response.blob().then(blob => {
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement('a');
+                    a.href = url;
+                    a.download = link.split("/").pop();
+                    a.click();
+                });
+            });
     }
 
     useEffect(() => {
@@ -81,8 +95,10 @@ const Dashboard = () => {
                           <td>{calibracao.nome}</td>
                           <td>{calibracao.usuario}</td>
                           <td>{calibracao.isotopo}</td>
-                          <td>{calibracao.imagem}</td>
                           <td>{calibracao.date}</td>
+                          <td>
+                              <button onClick={() => baixarArquivo(calibracao.imagem)}><BsCloudDownloadFill/></button>
+                          </td>
                       </tr>
                   )}/>
               }

@@ -48,9 +48,9 @@ const SecaoStyle = styled.article`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px;
-        margin-left: 3em;
-        margin-right: 3em;
+        margin-top: 2rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
     }
     
     div.nav1{
@@ -58,7 +58,9 @@ const SecaoStyle = styled.article`
     }
     
     div.nav1 h1{
-        border-bottom: var(--primaria) solid 4px;
+        border-bottom: var(--primaria) solid 3px;
+        font-weight: lighter;
+        font-size: 2.5em;
     }
     
     div.header button {

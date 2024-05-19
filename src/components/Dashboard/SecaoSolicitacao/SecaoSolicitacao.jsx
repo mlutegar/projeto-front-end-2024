@@ -21,7 +21,7 @@ function SecaoComponente(props) {
     }
 
 
-    return <Secao nome="Solicitações"
+    return <Secao nome="Últimas Solicitações"
                   pai={"/servicos"}
                   navbar={
                       props.strings.map(props.callbackfn)

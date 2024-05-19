@@ -4,6 +4,11 @@ const SecaoCalibracaoStyle = styled.div`
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9rem;
 
+   svg {
+        color: black;
+        font-size: 1.5rem;
+   }
+   
     a {
         color: black;
     }
@@ -16,7 +21,7 @@ const SecaoCalibracaoStyle = styled.div`
     }
 
     td {
-        background-color: #D8E8F7;
+        background-color: white;
         text-align: center;
         padding: 1rem 1.5rem; // Aumentado para mais espaço
     }

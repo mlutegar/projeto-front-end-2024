@@ -33,11 +33,11 @@ function SecaoCalibracao(props) {
                         head={
                             <>
                                 <th>ID</th>
-                                <th>Nome da Calibração</th>
+                                <th>Calibração</th>
                                 <th>Usuário</th>
                                 <th>Isótopo</th>
-                                <th>Imagem da Calibração</th>
-                                <th>Criado em</th>
+                                <th>Data</th>
+                                <th></th>
                             </>
                         }
                         linha={
