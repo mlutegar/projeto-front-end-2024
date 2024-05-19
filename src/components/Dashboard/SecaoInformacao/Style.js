@@ -3,22 +3,29 @@ import styled from "styled-components";
 const SecaoInfoStyle = styled.article`
     display: grid;
     grid-template-areas:
-        "geral especifico"
+        "geral linha especifico"
     ;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr .2fr 1fr;
     grid-template-rows: 1fr;
-    gap: 10px;
-    justify-items: end;
+    justify-items: center;
     justify-content: space-evenly;
     
     
     .geral{
         grid-area: geral;
-        border-right: 5px solid #023859FF;
+        margin: 0px 10px;
     }
     
     .especifico{
         grid-area: especifico;
+        margin: 0px 10px;
+    }
+    
+    .linha{
+        grid-area: linha;
+        width: 2px;
+        height: 90%;
+        background-color: #023859FF;
     }
 `;
 

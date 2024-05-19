@@ -31,6 +31,7 @@ const SecaoAtualizacaoStyle = styled.div`
         margin-left: 1rem;
         margin-right: 1rem;
         gap: 2rem;
+        flex-wrap: wrap;
     }
 `
 

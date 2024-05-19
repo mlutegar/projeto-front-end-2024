@@ -27,6 +27,7 @@ function SecaoComponente(props) {
                   navbar={
                       props.strings.map(props.callbackfn)
                   }
+                  pagina={true}
                   conteudo={
                       <SecaoSolicitacaoStyle>
                           {props.solicitacoes.slice(currentStartIndex, currentStartIndex + itemsPerPage).map(

@@ -38,6 +38,7 @@ const InfoGeralStyle = styled.div`
             "setas"
     ;
         grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
         width: 100%;
         gap: 1px;
     }

@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const SolicitacaoCardStyle = styled.div`
     margin: 20px;
-    padding: 10px;
-    width: 300px;
+    padding: .6rem;
+    width: 15rem;
     border-radius: 35px;
     background-color: var(--background);
     

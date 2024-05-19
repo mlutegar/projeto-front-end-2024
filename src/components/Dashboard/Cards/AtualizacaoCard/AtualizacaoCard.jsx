@@ -21,7 +21,7 @@ const AtualizacaoCard = (props) => (
             {props.tempo}
         </div>
         <div className="linha">
-
+            <div></div>
         </div>
     </div>
   </AtualizacaoCardStyle>

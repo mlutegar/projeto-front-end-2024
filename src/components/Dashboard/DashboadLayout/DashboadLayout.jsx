@@ -6,12 +6,14 @@ const DashboadLayout = (props) => (
             <div className="solicitacao">
                 {props.solicitacao}
             </div>
-            <div className="calibracao">
-                {props.calibracao}
-            </div>
-            <div className="informacao">
-                {props.informacao}
-            </div>
+
+                <div className="calibracao">
+                    {props.calibracao}
+                </div>
+                <div className="informacao">
+                    {props.informacao}
+                </div>
+
             <div className="atualizacao">
                 {props.atualizacao}
             </div>

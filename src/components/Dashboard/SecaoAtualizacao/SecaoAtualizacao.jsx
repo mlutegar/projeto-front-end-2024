@@ -21,6 +21,7 @@
         }
 
         return <Secao
+                    pagina={false}
                     nome="Atualizações"
                     conteudo={
                         <SecaoAtualizacaoStyle>

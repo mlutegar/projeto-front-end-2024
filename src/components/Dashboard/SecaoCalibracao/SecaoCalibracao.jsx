@@ -25,6 +25,7 @@ function SecaoCalibracao(props) {
     return <Secao
         pai="/calibracoes"
         nome="Calibrações"
+        pagina={true}
         conteudo={
             <SecaoCalibracaoStyle>
                 <div>

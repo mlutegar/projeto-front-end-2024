@@ -65,10 +65,14 @@ const SecaoInformacao = (props) => {
     return (
             <Secao
                 nome="Informações"
+                pagina={false}
                 conteudo={
                     <SecaoInfoStyle>
                         <div className="geral">
                             <InfoGeral solicitacoes={solicitacoesTotal} index={0}/>
+                        </div>
+                        <div className="linha">
+
                         </div>
                         <div className="especifico">
                             <InfoEspecifico solicitacoes={solicitacoes} index={index}/>

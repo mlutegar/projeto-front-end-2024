@@ -10,6 +10,7 @@ const DashboadLayoutStyle = styled.div`
         ;
         grid-template-columns: 2fr 1.5fr;
         gap: 20px;
+        flex-wrap: wrap;
     }
     
     .solicitacao{

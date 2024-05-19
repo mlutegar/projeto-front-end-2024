@@ -5,6 +5,7 @@ const SecaoSolicitacaoStyle = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    flex-wrap: wrap;
 
     .btn {
         background-color: white;  // Cor azul para os botões
