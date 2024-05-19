@@ -23,7 +23,7 @@ const Secao = (props) => (
             </Link>
         </div>
         <div className="content"> {props.conteudo} </div>
-        <div id="footer"> {props.footer} </div>
+        <div className="footer"> {props.footer} </div>
   </SecaoStyle>
 )
 

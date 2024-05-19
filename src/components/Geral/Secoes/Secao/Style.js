@@ -6,7 +6,7 @@ const SecaoStyle = styled.article`
         "header"
         "content"
         "footer";
-    
+    grid-template-rows: .2fr 1fr .2fr;
     background-color: var(--detalhe);
     border-radius: 3rem;
     height: 100%;
@@ -15,19 +15,18 @@ const SecaoStyle = styled.article`
     font-size: larger;
     font-weight: bold;
     
-    #header {
+    .header {
         grid-area: header;
     }
     
-    #content {
+    .content {
         grid-area: content;
         padding: 1rem;
     }
     
-    #footer {
+    .footer {
         grid-area: footer;
         display: flex;
-        align-items: center;
         justify-content: center;
     }
 
