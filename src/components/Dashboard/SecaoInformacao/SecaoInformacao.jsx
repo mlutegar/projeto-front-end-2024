@@ -20,24 +20,24 @@ const SecaoInformacao = (props) => {
     // solicitacoes: array que armazena os tipos de solicitações e seus respectivos status "aberto" e "fechado"
     const solicitacoes = [
         {
-            tipo: "Clinic Doscimetries",
-            aberto: contarSolicitacao(props.solicitacoes, "Clinic Doscimetries", "Pendente") + contarSolicitacao(props.solicitacoes, "Clinic Doscimetries", "Em andamento"),
-            fechado: contarSolicitacao(props.solicitacoes, "Clinic Doscimetries", "Concluído")
+            tipo: "Dosimetrias Clínicas",
+            aberto: contarSolicitacao(props.solicitacoes, "Dosimetrias Clínicas", "Pendente") + contarSolicitacao(props.solicitacoes, "Dosimetrias Clínicas", "Em andamento"),
+            fechado: contarSolicitacao(props.solicitacoes, "Dosimetrias Clínicas", "Concluído")
         },
         {
-            tipo: "Preclinic Doscimetries",
-            aberto: contarSolicitacao(props.solicitacoes, "Preclinic Doscimetries", "Pendente") + contarSolicitacao(props.solicitacoes, "Preclinic Doscimetries", "Em andamento"),
-            fechado: contarSolicitacao(props.solicitacoes, "Preclinic Doscimetries", "Concluído")
+            tipo: "Dosimetrias Pré-clínicas",
+            aberto: contarSolicitacao(props.solicitacoes, "Dosimetrias Pré-clínicas", "Pendente") + contarSolicitacao(props.solicitacoes, "Dosimetrias Pré-clínicas", "Em andamento"),
+            fechado: contarSolicitacao(props.solicitacoes, "Dosimetrias Pré-clínicas", "Concluído")
         },
         {
-            tipo: "Radiosynoviorthesis",
-            aberto: contarSolicitacao(props.solicitacoes, "Radiosynoviorthesis", "Pendente") + contarSolicitacao(props.solicitacoes, "Radiosynoviorthesis", "Em andamento"),
-            fechado: contarSolicitacao(props.solicitacoes, "Radiosynoviorthesis", "Concluído")
+            tipo: "Radiosinoviortese",
+            aberto: contarSolicitacao(props.solicitacoes, "Radiosinoviortese", "Pendente") + contarSolicitacao(props.solicitacoes, "Radiosinoviortese", "Em andamento"),
+            fechado: contarSolicitacao(props.solicitacoes, "Radiosinoviortese", "Concluído")
         },
         {
-            tipo: "Segmentation",
-            aberto: contarSolicitacao(props.solicitacoes, "Segmentation", "Pendente") + contarSolicitacao(props.solicitacoes, "Segmentation", "Em andamento"),
-            fechado: contarSolicitacao(props.solicitacoes, "Segmentation", "Concluído")
+            tipo: "Segmentação",
+            aberto: contarSolicitacao(props.solicitacoes, "Segmentação", "Pendente") + contarSolicitacao(props.solicitacoes, "Segmentação", "Em andamento"),
+            fechado: contarSolicitacao(props.solicitacoes, "Segmentação", "Concluído")
         }
     ];
 

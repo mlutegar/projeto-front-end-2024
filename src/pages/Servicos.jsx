@@ -12,10 +12,10 @@ const Atletas = () => {
 
     // Array com as possíveis opções da filtragem
     const tipos = [
-        "Clinic Doscimetries",
-        "Preclinic Doscimetries",
-        "Radiosynoviorthesis",
-        "Segmentation"
+        "Dosimetrias Clínicas",
+        "Dosimetrias Pré-clínicas",
+        "Radiosinoviortese",
+        "Segmentação"
     ]
 
     // Array com os nomes das colunas da tabela

@@ -1,15 +1,12 @@
 import React from 'react'
-import { Container, Content } from './Style'
+import { Container} from './Style'
 import { 
   FaTimes, 
   FaHome, 
   FaClock, 
-  FaBell, 
-  FaRegSun, 
-  FaRegFileAlt,
+  FaBell,
   FaUser,
   FaChartBar,
-  FaCocktail
 } from 'react-icons/fa'
 
 import SidebarItem from '../SidebarItem/SidebarItem'
@@ -23,13 +20,13 @@ const Sidebar = ({ active }) => {
   return (
     <Container sidebar={active}>
       <FaTimes onClick={closeSidebar} />  
-      <Content>
+      <div className="opcoes">
+        <h1>Sidebar</h1>
         <SidebarItem Icon={FaHome} Text="Menu" link={"/dashboard"} />
         <SidebarItem Icon={FaChartBar} Text="Serviços" link={"/servicos"} />
         <SidebarItem Icon={FaBell} Text="Calibrações" link={"/calibracoes"} />
-        <SidebarItem Icon={FaClock} Text="Recentes" link={"/recentes"} />
         <SidebarItem Icon={FaUser} Text="Conta" link={"/perfil"} />
-      </Content>
+      </div>
     </Container>
   )
 }

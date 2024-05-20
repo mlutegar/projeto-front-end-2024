@@ -19,10 +19,10 @@ import {BsCloudDownloadFill} from "react-icons/bs";
 const Dashboard = () => {
     // Array com as possíveis opções da filtragem
     const tipos = [
-        "Clinic Doscimetries",
-        "Preclinic Doscimetries",
-        "Radiosynoviorthesis",
-        "Segmentation"
+        "Dosimetrias Clínicas",
+        "Dosimetrias Pré-clínicas",
+        "Radiosinoviortese",
+        "Segmentação"
     ]
 
     // Criação de um estado para armazenar o tipo de consulta
