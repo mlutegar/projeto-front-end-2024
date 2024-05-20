@@ -5,7 +5,7 @@ import dadosSolicitacoes from "../data/solicitacoes.json";
 import Botao from "../components/Geral/Botoes/Botao/Botao";
 import Busca from "../components/Geral/Busca/Busca";
 import {Link, Route} from "react-router-dom";
-import { AiOutlineDownload } from "react-icons/ai";
+import {AiOutlineCloudUpload, AiOutlineDownload} from "react-icons/ai";
 import {BsChevronDown, BsCloudDownloadFill} from "react-icons/bs";
 
 const Atletas = () => {
@@ -151,6 +151,11 @@ const Atletas = () => {
             });
     }
 
+    const ordenarStatus = () => {
+        const solicitacoesOrdenadas = [...solicitacoes].sort((b,a) => a.status.localeCompare(b.status));
+        setSolicitacoes(solicitacoesOrdenadas);
+    }
+
   return (
       <Base titulo="Serviços">
           <div style={{display: 'flex', justifyContent: "space-between", marginBottom: 25, marginTop:30}}>
@@ -204,7 +209,7 @@ const Atletas = () => {
                           Status
                       {/*Um botão que coloca as solicitações em ordem alfabética*/}
                         <button
-                            onClick={() => setSolicitacoes(solicitacoes.sort((a, b) => a.status.localeCompare(b.status)))}
+                            onClick={ordenarStatus}
                             style={{color:"white"}}
                         >
                             <BsChevronDown />
@@ -254,7 +259,12 @@ const Atletas = () => {
                           {solicitacao.imagem}
                           <button onClick={() => baixarArquivo(solicitacao.imagem)}><BsCloudDownloadFill /></button>
                       </td>
-                      <td>{solicitacao.relatorio}</td>
+                      <td>
+                          {/*Se a solicitação for igual a "-" ele vai escrever <AiOutlineCloudUpload />, caso contrário ele vai escrever o valor do json*/}
+                            {solicitacao.relatorio === "-" ? (
+                                <button onClick={uploadArquivo}><AiOutlineCloudUpload /></button>
+                            ) : solicitacao.relatorio}
+                      </td>
                       <td>{solicitacao.date}</td>
                       <td>{solicitacao.tipo}</td>
                   </tr>

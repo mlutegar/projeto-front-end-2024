@@ -61,7 +61,6 @@ const DashboadLayoutStyle = styled.div`
             flex-wrap: wrap;
         }
     }
-    
 `;
 
 export {DashboadLayoutStyle};

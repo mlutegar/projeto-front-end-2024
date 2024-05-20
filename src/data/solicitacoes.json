@@ -60,7 +60,7 @@
     "calibracao": "CL-18",
     "status": "Concluído",
     "imagem": "img5.zip",
-    "relatorio": "-",
+    "relatorio": "relatorio_61.pdf",
     "date": "20/04/2024 16:00",
     "tipo": "Clinic Doscimetries"
   },
@@ -125,7 +125,7 @@
         "calibracao": "CL-19",
         "status": "Concluído",
         "imagem": "img10.zip",
-        "relatorio": "-",
+        "relatorio": "relatorio_66.pdf",
         "date": "15/05/2024 16:00",
         "tipo": "Clinic Doscimetries"
     },
@@ -190,7 +190,7 @@
         "calibracao": "CL-23",
         "status": "Concluído",
         "imagem": "img15.zip",
-        "relatorio": "-",
+        "relatorio": "relatorio_71.pdf",
         "date": "10/06/2024 16:00",
         "tipo": "Preclinic Doscimetries"
     },
@@ -255,7 +255,7 @@
         "calibracao": "CL-24",
         "status": "Concluído",
         "imagem": "img20.zip",
-        "relatorio": "-",
+        "relatorio": "relatorio_76.pdf",
         "date": "05/07/2024 16:00",
         "tipo": "Radiosynoviorthesis"
     },
@@ -320,7 +320,7 @@
         "calibracao": "CL-12",
         "status": "Concluído",
         "imagem": "img25.zip",
-        "relatorio": "-",
+        "relatorio": "relatorio_81.pdf",
         "date": "30/07/2024 16:00",
         "tipo": "Segmentation"
     },
