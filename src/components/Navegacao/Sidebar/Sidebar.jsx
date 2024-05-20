@@ -19,7 +19,6 @@ const Sidebar = ({ active }) => {
 
   return (
     <Container sidebar={active}>
-      <FaTimes onClick={closeSidebar} />  
       <div className="opcoes">
         <h1>Sidebar</h1>
         <SidebarItem Icon={FaHome} Text="Menu" link={"/dashboard"} />

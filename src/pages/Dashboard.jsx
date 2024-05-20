@@ -13,7 +13,7 @@ import SecaoInformacao from "../components/Dashboard/SecaoInformacao/SecaoInform
 import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import SecaoCalibracao from "../components/Dashboard/SecaoCalibracao/SecaoCalibracao";
 import SecaoAtualizacao from "../components/Dashboard/SecaoAtualizacao/SecaoAtualizacao";
-import SecaoComponente from "../components/Dashboard/SecaoSolicitacao/SecaoSolicitacao";
+import SecaoSolicitacao from "../components/Dashboard/SecaoSolicitacao/SecaoSolicitacao";
 import {BsCloudDownloadFill} from "react-icons/bs";
 
 const Dashboard = () => {
@@ -71,7 +71,7 @@ const Dashboard = () => {
       <Base titulo="Dashboard">
           <DashboadLayout
               solicitacao={
-                  <SecaoComponente strings={tipos} callbackfn={(tipo, indexo) => (
+                  <SecaoSolicitacao strings={tipos} callbackfn={(tipo, indexo) => (
                       <Botao
                           key={indexo}
                           isActive={tipoConsulta.includes(tipo)}

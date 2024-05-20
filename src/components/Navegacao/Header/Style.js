@@ -54,6 +54,20 @@ const HeaderStyle = styled.header`
         border: none;
         cursor: pointer;
     }
+
+    // Telas menores que 769px (Tablets)
+    @media only screen and (max-width: 769px) {
+        display: block;
+        
+        #nav1{
+            justify-content: space-between;    
+        }
+        
+        #nav2{
+            display: none;
+        }
+    }
+    
 `;
 
 export { HeaderStyle };

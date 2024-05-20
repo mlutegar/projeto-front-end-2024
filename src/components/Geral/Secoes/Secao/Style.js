@@ -43,6 +43,15 @@ const SecaoStyle = styled.article`
             justify-content: center;
             align-items: center;
         }
+
+        .acessarButton:hover{
+            background-color: var(--destaque);
+            cursor: pointer;
+        }
+        
+        .acessarButton img{
+            height: 20px;
+        }
     }
 
     .titulo h1{
@@ -73,11 +82,7 @@ const SecaoStyle = styled.article`
     
     #infoButton svg{
         color: var(--secundaria);
-        font-size: 1.5rem;
-    }
-    
-    img{
-        height: 30px;
+        font-size: 2.5rem;
     }
     
     div.header button {

@@ -66,6 +66,7 @@ const SecaoInformacao = (props) => {
             <Secao
                 nome="Informações"
                 pagina={false}
+                info="Aqui você pode visualizar algumas informações sobre as solicitações disponíveis. Quantas solicitações estão abertas e fechadas de cada tipo e o total de solicitações abertas e fechadas."
                 conteudo={
                     <SecaoInfoStyle>
                         <div className="geral">

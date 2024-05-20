@@ -25,6 +25,7 @@ function SecaoCalibracao(props) {
     return <Secao
         pai="/calibracoes"
         nome="Calibrações"
+        info="Aqui você pode visualizar uma tabela rápida com as calibrações upadas no sistema. Você pode baixar a calibração clicando no botão de download."
         pagina={true}
         conteudo={
             <SecaoCalibracaoStyle>

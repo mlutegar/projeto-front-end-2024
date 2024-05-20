@@ -23,6 +23,7 @@
         return <Secao
                     pagina={false}
                     nome="Atualizações"
+                    info="Aqui você pode visualizar as atualizações disponíveis. Quem foram os responsáveis por essas atualizações e a data em que foram realizadas."
                     conteudo={
                         <SecaoAtualizacaoStyle>
                             <div id="cards">
