@@ -16,8 +16,16 @@ const HeaderStyle = styled.header`
         width: 100%;  /* Garante que o header ocupe toda a largura da tela */
     }
 
-    img {
-        height: 50px;
+    #nav1{
+        display: flex;
+        align-items: center;
+
+        #logo {
+            display: flex;
+            img {
+                width: 10rem;
+            }
+        }
     }
 
     #nav2{
@@ -41,10 +49,6 @@ const HeaderStyle = styled.header`
             border-top-right-radius: 8px;
             border-top-left-radius: 8px;
         }
-    }
-
-    #nav1{
-        display: flex;
     }
 
     .hamburguer{

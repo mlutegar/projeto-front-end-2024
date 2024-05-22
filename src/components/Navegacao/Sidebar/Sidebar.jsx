@@ -18,7 +18,6 @@ const Sidebar = ({ active }) => {
   return (
       <SideBarStyle sidebar={active}>
         <div className="opcoes">
-          <h1>Sidebar</h1>
           <SidebarItem Icon={FaHome} Text="Menu" link={"/dashboard"} />
           <SidebarItem Icon={FaChartBar} Text="Serviços" link={"/servicos"} />
           <SidebarItem Icon={FaBell} Text="Calibrações" link={"/calibracoes"} />

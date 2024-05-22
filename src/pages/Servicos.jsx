@@ -5,8 +5,14 @@ import dadosSolicitacoes from "../data/solicitacoes.json";
 import Botao from "../components/Geral/Botoes/Botao/Botao";
 import Busca from "../components/Geral/Busca/Busca";
 import { Link } from "react-router-dom";
-import {AiFillCheckCircle, AiOutlineCloudDownload, AiOutlineCloudUpload, AiOutlineDownload} from "react-icons/ai";
-import { BsChevronDown, BsCloudDownloadFill } from "react-icons/bs";
+import {
+    AiFillCheckCircle,
+    AiFillDelete,
+    AiOutlineCloudDownload,
+    AiOutlineCloudUpload,
+    AiOutlineDownload
+} from "react-icons/ai";
+import {BsChevronDown, BsCloudDownloadFill, BsCloudUploadFill} from "react-icons/bs";
 import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 
 const Servicos = () => {
@@ -229,11 +235,19 @@ const Servicos = () => {
                                     <td>{solicitacao.cliente}</td>
                                     <td>{solicitacao.atividade}</td>
                                     <td>
-                                        <button
-                                            onClick={() => baixarArquivo(solicitacao.imagem)}
-                                        >
-                                            <AiOutlineCloudDownload />
-                                        </button>
+                                        <div style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 20,
+                                            justifyContent: "flex-end"
+                                        }}>
+                                            {solicitacao.calibracao}
+                                            <button
+                                                onClick={() => baixarArquivo(solicitacao.imagem)}
+                                            >
+                                                <BsCloudDownloadFill/>
+                                            </button>
+                                        </div>
                                     </td>
                                     {solicitacao.status === "Pendente" ? (
                                         <td className="nao-visto">
@@ -251,12 +265,42 @@ const Servicos = () => {
                                         solicitacao.status
                                     )}
                                     <td>
-                                        <button onClick={() => baixarArquivo(solicitacao.imagem)}><AiOutlineCloudDownload /></button>
+
+                                            < div style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: 20,
+                                            justifyContent: "flex-end"
+                                        }}>
+                                        {solicitacao.imagem}
+                                            <button onClick={() => baixarArquivo(solicitacao.imagem)}>
+                                    <BsCloudDownloadFill/></button>
+                                        </div>
                                     </td>
                                     <td>
                                         {solicitacao.relatorio === "-" ? (
-                                            <button onClick={uploadArquivo}><AiOutlineCloudUpload /></button>
-                                        ) : solicitacao.relatorio}
+                                            <div style={{display: "flex", alignItems: "center", gap: 20, justifyContent: "flex-end"}}>
+                                                {solicitacao.relatorio}
+                                                <button onClick={uploadArquivo}>
+                                                        <div style={{
+                                                            display: "relative", left: 10
+                                                        }}>
+                                                            <BsCloudUploadFill />
+                                                        </div>
+                                                </button>
+                                            </div>
+                                        ) : solicitacao.status === "Em andamento" ? (
+                                                <div style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: 20,
+                                                    justifyContent: "flex-end"
+                                                }}>
+                                                    {solicitacao.imagem}
+                                                    <button onClick={() => baixarArquivo(solicitacao.imagem)}>
+                                                        <AiFillDelete /></button>
+                                                </div>) : (
+                                            solicitacao.relatorio)}
                                     </td>
                                     <td>{solicitacao.date}</td>
                                     <td>{solicitacao.tipo}</td>
