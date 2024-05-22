@@ -4,12 +4,11 @@ const SecaoSolicitacaoStyle = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 10px;
     flex-wrap: wrap;
     
     .filtro{
         display: flex;
-        gap: 10px;
+        gap: 4rem;
         flex-wrap: wrap;
         
         button {

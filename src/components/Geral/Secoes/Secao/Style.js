@@ -70,7 +70,7 @@ const SecaoStyle = styled.article`
     
     .content {
         grid-area: content;
-        padding: 1rem;
+        margin-bottom: 1rem;
     }
     
     .footer {

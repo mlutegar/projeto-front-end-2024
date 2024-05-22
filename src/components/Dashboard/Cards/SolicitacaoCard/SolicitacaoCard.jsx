@@ -1,5 +1,6 @@
 import {SolicitacaoCardStyle} from "./Style";
 import {Link} from "react-router-dom";
+import {AiOutlineCalendar, AiOutlineKey, AiOutlineUser} from "react-icons/ai";
 
 const SolicitacaoCard = (props) => (
     <SolicitacaoCardStyle>
@@ -10,8 +11,8 @@ const SolicitacaoCard = (props) => (
         </div>
         <div id='tipo'>
             <span>ID: {props.id}</span>
-            <span>User: {props.cliente}</span>
-            <span>Data: {props.data}</span>
+            <span><AiOutlineUser /> {props.cliente}</span>
+            <span><AiOutlineCalendar /> {props.data}</span>
         </div>
     </SolicitacaoCardStyle>
 );

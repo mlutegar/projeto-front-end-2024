@@ -4,7 +4,7 @@ const SolicitacaoCardStyle = styled.div`
     margin: 20px;
     padding: .6rem;
     font-size: 1rem;
-    width: 20rem;
+    width: 15rem;
     border-radius: 35px;
     background-color: var(--background);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
