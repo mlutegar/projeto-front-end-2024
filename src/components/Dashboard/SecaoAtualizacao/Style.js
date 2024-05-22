@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const SecaoAtualizacaoStyle = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 10px;
 

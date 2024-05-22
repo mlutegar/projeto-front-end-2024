@@ -46,7 +46,7 @@ const BuscaEstilo = styled.article`
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1
+  background-color: #f1f1f1;
   }
     
     .dropdown-content > button {

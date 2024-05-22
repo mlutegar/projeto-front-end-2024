@@ -2,13 +2,24 @@ import styled from "styled-components";
 
 const BotaoStyle = styled.div`
     button {
-        padding: 15px;
-        border-radius: 10px;
-        width: 200px;
-        height: 50px;
-        font-weight: bold;
-        border: 1px solid #023859;
+        background-color: var(--primaria);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+
+        &:hover {
+            background-color: var(--destaque);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
     }
+}
 `;
 
 export {BotaoStyle};

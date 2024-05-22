@@ -88,7 +88,7 @@ const InformacoesPerfilStyle = styled.article`
     
     #titulo{
         display: flex;
-        align-items: center;
+        align-items: baseline;
     }
     
     #item2{

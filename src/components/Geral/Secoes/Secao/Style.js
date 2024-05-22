@@ -87,7 +87,7 @@ const SecaoStyle = styled.article`
     
     div.header button {
         border-radius: 15px;
-        height: 50px;
+        height: 3rem;
         background-color: var(--primaria);
         color: #fff;
         border: none;

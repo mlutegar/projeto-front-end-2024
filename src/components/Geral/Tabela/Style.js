@@ -4,10 +4,28 @@ const TabelaEstilo = styled.article`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
     
+    .status {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    svg {
+        width: 2rem;
+        height: 2rem;
+    }
     
   a {
     color: black;
   }
+
+    tr:first-child th:first-child {
+        border-radius: 15px 0 0 0; // Arredondando o canto superior esquerdo do primeiro cabeçalho
+    }
+
+    tr:first-child th:last-child {
+        border-radius: 0 15px 0 0; // Arredondando o canto superior direito do último cabeçalho
+    }   
 
   th {
     background-color: #002D55;
@@ -32,6 +50,10 @@ const TabelaEstilo = styled.article`
     table {
         margin: auto;
         width: 100%;
+        border-collapse: separate; // Permite o espaçamento entre células
+        border-spacing: 0 0; // Espaçamento somente vertical entre as linhas
+        
+        
     }
     
   //  Botão transparente para download

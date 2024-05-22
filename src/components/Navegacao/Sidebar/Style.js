@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const SideBarStyle = styled.div`
     background-color: #ffffff;
     position: fixed;
     height: 100%;
@@ -8,7 +8,7 @@ export const Container = styled.div`
     left: 0px;
     width: 300px;
     left: ${props => props.sidebar ? '0' : '-100%'};
-    animation: showSidebar .7s;
+    animation: ${props => props.sidebar ? 'showSidebar .7s' : 'hideSidebar .7s'};
     z-index: 5;  /* Certifique-se de que este valor é menor que o z-index do header */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
@@ -41,6 +41,17 @@ export const Container = styled.div`
         to {
             opacity: 1;
             width: 300px;
+        }
+    }
+
+    @keyframes hideSidebar {
+        from {
+            opacity: 1;
+            width: 300px;
+        }
+        to {
+            opacity: 0;
+            width: 0;
         }
     }
 
@@ -80,5 +91,18 @@ export const Container = styled.div`
                 width: 100%;
             }
         }
+
+        @keyframes hideSidebar {
+            from {
+                opacity: 1;
+                width: 100%;
+            }
+            to {
+                opacity: 0;
+                width: 0;
+            }
+        }
     }
 `;
+
+export {SideBarStyle};

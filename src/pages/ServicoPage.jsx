@@ -44,9 +44,9 @@ const ServicoPage = () => {
         <Base
             titulo={"Serviço - " + servico.id}
         >
-            <div style={{marginTop: 20, marginBottom: 40}}>
+            <div style={{marginBottom: 40}}>
                 <Link style={{textDecoration: "none", color: "black"}} to={"/Servicos"}>
-                <span>
+                <span style={{fontSize: 20}}>
                     {`<`} Voltar para serviços
                 </span>
                 </Link>

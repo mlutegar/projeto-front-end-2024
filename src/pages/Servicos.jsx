@@ -5,7 +5,7 @@ import dadosSolicitacoes from "../data/solicitacoes.json";
 import Botao from "../components/Geral/Botoes/Botao/Botao";
 import Busca from "../components/Geral/Busca/Busca";
 import { Link } from "react-router-dom";
-import { AiOutlineCloudUpload, AiOutlineDownload } from "react-icons/ai";
+import {AiFillCheckCircle, AiOutlineCloudDownload, AiOutlineCloudUpload, AiOutlineDownload} from "react-icons/ai";
 import { BsChevronDown, BsCloudDownloadFill } from "react-icons/bs";
 import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 
@@ -202,13 +202,15 @@ const Servicos = () => {
                         <th>Atividade Injetada</th>
                         <th>Calibração</th>
                         <th>
-                            Status
-                            <button
-                                onClick={ordenarStatus}
-                                style={{ color: "white" }}
-                            >
-                                <BsChevronDown />
-                            </button>
+                            <div className="status">
+                                Status
+                                <button
+                                    onClick={ordenarStatus}
+                                    style={{ color: "white" }}
+                                >
+                                    <BsChevronDown />
+                                </button>
+                            </div>
                         </th>
                         <th>Imagem do Paciente</th>
                         <th>Relatório</th>
@@ -227,11 +229,10 @@ const Servicos = () => {
                                     <td>{solicitacao.cliente}</td>
                                     <td>{solicitacao.atividade}</td>
                                     <td>
-                                        {solicitacao.calibracao}
                                         <button
                                             onClick={() => baixarArquivo(solicitacao.imagem)}
                                         >
-                                            <BsCloudDownloadFill />
+                                            <AiOutlineCloudDownload />
                                         </button>
                                     </td>
                                     {solicitacao.status === "Pendente" ? (
@@ -250,8 +251,7 @@ const Servicos = () => {
                                         solicitacao.status
                                     )}
                                     <td>
-                                        {solicitacao.imagem}
-                                        <button onClick={() => baixarArquivo(solicitacao.imagem)}><BsCloudDownloadFill /></button>
+                                        <button onClick={() => baixarArquivo(solicitacao.imagem)}><AiOutlineCloudDownload /></button>
                                     </td>
                                     <td>
                                         {solicitacao.relatorio === "-" ? (
