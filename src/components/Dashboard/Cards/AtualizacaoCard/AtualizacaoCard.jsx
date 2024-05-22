@@ -1,4 +1,5 @@
 import { AtualizacaoCardStyle } from "./Style";
+import {AiOutlineHourglass, AiOutlineNotification, AiOutlineTag} from "react-icons/ai";
 
 const acessar = "imagens/icons/up-arrow.png"
 
@@ -15,9 +16,11 @@ const AtualizacaoCard = (props) => (
             {props.id}
         </div>
         <div className="acao">
+            <AiOutlineNotification />
             {props.acao}
         </div>
         <div className="tempo">
+            <AiOutlineHourglass />
             {props.tempo}
         </div>
         <div className="linha">

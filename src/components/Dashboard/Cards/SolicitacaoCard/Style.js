@@ -7,6 +7,7 @@ const SolicitacaoCardStyle = styled.div`
     width: 20rem;
     border-radius: 35px;
     background-color: var(--background);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
     button {
         border-radius: 15px;

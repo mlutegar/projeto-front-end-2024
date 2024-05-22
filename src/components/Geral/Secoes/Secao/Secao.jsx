@@ -29,7 +29,12 @@ const Secao = (props) => (
             }
         </div>
 
-        <div className="content"> {props.conteudo} </div>
+        <div className="content">
+            <div className="navbar2">
+                {props.navbar}
+            </div>
+            {props.conteudo}
+        </div>
         <div className="footer"> {props.footer} </div>
     </SecaoStyle>
 );

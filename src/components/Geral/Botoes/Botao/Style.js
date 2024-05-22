@@ -12,14 +12,13 @@ const BotaoStyle = styled.div`
         transition: background-color 0.3s ease-in-out, transform 0.2s ease;
 
         &:hover {
-            background-color: var(--destaque);
+            transform: scale(1.05);
         }
 
         &:active {
             transform: scale(0.95);
         }
     }
-}
 `;
 
 export {BotaoStyle};

@@ -63,7 +63,7 @@ const TabelaEstilo = styled.article`
         cursor: pointer;
     }
     
-    button:hover {
+    button:hover svg{
         color: #002D55;
     }
 

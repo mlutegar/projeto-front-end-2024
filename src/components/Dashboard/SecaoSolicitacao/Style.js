@@ -24,6 +24,7 @@ const SecaoSolicitacaoStyle = styled.div`
             
             &:hover {
                 background-color: var(--destaque);
+                transform: scale(1.05);
             }
             
             &:active {
@@ -32,24 +33,21 @@ const SecaoSolicitacaoStyle = styled.div`
         }
     }
 
-    .btn {
-        background-color: white;  // Cor azul para os botões
-        color: rgb(2, 56, 89);
-        border: none;
-        padding: 8px 16px;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-
-        &:hover {
-            background-color: rgb(2, 56, 89); // Cor mais escura no hover
-            color: white;
+    @media only screen and (max-width: 1330px) {
+        .filtro{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
-
-        &:active {
-            transform: scale(0.95);  // Efeito de clique reduzindo ligeiramente o tamanho
+        
+        .filtro{
+            button{
+                height: 3rem;
+                border-radius: 1.1rem;
+            }    
         }
+        
     }
 `
 

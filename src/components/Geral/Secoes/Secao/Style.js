@@ -53,6 +53,10 @@ const SecaoStyle = styled.article`
             height: 20px;
         }
     }
+    
+    .navbar2{
+        display: none;
+    }
 
     .titulo h1{
         border-bottom: var(--primaria) solid 3px;
@@ -107,6 +111,29 @@ const SecaoStyle = styled.article`
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    @media only screen and (max-width: 1330px) {
+        .header{
+            .navbar{
+                display: none;
+            }
+        }
+        
+        .navbar2{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            
+        }
+    }
+
+    @media only screen and (max-width: 590px) {
+        .header{
+            .acessarButton{
+                display: none;
+            }
+        }
     }
 `;
 

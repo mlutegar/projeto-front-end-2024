@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const AtualizacaoCardStyle = styled.article`
+    
+    
     .container{
         padding: .5rem;
         display: grid;
@@ -13,7 +15,11 @@ const AtualizacaoCardStyle = styled.article`
         grid-template-rows: 1fr 1fr 1fr;
         gap: 1px;
         background-color: white;
-        border-radius: 20px;
+        border-radius: 35px;
+        font-size: 1rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: .6rem;
+        
     }
     
     .icone{

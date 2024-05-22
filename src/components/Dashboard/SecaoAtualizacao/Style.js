@@ -32,6 +32,7 @@ const SecaoAtualizacaoStyle = styled.div`
         margin-right: 1rem;
         gap: 2rem;
         flex-wrap: wrap;
+        justify-content: space-evenly;
     }
 `
 

@@ -66,5 +66,27 @@ const SecaoCalibracaoStyle = styled.div`
     .realizado {
         background-color: #86CF8D;
     }
+
+   @media only screen and (max-width: 710px) {
+      table td:nth-child(4),
+      table th:nth-child(4) {
+         display: none;
+      }
+      
+   }
+   
+    @media only screen and (max-width: 590px) {
+        table td:nth-child(3),
+        table th:nth-child(3) {
+            display: none;
+        }
+       
+       table td:nth-child(1),
+       table th:nth-child(1) {
+          display: none;
+       }
+       
+    }
+
    `
 export { SecaoCalibracaoStyle };
