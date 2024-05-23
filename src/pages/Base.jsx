@@ -28,17 +28,12 @@ const BaseStyle = styled.div`
     #container h1 {
         display: inline-block;
         position: relative;
+        
+        span {
+            border-bottom: 3px solid var(--primaria);
+        }
     }
-
-    #container h1::after {
-        content: '';
-        display: block;
-        width: 6rem;
-        border-bottom: 3px solid var(--primaria);
-        position: absolute;
-        bottom: -5px; /* ajuste este valor conforme necessário */
-        left: 0;
-    }
+    
     
     #container h1 {
         margin-bottom: 1.5rem;

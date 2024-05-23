@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const TabelaEstilo = styled.article`
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
     
     .status {

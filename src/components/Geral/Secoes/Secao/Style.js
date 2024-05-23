@@ -61,6 +61,7 @@ const SecaoStyle = styled.article`
     .titulo h1{
         font-weight: lighter;
         font-size: 2.5em;
+        border-bottom: 3px solid var(--primaria);
     }
     
     .titulo{

@@ -18,6 +18,7 @@ const InformacoesPerfilStyle = styled.article`
         grid-template-rows: repeat(3,10rem);
         gap: .3rem;
         padding: .3rem;
+        flex-wrap: wrap;
     }
     
     label{

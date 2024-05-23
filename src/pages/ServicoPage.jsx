@@ -67,15 +67,15 @@ const ServicoPage = () => {
                         />
                     </div>
 
-                    <div>
-                        <BotaoAtencao
-                            text="Deletar serviço"
-                            onClick={() => deleteServico()}
-                        />
-                    </div>
+                    {/*<div>*/}
+                    {/*    <BotaoAtencao*/}
+                    {/*        text="Deletar serviço"*/}
+                    {/*        onClick={() => deleteServico()}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                 </div>
 
-                <div style={{marginBottom:40, marginLeft: 20, marginRight: 20}}>
+                <div style={{marginBottom:40, marginLeft: 20, marginRight: 20, fontSize: 20}}>
                     {botaoClicado === "Dados do usúario" && (
                         servico ? (
                             <InformacoesServico
