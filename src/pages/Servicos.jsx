@@ -12,7 +12,13 @@ import {
     AiOutlineCloudUpload,
     AiOutlineDownload
 } from "react-icons/ai";
-import {BsCheckCircleFill, BsChevronDown, BsCloudDownloadFill, BsCloudUploadFill} from "react-icons/bs";
+import {
+    BsArrowUpRightCircle,
+    BsCheckCircleFill,
+    BsChevronDown,
+    BsCloudDownloadFill,
+    BsCloudUploadFill
+} from "react-icons/bs";
 import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import {TabelaServicosStyle} from "../components/Servicos/Style";
 
@@ -128,18 +134,20 @@ const Servicos = () => {
             };
 
             reader.readAsDataURL(file);
-        };
-        input.click();
 
-        atualizarNomeArquivo(id);
-        atualizarStatus(id);
+
+            atualizarNomeArquivo(id);
+            atualizarStatus(id);
+
+                    };
+        input.click();
     };
 
     // Função que atualiza o nome do relatório na coluna "Relatório" com o id passado
     const atualizarNomeArquivo = (id) => {
         setSolicitacoes(prevSolicitacoes =>
             prevSolicitacoes.map(solicitacao =>
-                solicitacao.id === id ? { ...solicitacao, relatorio: "Relatório" } : solicitacao
+                solicitacao.id === id ? { ...solicitacao, relatorio: `relatorio_${id}.pdf` } : solicitacao
             )
         );
     };
@@ -202,7 +210,12 @@ const Servicos = () => {
 
     // Função que deleta o arquivo salvo no localStorage com o id passado
     const deletarArquivo = (id) => {
-
+        localStorage.removeItem(id);
+        setSolicitacoes(prevSolicitacoes =>
+            prevSolicitacoes.map(solicitacao =>
+                solicitacao.id === id ? { ...solicitacao, relatorio: "-" } : solicitacao
+            )
+        );
     }
 
     const displayedSolicitacoes = solicitacoes.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
@@ -210,7 +223,7 @@ const Servicos = () => {
     return (
         <Base titulo="Serviços">
             <div style={{ display: 'flex', justifyContent: "space-between", marginBottom: 25, marginTop: 30 }}>
-                <div style={{ display: 'flex', gap: 10 }}>
+                <div style={{ display: 'flex', gap: 10, flexWrap: "wrap" }}>
                     {tipos.map((tipo, indexo) => (
                         <Botao
                             key={indexo}
@@ -250,7 +263,7 @@ const Servicos = () => {
                     tipo="servico"
                     head={
                         <>
-                            <th>ID</th>
+                            <th>Acessar</th>
                             <th>Código</th>
                             <th>Nome da Análise</th>
                             <th>Usuário</th>
@@ -278,7 +291,11 @@ const Servicos = () => {
                             {displayedSolicitacoes.map(
                                 (solicitacao, index) => (
                                     <tr key={index}>
-                                        <td><Link to={"/servico/" + solicitacao.id}>{solicitacao.id}</Link></td>
+                                        <td><Link to={"/servico/" + solicitacao.id}>
+                                            <button>
+                                                <BsArrowUpRightCircle />
+                                            </button>
+                                        </Link></td>
                                         <td>{solicitacao.codigo}</td>
                                         <td>{solicitacao.analise}</td>
                                         <td>{solicitacao.cliente}</td>
@@ -302,20 +319,29 @@ const Servicos = () => {
                                         </td>
                                         {solicitacao.status === "Pendente" ? (
                                             <td className="nao-visto">
-                                                {solicitacao.status}
+                                                <div className="status-botao">
+                                                    {solicitacao.status}
+                                                </div>
                                             </td>
                                         ) : solicitacao.status === "Em andamento" ? (
                                             <td className="andamento">
-                                                {solicitacao.status}
-                                                <button
-                                                    onClick={() => concluirSolicitacao(solicitacao.id)}
-                                                >
-                                                    <BsCheckCircleFill/>
-                                                </button>
+                                                <div className="status-botao">
+                                                    {solicitacao.status}
+                                                    {solicitacao.relatorio === "-" ? (<></>) : (
+                                                        <button
+                                                            onClick={() => concluirSolicitacao(solicitacao.id)}
+                                                        >
+                                                            <BsCheckCircleFill/>
+                                                        </button>
+                                                    )}
+                                                </div>
                                             </td>
                                         ) : solicitacao.status === "Concluído" ? (
                                             <td className="realizado">
-                                                {solicitacao.status}
+                                                <div className="status-botao">
+                                                    {solicitacao.status}
+                                                </div>
+
                                             </td>
                                         ) : (
                                             solicitacao.status
@@ -357,13 +383,13 @@ const Servicos = () => {
                                                         justifyContent: "flex-end"
                                                     }}>
                                                             <div className="ocultar">
-                                                        {solicitacao.imagem}
+                                                        {solicitacao.relatorio}
                                                             </div>
                                                         <button onClick={() => deletarArquivo(solicitacao.id)}>
                                                             <AiFillDelete /></button>
                                                     </div>) : (
                                                 <div className="ocultar">
-                                                solicitacao.relatorio)
+                                                    {solicitacao.relatorio}
                                                 </div>)}
                                         </td>
                                         <td>{solicitacao.date}</td>

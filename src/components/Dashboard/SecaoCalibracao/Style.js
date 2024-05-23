@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 const SecaoCalibracaoStyle = styled.div`
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9rem;
-
    svg {
         color: black;
         font-size: 1.5rem;
@@ -34,6 +31,7 @@ const SecaoCalibracaoStyle = styled.div`
     }
 
     table {
+       font-size: 1.1rem;
         margin: auto;
         width: 100%;
         border-collapse: separate; // Permite o espaçamento entre células
@@ -66,6 +64,18 @@ const SecaoCalibracaoStyle = styled.div`
     .realizado {
         background-color: #86CF8D;
     }
+   
+    @media only screen and (max-width: 1400px) {
+       table{
+            font-size: 1rem; 
+       }
+    }
+
+   @media only screen and (max-width: 1250px) {
+      table{
+         font-size: 0.9rem;
+      }
+   }
 
    @media only screen and (max-width: 710px) {
       table td:nth-child(4),
@@ -84,6 +94,10 @@ const SecaoCalibracaoStyle = styled.div`
        table td:nth-child(1),
        table th:nth-child(1) {
           display: none;
+       }
+
+       tr:nth-child(2) th:nth-child(2) {
+          border-radius: 15px 0 0 0; // Arredondando o canto superior esquerdo do primeiro cabeçalho
        }
        
     }

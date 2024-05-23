@@ -59,22 +59,42 @@ const TabelaEstilo = styled.article`
         background-color: transparent;
         border: none;
         cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease;
     }
     
     button:hover svg{
-        color: #002D55;
+        color: var(--primaria);
+        transform: scale(1.05);
+        
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+        
+        .nao-visto {
+            background-color: #CF8686;
+        }
+        .andamento {
+            background-color: #DFCF95;
+        }
+
+        .realizado {
+            background-color: #86CF8D;
+        }
+    
+    .nao-visto, .andamento, .realizado {
+        color: white;
+        
+        svg{
+            width: 1.2rem;
+        }
+        .status-botao{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
-  .nao-visto {
-    background-color: #CF8686;
-  }
-  .andamento {
-    background-color: #DFCF95;
-  }
-
-  .realizado {
-    background-color: #86CF8D;
-  }
 `
 
 export { TabelaEstilo };
