@@ -13,15 +13,16 @@ import SecaoInformacao from "../components/Dashboard/SecaoInformacao/SecaoInform
 import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import SecaoCalibracao from "../components/Dashboard/SecaoCalibracao/SecaoCalibracao";
 import SecaoAtualizacao from "../components/Dashboard/SecaoAtualizacao/SecaoAtualizacao";
-import SecaoComponente from "../components/Dashboard/SecaoSolicitacao/SecaoSolicitacao";
+import SecaoSolicitacao from "../components/Dashboard/SecaoSolicitacao/SecaoSolicitacao";
+import {BsCloudDownloadFill} from "react-icons/bs";
 
 const Dashboard = () => {
     // Array com as possíveis opções da filtragem
     const tipos = [
-        "Clinic Doscimetries",
-        "Preclinic Doscimetries",
-        "Radiosynoviorthesis",
-        "Segmentation"
+        "Dosimetrias Clínicas",
+        "Dosimetrias Pré-clínicas",
+        "Radiosinoviortese",
+        "Segmentação"
     ]
 
     // Criação de um estado para armazenar o tipo de consulta
@@ -42,6 +43,19 @@ const Dashboard = () => {
         }
     }
 
+    const baixarArquivo = (link) => {
+        fetch(link)
+            .then(response => {
+                response.blob().then(blob => {
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement('a');
+                    a.href = url;
+                    a.download = link.split("/").pop();
+                    a.click();
+                });
+            });
+    }
+
     useEffect(() => {
         filtrarSolicitacao();
     }, [tipoConsulta]);
@@ -57,7 +71,7 @@ const Dashboard = () => {
       <Base titulo="Dashboard">
           <DashboadLayout
               solicitacao={
-                  <SecaoComponente strings={tipos} callbackfn={(tipo, indexo) => (
+                  <SecaoSolicitacao strings={tipos} callbackfn={(tipo, indexo) => (
                       <Botao
                           key={indexo}
                           isActive={tipoConsulta.includes(tipo)}
@@ -81,8 +95,10 @@ const Dashboard = () => {
                           <td>{calibracao.nome}</td>
                           <td>{calibracao.usuario}</td>
                           <td>{calibracao.isotopo}</td>
-                          <td>{calibracao.imagem}</td>
                           <td>{calibracao.date}</td>
+                          <td>
+                              <button onClick={() => baixarArquivo(calibracao.imagem)}><BsCloudDownloadFill/></button>
+                          </td>
                       </tr>
                   )}/>
               }

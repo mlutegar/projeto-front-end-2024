@@ -5,7 +5,6 @@ const InformacoesServicoStyle = styled.article`
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
-    height: 500px;
     
     #container{
         display: grid;
@@ -90,7 +89,7 @@ const InformacoesServicoStyle = styled.article`
     
     #titulo{
         display: flex;
-        align-items: center;
+        align-items: baseline;
     }
     
     #item2{

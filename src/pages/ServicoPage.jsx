@@ -44,9 +44,9 @@ const ServicoPage = () => {
         <Base
             titulo={"Serviço - " + servico.id}
         >
-            <div style={{marginTop: 20, marginBottom: 40}}>
+            <div style={{marginBottom: 40}}>
                 <Link style={{textDecoration: "none", color: "black"}} to={"/Servicos"}>
-                <span>
+                <span style={{fontSize: 20}}>
                     {`<`} Voltar para serviços
                 </span>
                 </Link>
@@ -67,15 +67,15 @@ const ServicoPage = () => {
                         />
                     </div>
 
-                    <div>
-                        <BotaoAtencao
-                            text="Deletar serviço"
-                            onClick={() => deleteServico()}
-                        />
-                    </div>
+                    {/*<div>*/}
+                    {/*    <BotaoAtencao*/}
+                    {/*        text="Deletar serviço"*/}
+                    {/*        onClick={() => deleteServico()}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                 </div>
 
-                <div style={{marginBottom:40, marginLeft: 20, marginRight: 20}}>
+                <div style={{marginBottom:40, marginLeft: 20, marginRight: 20, fontSize: 20}}>
                     {botaoClicado === "Dados do usúario" && (
                         servico ? (
                             <InformacoesServico

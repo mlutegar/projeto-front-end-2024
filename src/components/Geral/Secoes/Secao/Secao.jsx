@@ -1,31 +1,42 @@
 import { SecaoStyle } from "./Style";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import ToolTip from "../../ToolTip/ToolTip";
 
-const infoImg = "imagens/icons/info.png"
-const acessar = "imagens/icons/up-arrow.png"
+const acessar = "imagens/icons/up-arrow.png";
 
 const Secao = (props) => (
-  <SecaoStyle>
-    <div className="secao">
+    <SecaoStyle>
         <div className="header">
-            <div className="nav1">
+            <div className="titulo">
                 <h1>{props.nome}</h1>
-                <a className="infoButton">
-                    <img src={infoImg}/>
-                </a>
+                <ToolTip text={props.info}>
+                  <span id="infoButton">
+                    <AiOutlineInfoCircle />
+                  </span>
+                </ToolTip>
             </div>
 
-            {props.navbar}
+            <div className="navbar">
+                {props.navbar}
+            </div>
 
-            <Link className="acessarButton" to={props.pai}>
-                <img src={acessar}/>
-            </Link>
+            {props.pagina === true ?
+                <div className="acessarButton">
+                    <Link to={props.pai}> <img src={acessar} /> </Link>
+                </div>
+                : null
+            }
         </div>
+
         <div className="content">
+            <div className="navbar2">
+                {props.navbar}
+            </div>
             {props.conteudo}
         </div>
-    </div>
-  </SecaoStyle>
-)
+        <div className="footer"> {props.footer} </div>
+    </SecaoStyle>
+);
 
 export default Secao;

@@ -1,15 +1,10 @@
 import React from 'react'
-import { Container, Content } from './Style'
-import { 
-  FaTimes, 
-  FaHome, 
-  FaClock, 
-  FaBell, 
-  FaRegSun, 
-  FaRegFileAlt,
+import { SideBarStyle} from './Style'
+import {
+  FaHome,
+  FaBell,
   FaUser,
   FaChartBar,
-  FaCocktail
 } from 'react-icons/fa'
 
 import SidebarItem from '../SidebarItem/SidebarItem'
@@ -21,16 +16,14 @@ const Sidebar = ({ active }) => {
   }
 
   return (
-    <Container sidebar={active}>
-      <FaTimes onClick={closeSidebar} />  
-      <Content>
-        <SidebarItem Icon={FaHome} Text="Menu" link={"/dashboard"} />
-        <SidebarItem Icon={FaChartBar} Text="Serviços" link={"/servicos"} />
-        <SidebarItem Icon={FaBell} Text="Calibrações" link={"/calibracoes"} />
-        <SidebarItem Icon={FaClock} Text="Recentes" link={"/recentes"} />
-        <SidebarItem Icon={FaUser} Text="Conta" link={"/perfil"} />
-      </Content>
-    </Container>
+      <SideBarStyle sidebar={active}>
+        <div className="opcoes">
+          <SidebarItem Icon={FaHome} Text="Menu" link={"/dashboard"} />
+          <SidebarItem Icon={FaChartBar} Text="Serviços" link={"/servicos"} />
+          <SidebarItem Icon={FaBell} Text="Calibrações" link={"/calibracoes"} />
+          <SidebarItem Icon={FaUser} Text="Conta" link={"/perfil"} />
+        </div>
+      </SideBarStyle>
   )
 }
 

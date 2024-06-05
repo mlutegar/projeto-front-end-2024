@@ -75,7 +75,7 @@ const ServicoPage = () => {
                     </div>
                 </div>
 
-                <div style={{marginBottom:40, marginLeft: 20, marginRight: 20}}>
+                <div style={{marginBottom:40, marginLeft: 20, marginRight: 20, fontSize: 30}}>
                     {botaoClicado === "Dados do usúario" && (
                         usuario ? (
                             <InformacoesPerfil

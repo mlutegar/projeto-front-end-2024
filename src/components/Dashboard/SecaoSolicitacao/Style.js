@@ -2,28 +2,51 @@ import styled from "styled-components";
 
 const SecaoSolicitacaoStyle = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 10px;
-
-    .btn {
-        background-color: white;  // Cor azul para os botões
-        color: rgb(2, 56, 89);
-        border: none;
-        padding: 8px 16px;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-
-        &:hover {
-            background-color: rgb(2, 56, 89); // Cor mais escura no hover
+    flex-wrap: wrap;
+    
+    .filtro{
+        display: flex;
+        gap: 4rem;
+        flex-wrap: wrap;
+        
+        button {
+            background-color: var(--primaria);
             color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+            
+            &:hover {
+                background-color: var(--destaque);
+                transform: scale(1.05);
+            }
+            
+            &:active {
+                transform: scale(0.95);
+            }
         }
+    }
 
-        &:active {
-            transform: scale(0.95);  // Efeito de clique reduzindo ligeiramente o tamanho
+    @media only screen and (max-width: 1330px) {
+        .filtro{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
+        
+        .filtro{
+            button{
+                height: 3rem;
+                border-radius: 1.1rem;
+            }    
+        }
+        
     }
 `
 

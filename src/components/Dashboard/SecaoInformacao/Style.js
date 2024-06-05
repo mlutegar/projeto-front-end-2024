@@ -1,60 +1,31 @@
 import styled from "styled-components";
 
 const SecaoInfoStyle = styled.article`
-
-    span{
-        font-size: 4rem;
-        font-weight: bold;
+    display: grid;
+    grid-template-areas:
+        "geral linha especifico"
+    ;
+    grid-template-columns: 1fr .2fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    justify-content: space-evenly;
+    
+    
+    .geral{
+        grid-area: geral;
+        margin: 0px 10px;
     }
     
-    button{
-        font-size: 2rem;
-        font-weight: bold;
-        padding: 10px;
-        border-radius: 10px;
+    .especifico{
+        grid-area: especifico;
+        margin: 0px 10px;
+    }
+    
+    .linha{
+        grid-area: linha;
+        width: 2px;
+        height: 90%;
         background-color: #023859FF;
-        color: white;
-        border: none;
-    }
-    
-    #circulo-laranja{
-        width: 20px;
-        height: 20px;
-        background-color: #FFA500;
-        border-radius: 50%;
-    }
-    
-    #circulo-verde{
-        width: 20px;
-        height: 20px;
-        background-color: #008000;
-        border-radius: 50%;
-    }
-    
-    .container{
-        display: grid;
-        grid-template-areas:
-            "tipo"
-            "info"
-            "setas"
-        ;
-        grid-template-rows: 2fr 6fr 1fr;
-        gap: 1px;
-    }
-    
-    .tipo{
-        grid-area: tipo;
-    }
-    
-    .info{
-        grid-area: info;
-    }
-    
-    .num{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
     }
 `;
 

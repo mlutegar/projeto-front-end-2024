@@ -1,18 +1,25 @@
 import styled from "styled-components";
 
 const AtualizacaoCardStyle = styled.article`
+    
+    
     .container{
+        padding: .5rem;
         display: grid;
         grid-template-areas:
             "icone id    linha"
             ".     acao  linha"
             ".     tempo linha"
         ;
-        grid-template-columns: 20px 280px 5px;
-        grid-template-rows: 20px 20px 20px;
+        grid-template-columns: .1fr 1fr .3fr;
+        grid-template-rows: 1fr 1fr 1fr;
         gap: 1px;
         background-color: white;
-        border-radius: 20px;
+        border-radius: 35px;
+        font-size: 1rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: .6rem;
+        
     }
     
     .icone{
@@ -46,6 +53,7 @@ const AtualizacaoCardStyle = styled.article`
     }
     
     .linha{
+        margin-left: 2rem;
         grid-area: linha;
         border-left: 5px solid #023859FF;
     }

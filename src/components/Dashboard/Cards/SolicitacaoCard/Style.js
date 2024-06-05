@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
-const Solicit = styled.div`
+const SolicitacaoCardStyle = styled.div`
     margin: 20px;
-    padding: 10px;
-    width: 300px;
+    padding: .6rem;
+    font-size: 1rem;
+    width: 15rem;
     border-radius: 35px;
     background-color: var(--background);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
     button {
         border-radius: 15px;
-        height: 20px;
-        width: 100px;
+        height: 2rem;
+        width: 7rem;
         background-color: var(--primaria);
         color: #fff;
         border: none;
@@ -43,4 +45,4 @@ const Solicit = styled.div`
 
 `;
 
-export {Solicit};
+export {SolicitacaoCardStyle};

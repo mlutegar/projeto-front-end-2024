@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const SecaoAtualizacaoStyle = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 10px;
 
@@ -25,9 +25,14 @@ const SecaoAtualizacaoStyle = styled.div`
             transform: scale(0.95);  // Efeito de clique reduzindo ligeiramente o tamanho
         }
     }
-
-    .voltar-button, .avancar-button {
-        // Se necessário, estilos específicos para voltar ou avançar podem ser adicionados aqui
+    
+    #cards{
+        display: flex;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
     }
 `
 

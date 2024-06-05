@@ -1,44 +1,97 @@
 import styled from "styled-components";
 
 const SecaoStyle = styled.article`
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    grid-template-rows: auto auto 50px;
+    grid-template-columns: auto;
     background-color: var(--detalhe);
     border-radius: 3rem;
     height: 100%;
-  
-    img{
-        height: 30px;
-    }
+    color: var(--secundaria);
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    flex-wrap: wrap;
     
-    div.secao{
-        color: var(--secundaria);
-        text-align: center;
-        font-size: larger;
-        font-weight: bold;
-        padding: 10px;
-    }
-    
-    div.header {
+    .header {
+        grid-area: header;
         display: flex;
+        flex-wrap: wrap;
+        
         justify-content: space-between;
         align-items: center;
-        padding: 20px;
-        margin-left: 3em;
-        margin-right: 3em;
+        margin-top: 2rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        
+        .navbar{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .acessarButton{
+            background-color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .acessarButton:hover{
+            background-color: var(--destaque);
+            cursor: pointer;
+        }
+        
+        .acessarButton img{
+            height: 20px;
+        }
     }
     
-    div.nav1{
+    .navbar2{
+        display: none;
+    }
+
+    .titulo h1{
+        font-weight: lighter;
+        font-size: 2.5em;
+        border-bottom: 3px solid var(--primaria);
+    }
+    
+    .titulo{
         display: flex;
-        align-items: center;
     }
     
-    div.nav1 h1{
-        margin: 5px;
-        border-bottom: var(--primaria) solid 4px;
+    .content {
+        grid-area: content;
+        margin-bottom: 1rem;
+    }
+    
+    .footer {
+        grid-area: footer;
+        display: flex;
+        justify-content: center;
+    }
+
+    #infoButton{
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    
+    #infoButton svg{
+        color: var(--secundaria);
+        font-size: 2.5rem;
     }
     
     div.header button {
         border-radius: 15px;
-        height: 50px;
+        height: 3rem;
         background-color: var(--primaria);
         color: #fff;
         border: none;
@@ -58,18 +111,30 @@ const SecaoStyle = styled.article`
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 50px;
     }
-    
-    .infoButton{
-    
-    }
-    
-    .acessarButton{
 
+    @media only screen and (max-width: 1330px) {
+        .header{
+            .navbar{
+                display: none;
+            }
+        }
+        
+        .navbar2{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            
+        }
     }
-    
 
+    @media only screen and (max-width: 590px) {
+        .header{
+            .acessarButton{
+                display: none;
+            }
+        }
+    }
 `;
 
 export {SecaoStyle};

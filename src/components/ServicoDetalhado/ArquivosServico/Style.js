@@ -103,7 +103,7 @@ const ArquivoServicoStyle = styled.article`
     
     #titulo{
         display: flex;
-        align-items: center;
+        align-items: baseline;
     }
     
     #img-paciente{

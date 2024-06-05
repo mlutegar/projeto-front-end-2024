@@ -2,10 +2,11 @@ import { SecaoSolicitacaoStyle } from "./Style";
 
 import Secao from "../../Geral/Secoes/Secao/Secao";
 import {useState} from "react";
+import BotaoAvancarVoltar from "../../Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 
-function SecaoComponente(props) {
+function SecaoSolicitacao(props) {
     const [currentStartIndex, setCurrentStartIndex] = useState(0);
-    const itemsPerPage = 4;
+    const itemsPerPage = 5;
     const totalItems = props.solicitacoes.length;
 
     const avancar = () => {
@@ -21,32 +22,33 @@ function SecaoComponente(props) {
     }
 
 
-    return <Secao nome="Solicitações"
+    return <Secao nome="Últimas Solicitações"
                   pai={"/servicos"}
+                  info="Aqui você pode visualizar as últimas solicitações realizadas no sistema."
                   navbar={
-                      props.strings.map(props.callbackfn)
+                    <SecaoSolicitacaoStyle>
+                        <div className="filtro">
+                        {props.strings.map(props.callbackfn)}
+                        </div>
+                    </SecaoSolicitacaoStyle>
                   }
+                  pagina={true}
                   conteudo={
                       <SecaoSolicitacaoStyle>
-
-                          <div>
-                              <button className="btn" onClick={voltar}>
-                                  {"<"}
-                              </button>
-                          </div>
-
                           {props.solicitacoes.slice(currentStartIndex, currentStartIndex + itemsPerPage).map(
                               props.prop3
                           )}
-
-                          <div>
-                              <button className="btn" onClick={avancar}>
-                                  {">"}
-                              </button>
-                          </div>
                       </SecaoSolicitacaoStyle>
+                  }
+                  footer={
+                        <>
+                        <BotaoAvancarVoltar
+                            avancar={avancar}
+                            voltar={voltar}
+                        />
+                        </>
                   }
     />;
 }
 
-export default SecaoComponente;
+export default SecaoSolicitacao;

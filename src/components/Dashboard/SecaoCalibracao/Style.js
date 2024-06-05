@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 const SecaoCalibracaoStyle = styled.div`
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9rem;
-
+   svg {
+        color: black;
+        font-size: 1.5rem;
+   }
+   
     a {
         color: black;
     }
@@ -16,7 +18,7 @@ const SecaoCalibracaoStyle = styled.div`
     }
 
     td {
-        background-color: #D8E8F7;
+        background-color: white;
         text-align: center;
         padding: 1rem 1.5rem; // Aumentado para mais espaço
     }
@@ -29,6 +31,7 @@ const SecaoCalibracaoStyle = styled.div`
     }
 
     table {
+       font-size: 1.1rem;
         margin: auto;
         width: 100%;
         border-collapse: separate; // Permite o espaçamento entre células
@@ -61,5 +64,43 @@ const SecaoCalibracaoStyle = styled.div`
     .realizado {
         background-color: #86CF8D;
     }
+   
+    @media only screen and (max-width: 1400px) {
+       table{
+            font-size: 1rem; 
+       }
+    }
+
+   @media only screen and (max-width: 1250px) {
+      table{
+         font-size: 0.9rem;
+      }
+   }
+
+   @media only screen and (max-width: 710px) {
+      table td:nth-child(4),
+      table th:nth-child(4) {
+         display: none;
+      }
+      
+   }
+   
+    @media only screen and (max-width: 590px) {
+        table td:nth-child(3),
+        table th:nth-child(3) {
+            display: none;
+        }
+       
+       table td:nth-child(1),
+       table th:nth-child(1) {
+          display: none;
+       }
+
+       tr:nth-child(2) th:nth-child(2) {
+          border-radius: 15px 0 0 0; // Arredondando o canto superior esquerdo do primeiro cabeçalho
+       }
+       
+    }
+
    `
 export { SecaoCalibracaoStyle };

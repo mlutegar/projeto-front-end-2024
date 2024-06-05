@@ -3,6 +3,8 @@ import SecaoGenerio from "../../Geral/Secoes/SecaoGenerico/SecaoGenerio";
 import BotaoAvancarVoltar from "../../Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import { useState } from "react";
 import Secao from "../../Geral/Secoes/Secao/Secao";
+import InfoEspecifico from "../Cards/InfoEspecifico/InfoEspecifico";
+import InfoGeral from "../Cards/InfoGeral/InfoGeral";
 
 const SecaoInformacao = (props) => {
     // contarSolicitação: função que pega o json de solicitações e conta quantas solicitações estão abertas e fechadas do tipo do parâmetro e do status especificado no parâmetro
@@ -10,27 +12,40 @@ const SecaoInformacao = (props) => {
         return solicitacoes.filter((solicitacao) => solicitacao.tipo === tipo && solicitacao.status === status).length;
     }
 
+    // contarSolicitacaoTotal: função que pega o json de solicitações e conta quantas solicitações a partir do status especificado no parâmetro
+    const contarSolicitacaoTotal = (solicitacoes, status) => {
+        return solicitacoes.filter((solicitacao) => solicitacao.status === status).length;
+    }
+
     // solicitacoes: array que armazena os tipos de solicitações e seus respectivos status "aberto" e "fechado"
     const solicitacoes = [
         {
-            tipo: "Clinic Doscimetries",
-            aberto: contarSolicitacao(props.solicitacoes, "Clinic Doscimetries", "Pendente") + contarSolicitacao(props.solicitacoes, "Clinic Doscimetries", "Em andamento"),
-            fechado: contarSolicitacao(props.solicitacoes, "Clinic Doscimetries", "Concluído")
+            tipo: "Dosimetrias Clínicas",
+            aberto: contarSolicitacao(props.solicitacoes, "Dosimetrias Clínicas", "Pendente") + contarSolicitacao(props.solicitacoes, "Dosimetrias Clínicas", "Em andamento"),
+            fechado: contarSolicitacao(props.solicitacoes, "Dosimetrias Clínicas", "Concluído")
         },
         {
-            tipo: "Preclinic Doscimetries",
-            aberto: contarSolicitacao(props.solicitacoes, "Preclinic Doscimetries", "Pendente") + contarSolicitacao(props.solicitacoes, "Preclinic Doscimetries", "Em andamento"),
-            fechado: contarSolicitacao(props.solicitacoes, "Preclinic Doscimetries", "Concluído")
+            tipo: "Dosimetrias Pré-clínicas",
+            aberto: contarSolicitacao(props.solicitacoes, "Dosimetrias Pré-clínicas", "Pendente") + contarSolicitacao(props.solicitacoes, "Dosimetrias Pré-clínicas", "Em andamento"),
+            fechado: contarSolicitacao(props.solicitacoes, "Dosimetrias Pré-clínicas", "Concluído")
         },
         {
-            tipo: "Radiosynoviorthesis",
-            aberto: contarSolicitacao(props.solicitacoes, "Radiosynoviorthesis", "Pendente") + contarSolicitacao(props.solicitacoes, "Radiosynoviorthesis", "Em andamento"),
-            fechado: contarSolicitacao(props.solicitacoes, "Radiosynoviorthesis", "Concluído")
+            tipo: "Radiosinoviortese",
+            aberto: contarSolicitacao(props.solicitacoes, "Radiosinoviortese", "Pendente") + contarSolicitacao(props.solicitacoes, "Radiosinoviortese", "Em andamento"),
+            fechado: contarSolicitacao(props.solicitacoes, "Radiosinoviortese", "Concluído")
         },
         {
-            tipo: "Segmentation",
-            aberto: contarSolicitacao(props.solicitacoes, "Segmentation", "Pendente") + contarSolicitacao(props.solicitacoes, "Segmentation", "Em andamento"),
-            fechado: contarSolicitacao(props.solicitacoes, "Segmentation", "Concluído")
+            tipo: "Segmentação",
+            aberto: contarSolicitacao(props.solicitacoes, "Segmentação", "Pendente") + contarSolicitacao(props.solicitacoes, "Segmentação", "Em andamento"),
+            fechado: contarSolicitacao(props.solicitacoes, "Segmentação", "Concluído")
+        }
+    ];
+
+    //solicitacoesTotal: array que armazena o total de solicitações abertas e fechadas
+    const solicitacoesTotal = [
+        {
+            aberto: contarSolicitacaoTotal(props.solicitacoes, "Pendente") + contarSolicitacaoTotal(props.solicitacoes, "Em andamento"),
+            fechado: contarSolicitacaoTotal(props.solicitacoes, "Concluído")
         }
     ];
 
@@ -50,31 +65,25 @@ const SecaoInformacao = (props) => {
     return (
             <Secao
                 nome="Informações"
+                pagina={false}
+                info="Aqui você pode visualizar algumas informações sobre as solicitações disponíveis. Quantas solicitações estão abertas e fechadas de cada tipo e o total de solicitações abertas e fechadas."
                 conteudo={
                     <SecaoInfoStyle>
-                        <div className="container">
-                            <div className="tipo">
-                                {solicitacoes[index].tipo}
-                            </div>
+                        <div className="geral">
+                            <InfoGeral solicitacoes={solicitacoesTotal} index={0}/>
+                        </div>
+                        <div className="linha">
 
-                            <div className="info">
-                                <div className="num">
-                                    <span>{solicitacoes[index].aberto}</span>
-                                    <div id="circulo-laranja"></div>
-                                    Pedidos Abertos
-                                </div>
-                                <div className="num">
-                                    <span>{solicitacoes[index].fechado}</span>
-                                    <div id="circulo-verde"></div>
-                                    Pedidos Fechados
-                                </div>
-                            </div>
-
-                            <div style={{marginTop: 10}}>
-                                <BotaoAvancarVoltar voltar={voltar} avancar={avancar} />
-                            </div>
+                        </div>
+                        <div className="especifico">
+                            <InfoEspecifico solicitacoes={solicitacoes} index={index}/>
                         </div>
                     </SecaoInfoStyle>
+                }
+                footer={
+                    <>
+                        <BotaoAvancarVoltar voltar={voltar} avancar={avancar} />
+                    </>
                 }
             />
         );

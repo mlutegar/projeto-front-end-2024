@@ -8,7 +8,7 @@ import {useState} from "react";
 
 function SecaoCalibracao(props) {
     const [sliceIndex, setSliceIndex] = useState(0);
-    const itemsPerPage = 5;
+    const itemsPerPage = 3;
 
     const avancar = () => {
         if (sliceIndex < dadosCalibracoes.length - itemsPerPage) {
@@ -25,11 +25,23 @@ function SecaoCalibracao(props) {
     return <Secao
         pai="/calibracoes"
         nome="Calibrações"
+        info="Aqui você pode visualizar uma tabela rápida com as calibrações upadas no sistema. Você pode baixar a calibração clicando no botão de download."
+        pagina={true}
         conteudo={
             <SecaoCalibracaoStyle>
                 <div>
                     <Tabela
                         tipo="calibracao"
+                        head={
+                            <>
+                                <th>ID</th>
+                                <th>Calibração</th>
+                                <th>Usuário</th>
+                                <th>Isótopo</th>
+                                <th>Data</th>
+                                <th></th>
+                            </>
+                        }
                         linha={
                             <>
                                 {dadosCalibracoes.slice(sliceIndex, sliceIndex + itemsPerPage).map(
@@ -37,15 +49,16 @@ function SecaoCalibracao(props) {
                             </>
                         }
                     />
-
-                    <div style={{marginTop: 20}}>
-                        <BotaoAvancarVoltar
-                            avancar={avancar}
-                            voltar={voltar}
-                        />
-                    </div>
                 </div>
             </SecaoCalibracaoStyle>
+        }
+        footer={
+            <>
+                <BotaoAvancarVoltar
+                    avancar={avancar}
+                    voltar={voltar}
+                />
+            </>
         }
     />;
 }
