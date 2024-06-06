@@ -1,7 +1,45 @@
 import styled from "styled-components";
 
 const TabelaServicosStyle = styled.div`
-    
+
+    /* Adicione estas classes ao seu arquivo CSS */
+
+    .status-pendente {
+        background-color: #ffc107; /* amarelo */
+        color: white;
+    }
+
+    .status-em-andamento {
+        background-color: #17a2b8; /* azul claro */
+        color: white;
+    }
+
+    .status-concluido {
+        background-color: #28a745; /* verde */
+        color: white;
+    }
+
+    .status-nao-iniciado {
+        background-color: #6c757d; /* cinza */
+        color: white;
+    }
+
+    .status-imagens-erradas {
+        background-color: #dc3545; /* vermelho */
+        color: white;
+    }
+
+    .status-imagens-calibracao-errada {
+        background-color: #fd7e14; /* laranja */
+        color: white;
+    }
+
+    .status-calculo-processo {
+        background-color: #007bff; /* azul */
+        color: white;
+    }
+
+
     @media only screen and (max-width: 1400px) {
         table td:nth-child(2),
         table th:nth-child(2) {
