@@ -73,6 +73,7 @@ const SideBarStyle = styled.div`
             justify-content: space-around; /* Distribua os itens uniformemente */
             padding: 1rem; /* Ajuste o padding para melhor aparência */
             margin-top: 0; /* Remova a margem superior */
+            flex-wrap: wrap;
 
             h1 {
                 display: none; /* Esconda o título */

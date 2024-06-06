@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const CardEstilo = styled.div`
+    width: 100%;
+    
     .card {
         background: var(--primaria);
         border-radius: 10px;
