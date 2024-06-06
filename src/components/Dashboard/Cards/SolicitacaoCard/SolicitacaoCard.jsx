@@ -10,7 +10,7 @@ const SolicitacaoCard = (props) => (
             </Link>
         </div>
         <div id='tipo'>
-            <span>ID: {props.id}</span>
+            <span>{props.id}</span>
             <span><AiOutlineUser /> {props.cliente}</span>
             <span><AiOutlineCalendar /> {props.data}</span>
         </div>

@@ -94,10 +94,14 @@ const Cartao = (props) => {
 export default Cartao;
 
 const CartaoServicosStyle = styled.div`
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+
+    @media only screen and (max-width: 768px) {
+        display: flex;
+    }
 `;
 
 export { CartaoServicosStyle };
