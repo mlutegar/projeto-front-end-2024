@@ -1,12 +1,10 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import {createRoot} from "react-dom/client";
 
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Dashboard from "./pages/Dashboard";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
-import { auth } from "./config/Firebase";
-import { onAuthStateChanged } from "firebase/auth";
 import Calibracoes from "./pages/Calibracoes";
 import Servicos from "./pages/Servicos";
 import Perfil from "./pages/Perfil";
@@ -15,17 +13,9 @@ import ServicoPage from "./pages/ServicoPage";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-onAuthStateChanged(auth, (user)=> {
-  if (user) {
-    window.sessionStorage.setItem("accessToken", user.accessToken);
-  } else {
-    window.sessionStorage.removeItem("accessToken");
-  }
-});
-
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Dashboard/>} />
         <Route path="/calibracoes" element={<Calibracoes/>} />
@@ -36,6 +26,6 @@ root.render(
         <Route path="/perfil" element={<Perfil/>} />
         <Route path="/servicos" element={<Servicos/>} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
