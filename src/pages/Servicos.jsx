@@ -6,11 +6,7 @@ import Botao from "../components/Geral/Botoes/Botao/Botao";
 import Busca from "../components/Geral/Busca/Busca";
 import { Link } from "react-router-dom";
 import {
-    AiFillCheckCircle,
     AiFillDelete,
-    AiOutlineCloudDownload,
-    AiOutlineCloudUpload,
-    AiOutlineDownload
 } from "react-icons/ai";
 import {
     BsArrowUpRightCircle,
@@ -21,6 +17,8 @@ import {
 } from "react-icons/bs";
 import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import {TabelaServicosStyle} from "../components/Servicos/Style";
+import {uploadArquivo} from "../utils/TabelaUtils";
+import Cartao, {CartaoServicosStyle} from "../components/Cartao";
 
 const Servicos = () => {
     const tipos = [
@@ -110,44 +108,6 @@ const Servicos = () => {
         }
     };
 
-    const uploadArquivo = (id) => {
-        const input = document.createElement("input");
-        input.type = "file";
-        input.onchange = (event) => {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = (e) => {
-                const base64 = e.target.result;
-                localStorage.setItem(id, base64);
-                alert("Arquivo salvo no localStorage!");
-            };
-
-            reader.readAsDataURL(file);
-
-
-            atualizarNomeArquivo(id);
-            atualizarStatus(id);
-        };
-        input.click();
-    };
-
-    const atualizarNomeArquivo = (id) => {
-        setSolicitacoes(prevSolicitacoes =>
-            prevSolicitacoes.map(solicitacao =>
-                solicitacao.id === id ? { ...solicitacao, relatorio: `relatorio_${id}.pdf` } : solicitacao
-            )
-        );
-    };
-
-    const atualizarStatus = (id) => {
-        setSolicitacoes(prevSolicitacoes =>
-            prevSolicitacoes.map(solicitacao =>
-                solicitacao.id === id ? { ...solicitacao, status: "Em andamento" } : solicitacao
-            )
-        );
-    };
-
     const concluirSolicitacao = (id) => {
         setSolicitacoes(prevSolicitacoes =>
             prevSolicitacoes.map(solicitacao =>
@@ -204,6 +164,8 @@ const Servicos = () => {
 
     const displayedSolicitacoes = solicitacoes.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 
+
+
     return (
         <Base titulo="Serviços">
             <div style={{ display: 'flex', justifyContent: "space-between", marginBottom: 25, marginTop: 30 }}>
@@ -242,6 +204,7 @@ const Servicos = () => {
                 />
             </div>
 
+
             <TabelaServicosStyle>
                 <Tabela
                     tipo="servico"
@@ -277,7 +240,7 @@ const Servicos = () => {
                                     <tr key={index}>
                                         <td><Link to={"/servico/" + solicitacao.id}>
                                             <button>
-                                                <BsArrowUpRightCircle />
+                                                <BsArrowUpRightCircle/>
                                             </button>
                                         </Link></td>
                                         <td>{solicitacao.codigo}</td>
@@ -303,24 +266,30 @@ const Servicos = () => {
                                         </td>
                                         <td className={
                                             solicitacao.status === "Pendente" ? "status-pendente" :
-                                                solicitacao.status === "Em andamento" ? "status-em-andamento" :
+                                                solicitacao.status === "Em andamento" ? "status-andamento" :
                                                     solicitacao.status === "Concluído" ? "status-concluido" :
                                                         solicitacao.status === "Não iniciado" ? "status-nao-iniciado" :
                                                             solicitacao.status === "Imagens de pacientes erradas, enviar novamente" ? "status-imagens-erradas" :
-                                                                solicitacao.status === "Imagens de calibração errada, enviar novamente" ? "status-imagens-calibracao-errada" :
-                                                                    solicitacao.status === "Calculo em processo" ? "status-calculo-processo" : ""
+                                                                solicitacao.status === "Imagens de calibração errada, enviar novamente" ? "status-calibracao-errada" :
+                                                                    solicitacao.status === "Calculo em processo" ? "status-calculo" : ""
                                         }>
                                             <div className="status-botao">
-                                                {solicitacao.status}
+                                                {solicitacao.status === "Pendente" ? "Pendente" :
+                                                    solicitacao.status === "Em andamento" ? "Em andamento" :
+                                                        solicitacao.status === "Concluído" ? "Concluído" :
+                                                            solicitacao.status === "Não iniciado" ? "Não iniciado" :
+                                                                solicitacao.status === "Imagens de pacientes erradas, enviar novamente" ? "Imagens erradas" :
+                                                                    solicitacao.status === "Imagens de calibração errada, enviar novamente" ? "Calibração errada" :
+                                                                        solicitacao.status === "Calculo em processo" ? "Cálculo" : solicitacao.status}
+
                                                 {solicitacao.status === "Em andamento" && solicitacao.relatorio !== "-" && (
-                                                    <button
-                                                        onClick={() => concluirSolicitacao(solicitacao.id)}
-                                                    >
-                                                        <BsCheckCircleFill />
+                                                    <button onClick={() => concluirSolicitacao(solicitacao.id)}>
+                                                        <BsCheckCircleFill/>
                                                     </button>
                                                 )}
                                             </div>
                                         </td>
+
                                         <td>
                                             <div style={{
                                                 display: "flex",
@@ -332,29 +301,40 @@ const Servicos = () => {
                                                     {solicitacao.imagem}
                                                 </div>
                                                 <button onClick={() => baixarArquivo(solicitacao.imagem)}>
-                                                    <BsCloudDownloadFill />
+                                                    <BsCloudDownloadFill/>
                                                 </button>
                                             </div>
                                         </td>
                                         <td>
                                             {solicitacao.relatorio === "-" ? (
-                                                <div style={{ display: "flex", alignItems: "center", gap: 20, justifyContent: "flex-end" }}>
+                                                <div style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: 20,
+                                                    justifyContent: "flex-end"
+                                                }}>
                                                     <div className="ocultar">
                                                         {solicitacao.relatorio}
                                                     </div>
-                                                    <button onClick={() => uploadArquivo(solicitacao.id)}>
-                                                        <div style={{ display: "relative", left: 10 }}>
-                                                            <BsCloudUploadFill />
+                                                    <button
+                                                        onClick={() => uploadArquivo(solicitacao.id, setSolicitacoes)}>
+                                                        <div style={{display: "relative", left: 10}}>
+                                                            <BsCloudUploadFill/>
                                                         </div>
                                                     </button>
                                                 </div>
                                             ) : solicitacao.status === "Em andamento" ? (
-                                                <div style={{ display: "flex", alignItems: "center", gap: 20, justifyContent: "flex-end" }}>
+                                                <div style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: 20,
+                                                    justifyContent: "flex-end"
+                                                }}>
                                                     <div className="ocultar">
                                                         {solicitacao.relatorio}
                                                     </div>
                                                     <button onClick={() => deletarArquivo(solicitacao.id)}>
-                                                        <AiFillDelete />
+                                                        <AiFillDelete/>
                                                     </button>
                                                 </div>
                                             ) : (
@@ -373,7 +353,55 @@ const Servicos = () => {
                 />
             </TabelaServicosStyle>
 
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
+            <CartaoServicosStyle>
+                <Cartao
+                    tipo="servico"
+                    linha={
+                        <>
+                            {displayedSolicitacoes.map((solicitacao, index) => (
+                                <div className="card" key={index}>
+                                    <div className="card-header">
+                                        <Link to={"/servico/" + solicitacao.id}>
+                                            <button>
+                                                <BsArrowUpRightCircle />
+                                            </button>
+                                        </Link>
+                                    </div>
+                                    <div className="card-body">
+                                        <p><strong>Código:</strong> {solicitacao.codigo}</p>
+                                        <p><strong>Nome:</strong> {solicitacao.analise}</p>
+                                        <p><strong>Usuário:</strong> {solicitacao.cliente}</p>
+                                        <p><strong>Status:</strong> <span className={`status ${solicitacao.status}`}>{solicitacao.status}</span></p>
+                                        <div>
+                                            <strong>Imagem:</strong>
+                                            <button onClick={() => baixarArquivo(solicitacao.imagem)}>
+                                                <BsCloudDownloadFill />
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <strong>Relatório:</strong>
+                                            {solicitacao.relatorio === "-" ? (
+                                                <button onClick={() => uploadArquivo(solicitacao.id, setSolicitacoes)}>
+                                                    <BsCloudUploadFill />
+                                                </button>
+                                            ) : solicitacao.status === "Em andamento" ? (
+                                                <button onClick={() => deletarArquivo(solicitacao.id)}>
+                                                    <AiFillDelete />
+                                                </button>
+                                            ) : (
+                                                solicitacao.relatorio
+                                            )}
+                                        </div>
+                                        <p><strong>Criado em:</strong> {solicitacao.date}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </>
+                    }
+                />
+            </CartaoServicosStyle>
+
+            <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
                 <BotaoAvancarVoltar
                     avancar={avancar}
                     voltar={voltar}

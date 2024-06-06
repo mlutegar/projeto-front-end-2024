@@ -4,40 +4,62 @@ const TabelaServicosStyle = styled.div`
 
     /* Adicione estas classes ao seu arquivo CSS */
 
+
     .status-pendente {
-        background-color: #ffc107; /* amarelo */
-        color: white;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
     }
 
-    .status-em-andamento {
-        background-color: #17a2b8; /* azul claro */
-        color: white;
+    .status-andamento {
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
     }
 
     .status-concluido {
-        background-color: #28a745; /* verde */
-        color: white;
+        background-color: var(--success-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
     }
 
     .status-nao-iniciado {
-        background-color: #6c757d; /* cinza */
-        color: white;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
     }
 
     .status-imagens-erradas {
-        background-color: #dc3545; /* vermelho */
-        color: white;
+        background-color: var(--danger-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
     }
 
-    .status-imagens-calibracao-errada {
-        background-color: #fd7e14; /* laranja */
-        color: white;
+    .status-calibracao-errada {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
     }
 
-    .status-calculo-processo {
-        background-color: #007bff; /* azul */
-        color: white;
+    .status-calculo {
+        background-color: var(--success-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
     }
+
 
 
     @media only screen and (max-width: 1400px) {
@@ -83,11 +105,8 @@ const TabelaServicosStyle = styled.div`
         }
     }
 
-    @media only screen and (max-width: 700px) {
-        table td:nth-child(10),
-        table th:nth-child(10) {
-            display: none;
-        }
+    @media only screen and (max-width: 768px) {
+        display: none;
     }
 `;
 

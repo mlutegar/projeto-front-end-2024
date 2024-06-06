@@ -12,6 +12,12 @@
   --destaque: #58788C;
   --detalhe: #ccd5dd;
 
+  --primary-color: #ffc107; /* amarelo */
+  --secondary-color: #17a2b8; /* azul claro */
+  --success-color: #28a745; /* verde */
+  --danger-color: #dc3545; /* vermelho */
+  --text-color: #fff;
+
 
 /*  --primaria: hsla(0, 1%, 20%, 1);
   --background: hsla(81, 21%, 74%, 1);
