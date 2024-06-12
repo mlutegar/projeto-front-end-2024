@@ -6,7 +6,7 @@ import BotaoAvancarVoltar from "../../Geral/Botoes/BotaoAvancarVoltar/BotaoAvanc
 
 function SecaoSolicitacao(props) {
     const [currentStartIndex, setCurrentStartIndex] = useState(0);
-    const itemsPerPage = 5;
+    const itemsPerPage = 4;
     const totalItems = props.solicitacoes.length;
 
     const avancar = () => {

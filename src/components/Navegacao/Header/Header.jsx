@@ -57,8 +57,8 @@ const Header = ({ onSidebarToggle }) => {
           </div>
 
           <div id='nav2'>
-            <Link to="/dashboard"><Tab isActive={activeTab === "dashboard"}>Dashboard</Tab></Link>
-            <Link to="/servicos"><Tab isActive={activeTab === "servicos"}>Serviços</Tab></Link>
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/servicos">Serviços</Link>
           </div>
         </HeaderStyle>
 

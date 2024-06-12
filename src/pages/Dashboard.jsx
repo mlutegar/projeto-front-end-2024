@@ -1,6 +1,6 @@
 import Base from "./Base"
 import Secao from "../components/Geral/Secoes/Secao/Secao";
-import SolicitacaoCard from "../components/Dashboard/Cards/SolicitacaoCard/SolicitacaoCard";
+import SolicitacaoCard from "../components/SolicitacaoCard/SolicitacaoCard";
 import dadosSolicitacoes from "../data/solicitacoes.json";
 import dadosCalibracoes from "../data/calibracoes.json";
 import dadosAtualizacoes from "../data/atualizacoes.json";

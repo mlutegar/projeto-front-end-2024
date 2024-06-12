@@ -5,7 +5,7 @@
 
     function SecaoAtualizacao(props) {
         const [currentStartIndex, setCurrentStartIndex] = useState(0);
-        const itemsPerPage = 4;
+        const itemsPerPage = 3;
         const totalItems = props.atualizacoes.length;
 
         const avancar = () => {
