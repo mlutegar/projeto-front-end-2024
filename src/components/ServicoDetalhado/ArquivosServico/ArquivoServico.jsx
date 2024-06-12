@@ -1,6 +1,9 @@
 import {ArquivoServicoStyle} from "./Style";
 import SecaoGenerio from "../../Geral/Secoes/SecaoGenerico/SecaoGenerio";
 import {useState} from "react";
+import {BsXLg} from "react-icons/bs";
+import {IoCloseCircle} from "react-icons/io5";
+import {FaCheckSquare} from "react-icons/fa";
 
 // // estadoRelatorio: estado que guarda a situação do relatório
 // const [estadoRelatorio, setEstadoRelatorio] = useState();
@@ -49,6 +52,13 @@ const baixarArquivo = () => {
 // }
 
 
+function handleDeletar() {
+    const confirmacao = window.confirm("Tem certeza que deseja deletar este arquivo?");
+    if (confirmacao) {
+        alert("Arquivo deletado com sucesso!");
+    }
+}
+
 const ArquivoServico = (props) => (
         <ArquivoServicoStyle>
             <div>
@@ -64,9 +74,11 @@ const ArquivoServico = (props) => (
                     <div id="img-paciente" className="download">
                         <label
                             for="img-paciente"
-                        >Imagem do paciente</label>
+                        >Imagem do paciente {props.imgPaciente === "-" ? <IoCloseCircle  className="icon" />: <FaCheckSquare className="icon-acerto"/>}</label>
                         <p>
-                            Arquivo enviado pelo cliente: {props.cliente}
+                            {props.imgPaciente === "-" ? "Nenhuma imagem enviada" : <>
+                                {props.imgPaciente}
+                            </>}
                         </p>
 
                         <button onClick={uploadArquivo}>
@@ -74,15 +86,20 @@ const ArquivoServico = (props) => (
                         </button>
                         <button onClick={() => baixarArquivo("img")}>
                             Download File
+                        </button>
+                        <button onClick={() => baixarArquivo("img")}>
+                            Remove File
                         </button>
                     </div>
 
                     <div id="img-calibracao" className="download">
                         <label
                             for="img-calibracao"
-                        >Imagem da calibração</label>
+                        >Imagem da calibração {props.imgCalibracao === "-" ? <IoCloseCircle  className="icon" />: <FaCheckSquare className="icon-acerto"/>}</label>
                         <p>
-                            Arquivo enviado pelo cliente: {props.cliente}
+                            {props.imgCalibracao === "-" ? "Nenhuma imagem enviada" : <>
+                                {props.imgCalibracao}
+                            </>}
                         </p>
                         <button onClick={uploadArquivo}>
                             Upload file
@@ -90,31 +107,35 @@ const ArquivoServico = (props) => (
                         <button onClick={() => baixarArquivo("img")}>
                             Download File
                         </button>
+                        <button onClick={() => baixarArquivo("img")}>
+                            Remove File
+                        </button>
                     </div>
 
                     <div id="relatorio" className="download">
-                        <label
-                            for="relatorio"
-                        >Relatório</label>
+                        <label for="relatorio">Relatório {props.relatorio === "-" ? <IoCloseCircle  className="icon" />: <FaCheckSquare className="icon-acerto"/>}  </label>
                         <p>
-                            Situação: {props.situacao}
+                            {props.relatorio === "-" ? "Nenhum relatório enviado" : <>
+                                {props.relatorio}
+                            </>}
                         </p>
                         <button onClick={uploadArquivo}>
                             Upload file
                         </button>
                         {props.situacao === "Enviado" ? (
-                            <button onClick={() => baixarArquivo("img")}>
-                                Download File
-                            </button>
+                            <>
+                                <button onClick={() => baixarArquivo("img")}>
+                                    Download File
+                                </button>
+                                <button onClick={() => baixarArquivo("img")}>
+                                    Remove File
+                                </button>
+                            </>
+
                         ) : (
                             <></>
                         )
                         }
-                    </div>
-                    <div id="salvar">
-                        <button>
-                            Salvar
-                        </button>
                     </div>
                 </div>
 

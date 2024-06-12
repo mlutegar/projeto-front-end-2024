@@ -5,7 +5,8 @@ const Botao = (props) => (
         <button
             style={{
                 backgroundColor: props.isActive ? '#023859' : 'white',
-                color: props.isActive ? 'white' : '#023859'
+                color: props.isActive ? 'white' : '#023859',
+                border: props.isActive ? 'none' : '0.1px solid #023859'
             }}
 
             onClick={props.onClick}

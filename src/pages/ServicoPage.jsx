@@ -6,11 +6,35 @@ import SecaoGenerio from "../components/Geral/Secoes/SecaoGenerico/SecaoGenerio"
 import Botao from "../components/Geral/Botoes/Botao/Botao";
 import {useRef, useState} from "react";
 import ArquivoServico from "../components/ServicoDetalhado/ArquivosServico/ArquivoServico";
-import BotaoAtencao from "../components/Geral/Botoes/BotaoAtencao/BotaoAtencao";
+import styled from "styled-components";
+import {BsBellFill} from "react-icons/bs";
+import {MdOutlineWarning} from "react-icons/md";
+
+const BotoesPaginasServicoPageStyle = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+`;
+
+const BotoesPaginasServicoPage = (props) => (
+    <BotoesPaginasServicoPageStyle>
+        <Botao
+            text="Dados do usúario"
+            isActive={props.botaoClicado === "Dados do usúario"}
+            onClick={() => props.onClick("Dados do usúario")}
+        />
+        
+        <Botao
+            text="Arquivos"
+            isActive={props.botaoClicado === "Arquivos"}
+            onClick={() => props.onClick("Arquivos")}
+        />
+    </BotoesPaginasServicoPageStyle>
+)
 
 const ServicoPage = () => {
     // id: variável que armazena o id da solicitação que será passado pela URL, e é usado para buscar as informações da solicitação
-    const { id } = useParams();
+    const {id} = useParams();
 
     // botaoClicado: variável que armazena o nome do botão que foi clicado, e é usada para determinar qual seção será exibida, sendo "Dados do usúario" a seção padrão exibida e "Arquivos" a seção exibida ao clicar no botão "Arquivos"
     const [botaoClicado, setBotaoClicado] = useState("Dados do usúario");
@@ -44,42 +68,44 @@ const ServicoPage = () => {
         <Base
             titulo={"Serviço - " + servico.id}
         >
-            <div style={{marginBottom: 40}}>
+            <div style={{}}>
                 <Link style={{textDecoration: "none", color: "black"}} to={"/Servicos"}>
-                <span style={{fontSize: 20}}>
-                    {`<`} Voltar para serviços
+                <span style={{fontSize: 15}}>
+                    {`<-`} Voltar para serviços
                 </span>
                 </Link>
             </div>
-            <SecaoGenerio>
-                <div style={{display: "flex", justifyContent: "space-between", marginLeft: 50, marginRight: 50, marginBottom: 40}}>
-                    <div style={{display: "flex", justifyContent: "left", marginLeft: 50, gap: 10}}>
-                        <Botao
-                            text="Dados do usúario"
-                            isActive={botaoClicado === "Dados do usúario"}
-                            onClick={() => trocarSecao("Dados do usúario")}
-                        />
 
-                        <Botao
-                            text="Arquivos"
-                            isActive={botaoClicado === "Arquivos"}
-                            onClick={() => trocarSecao("Arquivos")}
-                        />
-                    </div>
+            <div style={{display: 'flex', justifyContent: "space-between", marginBottom: 25, marginTop: 30}}>
+                <BotoesPaginasServicoPage onClick={trocarSecao} botaoClicado={botaoClicado}/>
+            </div>
 
-                    {/*<div>*/}
-                    {/*    <BotaoAtencao*/}
-                    {/*        text="Deletar serviço"*/}
-                    {/*        onClick={() => deleteServico()}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
+            <>
+                <div>
+                    <h2>
+                        <MdOutlineWarning style={{fontSize: 40, color: '#ffce08', position: 'relative', top: 12}} /> FALTANDO: {
+                        servico ? (
+                            servico.status === " Imagens de pacientes erradas, enviar novamente" ? (
+                                <span style={{color: "red"}}>Imagens Paciente</span>
+                            ) : servico.status === " Imagens de calibração errada, enviar novamente" ? (
+                                <span style={{color: "red"}}>Imagens Calibração</span>
+                            ) : servico.status === "Concluído" ? (
+                                <span style={{color: "green"}}>Nada!</span>
+                            ) : (
+                                <span style={{color: "red"}}>Relatório</span>
+                            )
+                        ) : (
+                            <span style={{color: "red"}}>Em andamento</span>
+                        )
+                    }</h2>
                 </div>
 
-                <div style={{marginBottom:40, marginLeft: 20, marginRight: 20, fontSize: 20}}>
+                <div style={{marginTop: 40, fontSize: 20}}>
                     {botaoClicado === "Dados do usúario" && (
                         servico ? (
                             <InformacoesServico
                                 Analyses={servico.analise}
+                                Id={servico.id}
                                 Status={servico.status}
                                 Injetected={servico.atividade}
                                 Data={servico.date}
@@ -95,7 +121,11 @@ const ServicoPage = () => {
                             <ArquivoServico
                                 titulo="Arquivos"
                                 cliente={servico.cliente}
+                                id={servico.id}
                                 situacao={servico.status}
+                                imgPaciente={servico.imagem}
+                                imgCalibracao={servico.calibracao}
+                                relatorio={servico.relatorio}
                             />
                         ) : (
                             <p>Serviço não encontrado ou ID inválido.</p>
@@ -105,7 +135,7 @@ const ServicoPage = () => {
                 </div>
 
 
-            </SecaoGenerio>
+            </>
         </Base>
     );
 

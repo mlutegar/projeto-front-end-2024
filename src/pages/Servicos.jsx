@@ -79,6 +79,7 @@ const Servicos = () => {
 
     useEffect(() => {
         filtrar();
+        ordenarStatus();
     }, [tipoConsulta]);
 
     const filtrar = () => {

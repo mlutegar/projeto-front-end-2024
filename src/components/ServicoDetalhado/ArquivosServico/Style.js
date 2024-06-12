@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const ArquivoServicoStyle = styled.article`
-    background-color: white;
-    height: 500px;
+    background-color: var(--detalhe);
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
@@ -20,14 +19,37 @@ const ArquivoServicoStyle = styled.article`
         grid-template-rows: repeat(4,8rem);
         gap: .3rem;
         padding: .3rem;
+
+        #secao-selecionada{
+            grid-area: p;
+        }
+
+        #img-paciente{
+            grid-area: a;
+        }
+
+        #img-calibracao{
+            grid-area: b;
+
+            .btn-vazio button{
+                width: 1px;
+            }
+        }
+
+        #relatorio{
+            grid-area: c;
+        }
+
+        #salvar{
+            grid-area: e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
     
     label{
         display: block;
-    }
-
-    #container > div{
-
     }
     
     label{
@@ -43,26 +65,25 @@ const ArquivoServicoStyle = styled.article`
     
     #salvar button{
         padding: .3rem;
-        width: 100px;
         border-radius: .3rem;
         border: none;
         background-color: green;
         color: white;
         cursor: pointer;
-    }
-
-    #salvar button:hover{
-        background-color: darkgreen;
-    }
-
-    #salvar button:active {
-        background-color: green;
+        
+        :hover{
+            cursor: pointer;
+            background-color: darkgreen;
+        }
+        
+        :active{
+            background-color: green;
+}
     }
     
     .download button{
         padding: 15px;
         border-radius: 10px;
-        width: 200px;
         height: 50px;
         font-weight: bold;
         border: 1px solid #023859;
@@ -72,6 +93,7 @@ const ArquivoServicoStyle = styled.article`
     }
     
     .download button:hover{
+        cursor: pointer;
         background-color: var(--destaque);
     }
     
@@ -96,34 +118,46 @@ const ArquivoServicoStyle = styled.article`
         background-color: var(--primaria);
     }
     
-    #secao-selecionada{
-        grid-area: p;
-        margin-top: 10px;
-    }
+    
     
     #titulo{
         display: flex;
         align-items: baseline;
     }
     
-    #img-paciente{
-        grid-area: a;
-    }
     
-    #img-calibracao{
-        grid-area: b;
+
+    .icon{
+        //style={{ color: 'red', fontSize: '14px', marginRight: '20px' }}
+        color: red;
+        font-size: 24px;
+        margin-right: 20px;
+        position: relative;
+        top: 2.5px;
+
+        :hover{
+            cursor: pointer;
+        }
+
+        :active{
+            color: darkred;
+        }
     }
-    
-    #relatorio{
-        grid-area: c;
-    }
-    
-    #salvar{
-        grid-area: e;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-`
+
+    .icon-acerto{
+        color: green;
+        font-size: 24px;
+        margin-right: 20px;
+        position: relative;
+        top: 2.5px;
+
+        :hover{
+            cursor: pointer;
+        }
+
+        :active{
+            color: darkgreen;
+        }
+    }`
 
 export { ArquivoServicoStyle };

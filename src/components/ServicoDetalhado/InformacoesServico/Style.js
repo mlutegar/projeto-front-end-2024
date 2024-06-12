@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const InformacoesServicoStyle = styled.article`
-    background-color: white;
+    background-color: var(--detalhe);
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
@@ -19,15 +19,47 @@ const InformacoesServicoStyle = styled.article`
         grid-template-rows: repeat(5,6rem);
         gap: .3rem;
         padding: .3rem;
+
+        #item2{
+            grid-area: a;
+        }
+
+        #item3{
+            grid-area: b;
+        }
+
+        #item4{
+            grid-area: c;
+        }
+
+        #item5{
+            grid-area: d;
+        }
+
+        #item6{
+            grid-area: g;
+        }
+
+        #item7{
+            grid-area: i;
+        }
+
+        #item8{
+            grid-area: e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #secao-selecionada{
+            grid-area: p;
+        }
     }
     
     label{
         display: block;
     }
-
-    #container > div{
-
-    }
+    
     
     label{
         font-weight: bold;
@@ -35,6 +67,14 @@ const InformacoesServicoStyle = styled.article`
     }
     
     input{
+        margin-top: 5px;
+        width: 70%;
+        padding: .3rem;
+        border-radius: .3rem;
+        border: 1px solid #ccc;
+    }
+    
+    select{
         margin-top: 5px;
         width: 70%;
         padding: .3rem;
@@ -82,46 +122,14 @@ const InformacoesServicoStyle = styled.article`
         background-color: var(--primaria);
     }
     
-    #secao-selecionada{
-        grid-area: p;
-        margin-top: 10px;
-    }
+
     
     #titulo{
         display: flex;
         align-items: baseline;
     }
     
-    #item2{
-        grid-area: a;
-    }
     
-    #item3{
-        grid-area: b;
-    }
-    
-    #item4{
-        grid-area: c;
-    }
-    
-    #item5{
-        grid-area: d;
-    }
-    
-    #item6{
-        grid-area: g;
-    }
-    
-    #item7{
-        grid-area: i;
-    }
-    
-    #item8{
-        grid-area: e;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 `
 
 export { InformacoesServicoStyle };
