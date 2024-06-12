@@ -10,42 +10,45 @@ const ArquivoServicoStyle = styled.article`
         display: grid;
         height: 100%;
         grid-template-areas:
-            "p p p p"
-            ". a c ."
-            ". b c ."
-            ". e e ."
+            "header"
+            "body"
         ;
-        grid-template-columns: auto auto auto auto;
-        grid-template-rows: repeat(4,8rem);
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2, auto);
         gap: .3rem;
         padding: .3rem;
 
-        #secao-selecionada{
-            grid-area: p;
+        #header{
+            grid-area: header;
         }
+        
+        #body{
+            display: grid;
+            grid-template-areas:
+                "a b"
+                "c c"
+            ;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+            justify-items: center;
+            
+            #img-paciente{
+                grid-area: a;
+            }
 
-        #img-paciente{
-            grid-area: a;
-        }
+            #img-calibracao{
+                grid-area: b;
 
-        #img-calibracao{
-            grid-area: b;
+                .btn-vazio button{
+                    width: 1px;
+                }
+            }
 
-            .btn-vazio button{
-                width: 1px;
+            #relatorio{
+                grid-area: c;
             }
         }
 
-        #relatorio{
-            grid-area: c;
-        }
-
-        #salvar{
-            grid-area: e;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
     }
     
     label{
@@ -57,7 +60,7 @@ const ArquivoServicoStyle = styled.article`
         color: black;
     }
     
-    p{
+    header{
         color: black;
         font-weight: lighter;
         font-size: 0.7rem;
