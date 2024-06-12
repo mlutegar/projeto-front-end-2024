@@ -28,7 +28,7 @@ function SecaoSolicitacao(props) {
                   navbar={
                     <SecaoSolicitacaoStyle>
                         <div className="filtro">
-                        {props.strings.map(props.callbackfn)}
+                            {props.strings.map(props.callbackfn)}
                         </div>
                     </SecaoSolicitacaoStyle>
                   }
