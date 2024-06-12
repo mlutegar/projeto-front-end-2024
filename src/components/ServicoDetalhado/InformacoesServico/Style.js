@@ -9,50 +9,64 @@ const InformacoesServicoStyle = styled.article`
     #container{
         display: grid;
         grid-template-areas:
-            "p p p p"
-            ". a b ."
-            ". c d ."
-            ". g i ."
-            ". e e ."
+            "header"
+            "body"
+            "footer"
         ;
-        grid-template-columns: auto auto auto auto;
-        grid-template-rows: repeat(5,6rem);
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
         gap: .3rem;
         padding: .3rem;
 
-        #item2{
-            grid-area: a;
-        }
-
-        #item3{
-            grid-area: b;
-        }
-
-        #item4{
-            grid-area: c;
-        }
-
-        #item5{
-            grid-area: d;
-        }
-
-        #item6{
-            grid-area: g;
-        }
-
-        #item7{
-            grid-area: i;
-        }
-
-        #item8{
-            grid-area: e;
+        #footer{
+            grid-area: footer;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        #secao-selecionada{
-            grid-area: p;
+        #header{
+            grid-area: header;
+        }
+        
+        #body{
+            grid-area: body;
+            
+            display: grid;
+            grid-template-areas:
+                "item2 item3"
+                "item4 item5"
+                "item6 item7"
+            ;
+            grid-template-columns: repeat(2,auto);
+            grid-template-rows: repeat(3,auto);
+            gap: .3rem;
+            padding: .3rem;
+            text-align: center;
+            
+            #item2{
+                grid-area: item2;
+            }
+            
+            #item3{
+                grid-area: item3;
+            }
+            
+            #item4{
+                grid-area: item4;
+            }
+            
+            #item5{
+                grid-area: item5;
+            }
+            
+            #item6{
+                grid-area: item6;
+            }
+            
+            #item7{
+                grid-area: item7;
+            }
         }
     }
     
