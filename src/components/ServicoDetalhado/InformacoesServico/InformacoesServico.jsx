@@ -1,6 +1,25 @@
 import {InformacoesServicoStyle} from "./Style";
 import {useState} from "react";
 
+import styled from 'styled-components';
+
+const ComponenteInputStyle = styled.div`
+
+`;
+
+const ComponenteInput = (props) => {
+    return (
+        <ComponenteInputStyle>
+            <label htmlFor="Analyses">{props.label}</label>
+            <input
+                type="text"
+                placeholder={props.placeholder}
+                name={props.nome}
+            />
+        </ComponenteInputStyle>
+    );
+};
+
 
 const statusOptions = [
     "Não iniciado",
@@ -36,8 +55,11 @@ const InformacoesServico = (props) => {
 
                 <div id="body">
                     <div id="item2">
-                        <label for="Analyses" >Analyses Name</label>
-                        <input type="text" placeholder={props.Analyses} name={props.Analyses} />
+                        <ComponenteInput
+                            label="Analyses Name"
+                            placeholder={props.Analyses}
+                            nome={props.Analyses}
+                        />
                     </div>
                     <div id="item3">
                         <label for="Status">Status</label>
@@ -50,20 +72,25 @@ const InformacoesServico = (props) => {
                         </select>
                     </div>
                     <div id="item4">
-                        <label for="Injetected">Injetected</label>
-                        <input type="text" placeholder={props.Injetected} name={props.Injetected} />
+                        <ComponenteInput
+                            label="Injetected"
+                            placeholder={props.Injetected}
+                            nome={props.Injetected}
+                        />
                     </div>
                     <div id="item5">
-                        <label for="Data" >Data</label>
-                        <input type="text" placeholder={props.Data} name={props.Data}/>
+                        <ComponenteInput
+                            label="Data"
+                            placeholder={props.Data}
+                            nome={props.Data}
+                        />
                     </div>
                     <div id="item6">
-                        <label for="Hora">Hora</label>
-                        <input type="text" placeholder={props.Hora} name={props.Hora}/>
-                    </div>
-                    <div id="item7">
-                        <label for="Ativo?">Ativo?</label>
-                        <input type="checkbox" placeholder={props.Ativo} name={props.Ativo} />
+                        <ComponenteInput
+                            label="Hora"
+                            placeholder={props.Hora}
+                            nome={props.Hora}
+                        />
                     </div>
                 </div>
                 <div id="footer"> <button> Salvar </button> </div>

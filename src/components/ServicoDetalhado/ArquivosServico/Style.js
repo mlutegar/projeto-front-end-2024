@@ -5,102 +5,79 @@ const ArquivoServicoStyle = styled.article`
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
-    
-    #container{
+
+    #container {
         display: grid;
         height: 100%;
         grid-template-areas:
             "header"
-            "body"
-        ;
+            "body";
         grid-template-columns: auto;
         grid-template-rows: repeat(2, auto);
         gap: .3rem;
         padding: .3rem;
 
-        #header{
+        #header {
             grid-area: header;
         }
-        
-        #body{
-            display: grid;
-            grid-template-areas:
-                "a b"
-                "c c"
-            ;
-            grid-template-columns: auto auto;
-            grid-template-rows: auto auto;
+
+        #body {
+            margin-top: 2rem;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
             justify-items: center;
-            
-            #img-paciente{
+            justify-content: space-around;
+
+            #img-paciente {
                 grid-area: a;
             }
 
-            #img-calibracao{
+            #img-calibracao {
                 grid-area: b;
 
-                .btn-vazio button{
+                .btn-vazio button {
                     width: 1px;
                 }
             }
 
-            #relatorio{
+            #relatorio {
                 grid-area: c;
             }
         }
-
     }
-    
-    label{
+
+    label {
         display: block;
     }
-    
-    label{
+
+    label {
         font-weight: bold;
         color: black;
     }
-    
-    header{
+
+    header {
         color: black;
         font-weight: lighter;
         font-size: 0.7rem;
     }
-    
-    #salvar button{
+
+    #salvar button {
         padding: .3rem;
         border-radius: .3rem;
         border: none;
         background-color: green;
         color: white;
         cursor: pointer;
-        
-        :hover{
+
+        :hover {
             cursor: pointer;
             background-color: darkgreen;
         }
-        
-        :active{
+
+        :active {
             background-color: green;
-}
-    }
-    
-    .download button{
-        padding: 15px;
-        border-radius: 10px;
-        height: 50px;
-        font-weight: bold;
-        border: 1px solid #023859;
-        background-color: var(--primaria);
-        color: white;
-        margin: 0 10px;
-    }
-    
-    .download button:hover{
-        cursor: pointer;
-        background-color: var(--destaque);
-    }
-    
-    .download button:active{
+        }
     }
     
     #circulo{
@@ -161,6 +138,19 @@ const ArquivoServicoStyle = styled.article`
         :active{
             color: darkgreen;
         }
-    }`
+    }
+
+    @media (max-width: 1100px){
+        #container{
+            #body{
+                grid-template-areas:
+                "a"
+                "b"
+                "c"
+            ;
+                grid-template-columns: auto;
+                grid-template-rows: auto auto auto;
+            }
+`
 
 export { ArquivoServicoStyle };

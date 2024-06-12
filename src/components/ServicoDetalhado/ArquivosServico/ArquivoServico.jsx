@@ -1,12 +1,6 @@
 import {ArquivoServicoStyle} from "./Style";
-import SecaoGenerio from "../../Geral/Secoes/SecaoGenerico/SecaoGenerio";
-import {useState} from "react";
-import {BsXLg} from "react-icons/bs";
-import {IoCloseCircle} from "react-icons/io5";
-import {FaCheckSquare} from "react-icons/fa";
+import {ComponenteArquivo} from "./ComponenteArquivo";
 
-// // estadoRelatorio: estado que guarda a situação do relatório
-// const [estadoRelatorio, setEstadoRelatorio] = useState();
 
 // uploadArquivo: função que faz o usuário selecionar um arquivo para ser upado
 const uploadArquivo = () => {
@@ -72,77 +66,37 @@ const ArquivoServico = (props) => (
                     </div>
 
                     <div id="body">
-                        <div id="img-paciente" className="download">
-                            <label
-                                for="img-paciente"
-                            >Imagem do paciente {props.imgPaciente === "-" ? <IoCloseCircle  className="icon" />: <FaCheckSquare className="icon-acerto"/>}</label>
-                            <p>
-                                {props.imgPaciente === "-" ? "Nenhuma imagem enviada" : <>
-                                    {props.imgPaciente}
-                                </>}
-                            </p>
-
-                            <button onClick={uploadArquivo}>
-                                Upload file
-                            </button>
-                            <button onClick={() => baixarArquivo("img")}>
-                                Download File
-                            </button>
-                            <button onClick={() => baixarArquivo("img")}>
-                                Remove File
-                            </button>
+                        <div id="img-paciente">
+                            <ComponenteArquivo
+                                titulo="Imagem do paciente"
+                                arquivo={props.imgPaciente}
+                                uploadArquivo={uploadArquivo}
+                                baixarArquivo={baixarArquivo}
+                                removerArquivo={handleDeletar}
+                            />
                         </div>
 
-                        <div id="img-calibracao" className="download">
-                            <label
-                                for="img-calibracao"
-                            >Imagem da calibração {props.imgCalibracao === "-" ? <IoCloseCircle  className="icon" />: <FaCheckSquare className="icon-acerto"/>}</label>
-                            <p>
-                                {props.imgCalibracao === "-" ? "Nenhuma imagem enviada" : <>
-                                    {props.imgCalibracao}
-                                </>}
-                            </p>
-                            <button onClick={uploadArquivo}>
-                                Upload file
-                            </button>
-                            <button onClick={() => baixarArquivo("img")}>
-                                Download File
-                            </button>
-                            <button onClick={() => baixarArquivo("img")}>
-                                Remove File
-                            </button>
+                        <div id="img-calibracao">
+                            <ComponenteArquivo
+                                titulo="Imagem de calibração"
+                                arquivo={props.imgCalibracao}
+                                uploadArquivo={uploadArquivo}
+                                baixarArquivo={baixarArquivo}
+                                removerArquivo={handleDeletar}
+                            />
                         </div>
 
-                        <div id="relatorio" className="download">
-                            <label for="relatorio">Relatório {props.relatorio === "-" ? <IoCloseCircle  className="icon" />: <FaCheckSquare className="icon-acerto"/>}  </label>
-                            <p>
-                                {props.relatorio === "-" ? "Nenhum relatório enviado" : <>
-                                    {props.relatorio}
-                                </>}
-                            </p>
-                            <button onClick={uploadArquivo}>
-                                Upload file
-                            </button>
-                            {props.situacao === "Enviado" ? (
-                                <>
-                                    <button onClick={() => baixarArquivo("img")}>
-                                        Download File
-                                    </button>
-                                    <button onClick={() => baixarArquivo("img")}>
-                                        Remove File
-                                    </button>
-                                </>
-
-                            ) : (
-                                <></>
-                            )
-                            }
+                        <div id="relatorio">
+                            <ComponenteArquivo
+                                titulo="Relatório"
+                                arquivo={props.relatorio}
+                                uploadArquivo={uploadArquivo}
+                                baixarArquivo={baixarArquivo}
+                                removerArquivo={handleDeletar}
+                            />
                         </div>
                     </div>
-
                 </div>
-
-
             </div>
         </ArquivoServicoStyle>
 );

@@ -31,7 +31,7 @@ const InformacoesServicoStyle = styled.article`
         
         #body{
             grid-area: body;
-            
+            margin-top: 2rem;
             display: grid;
             grid-template-areas:
                 "item2 item3"
