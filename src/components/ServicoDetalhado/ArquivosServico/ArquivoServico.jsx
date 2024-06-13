@@ -70,6 +70,7 @@ const ArquivoServico = (props) => (
                             <ComponenteArquivo
                                 titulo="Imagem do paciente"
                                 arquivo={props.imgPaciente}
+                                status={props.situacao}
                                 uploadArquivo={uploadArquivo}
                                 baixarArquivo={baixarArquivo}
                                 removerArquivo={handleDeletar}
@@ -80,6 +81,7 @@ const ArquivoServico = (props) => (
                             <ComponenteArquivo
                                 titulo="Imagem de calibração"
                                 arquivo={props.imgCalibracao}
+                                status={props.situacao}
                                 uploadArquivo={uploadArquivo}
                                 baixarArquivo={baixarArquivo}
                                 removerArquivo={handleDeletar}
@@ -90,6 +92,7 @@ const ArquivoServico = (props) => (
                             <ComponenteArquivo
                                 titulo="Relatório"
                                 arquivo={props.relatorio}
+                                status={props.situacao}
                                 uploadArquivo={uploadArquivo}
                                 baixarArquivo={baixarArquivo}
                                 removerArquivo={handleDeletar}

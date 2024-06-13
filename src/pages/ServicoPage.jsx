@@ -83,9 +83,9 @@ const ServicoPage = () => {
                     <h2>
                         <MdOutlineWarning style={{fontSize: 40, color: '#ffce08', position: 'relative', top: 12}} /> FALTANDO: {
                         servico ? (
-                            servico.status === " Imagens de pacientes erradas, enviar novamente" ? (
+                            servico.status === "Imagens de pacientes erradas, enviar novamente" ? (
                                 <span style={{color: "red"}}>Imagens Paciente</span>
-                            ) : servico.status === " Imagens de calibração errada, enviar novamente" ? (
+                            ) : servico.status === "Imagens de calibração errada, enviar novamente" ? (
                                 <span style={{color: "red"}}>Imagens Calibração</span>
                             ) : servico.status === "Concluído" ? (
                                 <span style={{color: "green"}}>Nada!</span>

@@ -6,7 +6,8 @@ export const ComponenteArquivo = (props) => {
     return (
         <ComponenteArquivoStyle>
             <div id="header">
-                {props.titulo} {props.arquivo === "-" ? <IoCloseCircle className="icon"/> :
+                {props.titulo} {props.arquivo === "-" || props.status === "Imagens de pacientes erradas, enviar novamente" || props.status === "Imagens de calibração errada, enviar novamente"
+                ? <IoCloseCircle className="icon"/> :
                 <FaCheckSquare className="icon-acerto"/>}
             </div>
             <div id="body">
