@@ -9,11 +9,8 @@
 ## Site
 [Dosimagem Adm](https://mlutegar.github.io/projeto-front-end-2024/)
 
-## Dúvidas
-- *DVD1*: No seu vídeo explicativo sobre o sistema, identificamos várias funcionalidades, como 'Autenticação', 'Isotopos' e 'Assinaturas', que não compreendemos completamente seu propósito. Gostaríamos de saber se essas funcionalidades são cruciais para o funcionamento principal do sistema e qual é o objetivo delas.
-- *DVD2*: Qual API o sistema atual utiliza para acessar e recuperar informações do back end?
-- *DVD3*: É possível utilizar a mesma calibração para calcular os resultados de dois pacientes diferentes dentro da mesma clínica?
-- *DVD4*: Na demonstração do seu projeto, percebi que há a capacidade de fazer upload de imagens do paciente e de calibração na área administrativa. Vocês já implementaram essa função na prática, ou sempre contam com os valores adicionados pelos clientes?
+## Apresentação
+[Canvas](https://www.canva.com/design/DAGH7Z115d0/qsflUi43Hl6-WnuGkQYuew/edit?utm_content=DAGH7Z115d0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ## Como instalar
 - `npm install`
