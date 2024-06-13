@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {HeaderStyle, Tab} from "./Style";
 import Sidebar from "../Sidebar/Sidebar";
 import {AiOutlineMenu} from "react-icons/ai";
-const logo = "/imagens/icons/logo.png";
+const logo = "imagens/icons/logo.png";
 
 const get_page = (url) => {
   // Find the first '/' after the protocol
