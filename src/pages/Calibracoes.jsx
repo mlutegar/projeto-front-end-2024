@@ -4,8 +4,13 @@ import Tabela from "../components/Geral/Tabela/Tabela";
 import Busca from "../components/Geral/Busca/Busca";
 import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import {TabelaCalibracoesStyle} from "../components/Calibracoes/Style";
-import {BsCloudDownloadFill} from "react-icons/bs";
+import {BsArrowUpRightCircle, BsCloudDownloadFill, BsCloudUploadFill} from "react-icons/bs";
 import {useState} from "react";
+import Cartao, {CartaoServicosStyle} from "../components/Cartao";
+import {Link} from "react-router-dom";
+import {uploadArquivo} from "../utils/TabelaUtils";
+import {AiFillDelete} from "react-icons/ai";
+import SolicitacoesCardList from "../components/SolicitacoesCardList/SolicitacesCardList";
 
 const Calibracoes = () => {
     // Array com os nomes das colunas da tabela
@@ -112,6 +117,39 @@ const Calibracoes = () => {
                                     }
                                 />
                             </TabelaCalibracoesStyle>
+
+                            <CartaoServicosStyle>
+                                <Cartao
+                                    tipo="servico"
+                                    linha={
+                                        <>
+                                            {displayCalibracao.map((calibracao, index) => (
+                                                <div className="card" key={index}>
+                                                    <div className="card-header">
+                                                        <Link to={"/servico/" + calibracao.id}>
+                                                            <button>
+                                                                <BsArrowUpRightCircle />
+                                                            </button>
+                                                        </Link>
+                                                    </div>
+                                                    <div className="card-body">
+                                                        <p><strong>Nome:</strong> {calibracao.nome}</p>
+                                                        <p><strong>Usuário:</strong> {calibracao.usuario}</p>
+                                                        <p><strong>Isotopo:</strong> {calibracao.isotopo}</p>
+                                                        <div>
+                                                            <strong>Imagem:</strong>
+                                                            <button onClick={() => baixarArquivo(calibracao.imagem)}>
+                                                                <BsCloudDownloadFill/>
+                                                            </button>
+                                                        </div>
+                                                        <p><strong>Criado em:</strong> {calibracao.date}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </>
+                                    }
+                                />
+                            </CartaoServicosStyle>
 
                     <div style={{marginTop: 50, display: "flex", justifyContent: "center"}}>
                             <BotaoAvancarVoltar/>

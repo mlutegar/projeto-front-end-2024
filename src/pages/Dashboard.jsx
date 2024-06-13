@@ -1,6 +1,6 @@
 import Base from "./Base"
 import Secao from "../components/Geral/Secoes/Secao/Secao";
-import SolicitacaoCard from "../components/Dashboard/Cards/SolicitacaoCard/SolicitacaoCard";
+import SolicitacaoCard from "../components/SolicitacaoCard/SolicitacaoCard";
 import dadosSolicitacoes from "../data/solicitacoes.json";
 import dadosCalibracoes from "../data/calibracoes.json";
 import dadosAtualizacoes from "../data/atualizacoes.json";
@@ -81,7 +81,13 @@ const Dashboard = () => {
                   )} solicitacoes={solicitacoes} prop3={(solicitacao) => (
                       <SolicitacaoCard
                           key={solicitacao.id}
-                          id={solicitacao.id}
+                          id={solicitacao.status === "Pendente" ? "Pendente" :
+                                  solicitacao.status === "Em andamento" ? "Em andamento" :
+                                      solicitacao.status === "Concluído" ? "Concluído" :
+                                          solicitacao.status === "Não iniciado" ? "Não iniciado" :
+                                              solicitacao.status === "Imagens de pacientes erradas, enviar novamente" ? "Imagens erradas" :
+                                                  solicitacao.status === "Imagens de calibração errada, enviar novamente" ? "Calibração errada" :
+                                                      solicitacao.status === "Calculo em processo" ? "Aguardando Relatório" : solicitacao.status}
                           cliente={solicitacao.cliente}
                           data={solicitacao.date}
                           link={"/servico/" + solicitacao.id}

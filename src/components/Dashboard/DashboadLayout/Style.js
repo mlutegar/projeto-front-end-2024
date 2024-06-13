@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const DashboadLayoutStyle = styled.div`
+    font-size: 10px;
+    
+    
     .container{
         display: grid;
         grid-template-areas:
@@ -11,6 +14,8 @@ const DashboadLayoutStyle = styled.div`
         grid-template-columns: 2fr 1.5fr;
         gap: 20px;
         flex-wrap: wrap;
+        max-width: 1920px;
+        margin: 0 auto; /* Centraliza a container na página */
     }
     
     .solicitacao{

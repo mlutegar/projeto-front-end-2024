@@ -5,20 +5,43 @@ const InformacoesPerfilStyle = styled.article`
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
-    height: 500px;
     
     #container{
         display: grid;
         grid-template-areas:
-            "p p p p"
-            ". a b ."
-            ". c d ."
+            "item1 item2"
+            "item3 item4"
+            "item5 item6"
         ;
-        grid-template-columns: auto auto auto auto;
-        grid-template-rows: repeat(3,10rem);
+        grid-template-columns: repeat(2,auto);
+        grid-template-rows: repeat(3,auto);
         gap: .3rem;
         padding: .3rem;
         flex-wrap: wrap;
+
+        #item1{
+            grid-area: item1;
+        }
+        
+        #item2{
+            grid-area: item2;
+        }
+
+        #item3{
+            grid-area: item3;
+        }
+
+        #item4{
+            grid-area: item4;
+        }
+
+        #item5{
+            grid-area: item5;
+        }
+        
+        #item6 {
+            grid-area: item6;
+        }
     }
     
     label{
@@ -90,22 +113,6 @@ const InformacoesPerfilStyle = styled.article`
     #titulo{
         display: flex;
         align-items: baseline;
-    }
-    
-    #item2{
-        grid-area: a;
-    }
-    
-    #item3{
-        grid-area: b;
-    }
-    
-    #item4{
-        grid-area: c;
-    }
-    
-    #item5{
-        grid-area: d;
     }
 `
 

@@ -1,9 +1,6 @@
 import {ArquivoServicoStyle} from "./Style";
-import SecaoGenerio from "../../Geral/Secoes/SecaoGenerico/SecaoGenerio";
-import {useState} from "react";
+import {ComponenteArquivo} from "./ComponenteArquivo";
 
-// // estadoRelatorio: estado que guarda a situação do relatório
-// const [estadoRelatorio, setEstadoRelatorio] = useState();
 
 // uploadArquivo: função que faz o usuário selecionar um arquivo para ser upado
 const uploadArquivo = () => {
@@ -49,11 +46,18 @@ const baixarArquivo = () => {
 // }
 
 
+function handleDeletar() {
+    const confirmacao = window.confirm("Tem certeza que deseja deletar este arquivo?");
+    if (confirmacao) {
+        alert("Arquivo deletado com sucesso!");
+    }
+}
+
 const ArquivoServico = (props) => (
         <ArquivoServicoStyle>
             <div>
                 <div id="container">
-                    <div id="secao-selecionada">
+                    <div id="header">
                         <div id="titulo">
                             <span id="circulo"></span>
                             <h1>{props.titulo}</h1>
@@ -61,64 +65,38 @@ const ArquivoServico = (props) => (
                         <div id="linha-azul"></div>
                     </div>
 
-                    <div id="img-paciente" className="download">
-                        <label
-                            for="img-paciente"
-                        >Imagem do paciente</label>
-                        <p>
-                            Arquivo enviado pelo cliente: {props.cliente}
-                        </p>
+                    <div id="body">
+                        <div id="img-paciente">
+                            <ComponenteArquivo
+                                titulo="Imagem do paciente"
+                                arquivo={props.imgPaciente}
+                                uploadArquivo={uploadArquivo}
+                                baixarArquivo={baixarArquivo}
+                                removerArquivo={handleDeletar}
+                            />
+                        </div>
 
-                        <button onClick={uploadArquivo}>
-                            Upload file
-                        </button>
-                        <button onClick={() => baixarArquivo("img")}>
-                            Download File
-                        </button>
-                    </div>
+                        <div id="img-calibracao">
+                            <ComponenteArquivo
+                                titulo="Imagem de calibração"
+                                arquivo={props.imgCalibracao}
+                                uploadArquivo={uploadArquivo}
+                                baixarArquivo={baixarArquivo}
+                                removerArquivo={handleDeletar}
+                            />
+                        </div>
 
-                    <div id="img-calibracao" className="download">
-                        <label
-                            for="img-calibracao"
-                        >Imagem da calibração</label>
-                        <p>
-                            Arquivo enviado pelo cliente: {props.cliente}
-                        </p>
-                        <button onClick={uploadArquivo}>
-                            Upload file
-                        </button>
-                        <button onClick={() => baixarArquivo("img")}>
-                            Download File
-                        </button>
-                    </div>
-
-                    <div id="relatorio" className="download">
-                        <label
-                            for="relatorio"
-                        >Relatório</label>
-                        <p>
-                            Situação: {props.situacao}
-                        </p>
-                        <button onClick={uploadArquivo}>
-                            Upload file
-                        </button>
-                        {props.situacao === "Enviado" ? (
-                            <button onClick={() => baixarArquivo("img")}>
-                                Download File
-                            </button>
-                        ) : (
-                            <></>
-                        )
-                        }
-                    </div>
-                    <div id="salvar">
-                        <button>
-                            Salvar
-                        </button>
+                        <div id="relatorio">
+                            <ComponenteArquivo
+                                titulo="Relatório"
+                                arquivo={props.relatorio}
+                                uploadArquivo={uploadArquivo}
+                                baixarArquivo={baixarArquivo}
+                                removerArquivo={handleDeletar}
+                            />
+                        </div>
                     </div>
                 </div>
-
-
             </div>
         </ArquivoServicoStyle>
 );

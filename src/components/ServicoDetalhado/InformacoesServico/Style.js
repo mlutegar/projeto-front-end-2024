@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const InformacoesServicoStyle = styled.article`
-    background-color: white;
+    background-color: var(--detalhe);
     border-radius: 20px;
     margin: 10px;
     padding: 10px;
@@ -9,25 +9,71 @@ const InformacoesServicoStyle = styled.article`
     #container{
         display: grid;
         grid-template-areas:
-            "p p p p"
-            ". a b ."
-            ". c d ."
-            ". g i ."
-            ". e e ."
+            "header"
+            "body"
+            "footer"
         ;
-        grid-template-columns: auto auto auto auto;
-        grid-template-rows: repeat(5,6rem);
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
         gap: .3rem;
         padding: .3rem;
+
+        #footer{
+            grid-area: footer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #header{
+            grid-area: header;
+        }
+        
+        #body{
+            grid-area: body;
+            margin-top: 2rem;
+            display: grid;
+            grid-template-areas:
+                "item2 item3"
+                "item4 item5"
+                "item6 item7"
+            ;
+            grid-template-columns: repeat(2,auto);
+            grid-template-rows: repeat(3,auto);
+            gap: .3rem;
+            padding: .3rem;
+            text-align: center;
+            
+            #item2{
+                grid-area: item2;
+            }
+            
+            #item3{
+                grid-area: item3;
+            }
+            
+            #item4{
+                grid-area: item4;
+            }
+            
+            #item5{
+                grid-area: item5;
+            }
+            
+            #item6{
+                grid-area: item6;
+            }
+            
+            #item7{
+                grid-area: item7;
+            }
+        }
     }
     
     label{
         display: block;
     }
-
-    #container > div{
-
-    }
+    
     
     label{
         font-weight: bold;
@@ -35,6 +81,14 @@ const InformacoesServicoStyle = styled.article`
     }
     
     input{
+        margin-top: 5px;
+        width: 70%;
+        padding: .3rem;
+        border-radius: .3rem;
+        border: 1px solid #ccc;
+    }
+    
+    select{
         margin-top: 5px;
         width: 70%;
         padding: .3rem;
@@ -82,46 +136,14 @@ const InformacoesServicoStyle = styled.article`
         background-color: var(--primaria);
     }
     
-    #secao-selecionada{
-        grid-area: p;
-        margin-top: 10px;
-    }
+
     
     #titulo{
         display: flex;
         align-items: baseline;
     }
     
-    #item2{
-        grid-area: a;
-    }
     
-    #item3{
-        grid-area: b;
-    }
-    
-    #item4{
-        grid-area: c;
-    }
-    
-    #item5{
-        grid-area: d;
-    }
-    
-    #item6{
-        grid-area: g;
-    }
-    
-    #item7{
-        grid-area: i;
-    }
-    
-    #item8{
-        grid-area: e;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 `
 
 export { InformacoesServicoStyle };

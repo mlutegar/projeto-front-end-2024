@@ -1,9 +1,12 @@
 {
   "name": "um-react",
+  "homepage": "https://mlutegar.github.io/projeto-front-end-2024/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-windows": "SET PUBLIC_URL=/&& webpack serve --config ./webpack.config.js --mode development --port 3000",
     "start-linux": "PUBLIC_URL=/ webpack serve --config ./webpack.config.js --mode development --port 3000",
@@ -15,6 +18,7 @@
     "express": "^4.19.2",
     "fa": "^1.0.1",
     "firebase": "^10.6.0",
+    "gh-pages": "^6.1.1",
     "multer": "^1.4.5-lts.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

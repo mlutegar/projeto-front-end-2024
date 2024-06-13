@@ -113,22 +113,7 @@ const SecaoStyle = styled.article`
         justify-content: center;
     }
 
-    @media only screen and (max-width: 1330px) {
-        .header{
-            .navbar{
-                display: none;
-            }
-        }
-        
-        .navbar2{
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            
-        }
-    }
-
-    @media only screen and (max-width: 590px) {
+    @media only screen and (max-width: 1360px) {
         .header{
             .acessarButton{
                 display: none;

@@ -1,7 +1,67 @@
 import styled from "styled-components";
 
 const TabelaServicosStyle = styled.div`
-    
+
+    /* Adicione estas classes ao seu arquivo CSS */
+
+
+    .status-pendente {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
+    }
+
+    .status-andamento {
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
+    }
+
+    .status-concluido {
+        background-color: var(--success-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
+    }
+
+    .status-nao-iniciado {
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
+    }
+
+    .status-imagens-erradas {
+        background-color: var(--danger-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+    }
+
+    .status-calibracao-errada {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
+    }
+
+    .status-calculo {
+        background-color: var(--success-color);
+        color: var(--text-color);
+        padding: 0.5em 1em;
+        border-radius: 4px;
+
+    }
+
+
+
     @media only screen and (max-width: 1400px) {
         table td:nth-child(2),
         table th:nth-child(2) {
@@ -45,11 +105,8 @@ const TabelaServicosStyle = styled.div`
         }
     }
 
-    @media only screen and (max-width: 700px) {
-        table td:nth-child(10),
-        table th:nth-child(10) {
-            display: none;
-        }
+    @media only screen and (max-width: 768px) {
+        display: none;
     }
 `;
 

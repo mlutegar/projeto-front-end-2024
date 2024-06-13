@@ -1,18 +1,11 @@
-import {Link, useParams} from 'react-router-dom';
 import Base from './Base';
-import InformacoesServico from "../components/ServicoDetalhado/InformacoesServico/InformacoesServico";
-import dadosSolicitacoes from "../data/solicitacoes.json";
-import SecaoGenerio from "../components/Geral/Secoes/SecaoGenerico/SecaoGenerio";
 import Botao from "../components/Geral/Botoes/Botao/Botao";
-import {useRef, useState} from "react";
-import ArquivoServico from "../components/ServicoDetalhado/ArquivosServico/ArquivoServico";
+import {useState} from "react";
 import BotaoAtencao from "../components/Geral/Botoes/BotaoAtencao/BotaoAtencao";
 import InformacoesPerfil from "../components/Perfil/InformacoesPerfil/InformacoesPerfil";
+import {PerfilStyle} from "../components/Perfil/Style";
 
 const ServicoPage = () => {
-    // user: variável que armazena o usuario logado
-    const { id } = useParams();
-
     // botaoClicado: variável que armazena o nome do botão que foi clicado, e é usada para determinar qual seção será exibida, sendo "Dados do usúario" a seção padrão exibida e "Arquivos" a seção exibida ao clicar no botão "Arquivos"
     const [botaoClicado, setBotaoClicado] = useState("Dados do usúario");
 
@@ -54,44 +47,40 @@ const ServicoPage = () => {
         <Base
             titulo={"Usúario: " + usuario.nome}
         >
-            <div style={{marginTop: 50}}>
+            <div style={{display: 'flex', justifyContent: "space-between", marginBottom: 25, marginTop: 30}}>
+                <div style={{display: 'flex', gap: 10, flexWrap: "wrap"}}>
+                    <Botao
+                        text="Dados do usúario"
+                        isActive={botaoClicado === "Dados do usúario"}
+                        onClick={() => trocarSecao("Dados do usúario")}
+                    />
 
+                    <BotaoAtencao
+                        text="Deslogar"
+                        onClick={() => deslogar()}
+                    />
+                </div>
             </div>
-            <SecaoGenerio>
-                <div style={{display: "flex", justifyContent: "space-between", marginLeft: 50, marginRight: 50, marginBottom: 40}}>
-                    <div style={{display: "flex", justifyContent: "left", marginLeft: 50, gap: 10}}>
-                        <Botao
-                            text="Dados do usúario"
-                            isActive={botaoClicado === "Dados do usúario"}
-                            onClick={() => trocarSecao("Dados do usúario")}
-                        />
-                    </div>
 
-                    <div>
-                        <BotaoAtencao
-                            text="Deslogar"
-                            onClick={() => deslogar()}
+            <PerfilStyle>
+                <div id="container-perfil">
+                    <div id="header-perfil">
+                        <div id="titulo">
+                            <span id="circulo"></span>
+                            <h1>Dados do usuário</h1>
+                        </div>
+                        <div id="linha-azul"></div>
+                    </div>
+                    <div id="body-perfil">
+                        <InformacoesPerfil
+                            Nome={usuario.nome}
+                            Email={usuario.email}
+                            DataNascimento={usuario.dataNascimento}
+                            CPF={usuario.cpf}
                         />
                     </div>
                 </div>
-
-                <div style={{marginBottom:40, marginLeft: 20, marginRight: 20, fontSize: 30}}>
-                    {botaoClicado === "Dados do usúario" && (
-                        usuario ? (
-                            <InformacoesPerfil
-                                Nome={usuario.nome}
-                                Email={usuario.email}
-                                DataNascimento={usuario.dataNascimento}
-                                CPF={usuario.cpf}
-                            />
-                        ) : (
-                            <p>Serviço não encontrado ou ID inválido.</p>
-                        )
-                    )}
-                </div>
-
-
-            </SecaoGenerio>
+            </PerfilStyle>
         </Base>
     );
 

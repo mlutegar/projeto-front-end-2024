@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+const Tab= styled.div`
+    ${({ isActive }) =>
+            isActive &&
+            `
+    color: var(--destaque);
+    &:after {
+        color: #ffffff;
+        background-color: #023859;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+    }
+  `}
+`;
+
 const HeaderStyle = styled.header`
     background-color: var(--background);
     display: flex;
@@ -9,7 +23,7 @@ const HeaderStyle = styled.header`
     justify-content: space-between;
     border-bottom: #023859 solid 17px;
     z-index: 10;  /* Define um valor alto para garantir que fique acima da sidebar */
-
+    
     &.active {
         position: fixed;  /* Torna o header fixo no topo da página */
         top: 0;
@@ -74,4 +88,4 @@ const HeaderStyle = styled.header`
     
 `;
 
-export { HeaderStyle };
+export { HeaderStyle, Tab };

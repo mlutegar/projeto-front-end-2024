@@ -1,89 +1,84 @@
 import {InformacoesServicoStyle} from "./Style";
-import SecaoGenerio from "../../Geral/Secoes/SecaoGenerico/SecaoGenerio";
+import {useState} from "react";
+import {ComponenteInput} from "./ComponenteInput";
 
-const InformacoesServico = (props) => (
-        <InformacoesServicoStyle>
-            <div>
-                <h1>{props.titulo}</h1>
-                <div id="container">
-                    <div id="secao-selecionada">
-                        <div id="titulo">
-                            <span id="circulo"></span>
-                            <h1>Dados do usuário</h1>
-                        </div>
-                        <div id="linha-azul"></div>
+const statusOptions = [
+    "Não iniciado",
+    "Calculo em processo",
+    "Concluído",
+    "Imagens de pacientes erradas, enviar novamente",
+    "Imagens de calibração errada, enviar novamente"
+];
+
+const InformacoesServico = (props) => {
+    const [estadoRelatorio, setEstadoRelatorio] = useState(props.Status);
+
+    const handleStatusChange = (event) => {
+        const selectedStatus = event.target.value;
+        // Lógica para atualizar o estado com o status selecionado
+        // Por exemplo, se você estiver usando useState:
+        // setStatus(selectedStatus);
+
+        setEstadoRelatorio(selectedStatus);
+    };
+
+    return(
+    <InformacoesServicoStyle>
+        <div>
+            <div id="container">
+                <div id="header">
+                    <div id="titulo">
+                        <span id="circulo"></span>
+                        <h1>Dados do usuário</h1>
                     </div>
+                    <div id="linha-azul"></div>
+                </div>
 
+                <div id="body">
                     <div id="item2">
-                        <label
-                            for="Analyses"
-                        >Analyses Name</label>
-                        <input
-                            type="text"
+                        <ComponenteInput
+                            label="Analyses Name"
                             placeholder={props.Analyses}
-                            name={props.Analyses}
+                            nome={props.Analyses}
                         />
                     </div>
                     <div id="item3">
-                        <label
-                            for="Status"
-                        >Status</label>
-                        <input
-                            type="text"
-                            placeholder={props.Status}
-                            name={props.Status}
-                        />
+                        <label for="Status">Status</label>
+                        <select name={estadoRelatorio} value={estadoRelatorio} onChange={handleStatusChange}>
+                            {statusOptions.map(status => (
+                                <option key={status} value={status}>
+                                    {status}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                     <div id="item4">
-                        <label
-                            for="Injetected"
-                        >Injetected</label>
-                        <input
-                            type="text"
+                        <ComponenteInput
+                            label="Injetected"
                             placeholder={props.Injetected}
-                            name={props.Injetected}
+                            nome={props.Injetected}
                         />
                     </div>
                     <div id="item5">
-                        <label
-                            for="Data"
-                        >Data</label>
-                        <input
-                            type="text"
+                        <ComponenteInput
+                            label="Data"
                             placeholder={props.Data}
-                            name={props.Data}
+                            nome={props.Data}
                         />
                     </div>
                     <div id="item6">
-                        <label
-                            for="Hora"
-                        >Hora</label>
-                        <input
-                            type="text"
+                        <ComponenteInput
+                            label="Hora"
                             placeholder={props.Hora}
-                            name={props.Hora}
+                            nome={props.Hora}
                         />
-                    </div>
-                    <div id="item7">
-                        <label
-                            for="Ativo?"
-                        >Ativo?</label>
-                        <input
-                            type="checkbox"
-                            placeholder={props.Ativo}
-                            name={props.Ativo}
-                        />
-                    </div>
-                    <div id="item8">
-                        <button>
-                            Salvar
-                        </button>
                     </div>
                 </div>
-
-
+                <div id="footer"> <button> Salvar </button> </div>
             </div>
-        </InformacoesServicoStyle>
-);
+        </div>
+    </InformacoesServicoStyle>
+    );
+};
 
 export default InformacoesServico;
