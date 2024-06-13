@@ -113,7 +113,7 @@ const SecaoStyle = styled.article`
         justify-content: center;
     }
 
-    @media only screen and (max-width: 1360px) {
+    @media only screen and (max-width: 1460px) {
         .header{
             .acessarButton{
                 display: none;

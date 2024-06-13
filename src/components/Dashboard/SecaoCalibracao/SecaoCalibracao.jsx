@@ -5,6 +5,7 @@ import Tabela from "../../Geral/Tabela/Tabela";
 import dadosCalibracoes from "../../../data/calibracoes.json";
 import BotaoAvancarVoltar from "../../Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import {useState} from "react";
+import TabelaReduzida from "../../Geral/Tabela/TabelaReduzida/TabelaReduzida";
 
 function SecaoCalibracao(props) {
     const [sliceIndex, setSliceIndex] = useState(0);
@@ -30,7 +31,7 @@ function SecaoCalibracao(props) {
         conteudo={
             <SecaoCalibracaoStyle>
                 <div>
-                    <Tabela
+                    <TabelaReduzida
                         tipo="calibracao"
                         head={
                             <>
