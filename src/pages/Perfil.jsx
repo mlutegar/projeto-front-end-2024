@@ -12,7 +12,8 @@ const ServicoPage = () => {
     // servico: variável que armazena as informações da solicitação que será exibida na página, buscando a solicitação com o id passado pela URL
     const usuario = {
         id: 1,
-        nome: "mlutegar",
+        nome: "Michel",
+        sobrenome: "Lutegar",
         email: "mlutegar@gmail.com",
         telefone: "21999795887",
         dataNascimento: "01/01/1990",
@@ -74,7 +75,9 @@ const ServicoPage = () => {
                     <div id="body-perfil">
                         <InformacoesPerfil
                             Nome={usuario.nome}
+                            Sobrenome={usuario.sobrenome}
                             Email={usuario.email}
+                            Telefone={usuario.telefone}
                             DataNascimento={usuario.dataNascimento}
                             CPF={usuario.cpf}
                         />

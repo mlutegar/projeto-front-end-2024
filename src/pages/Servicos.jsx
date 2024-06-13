@@ -112,7 +112,7 @@ const Servicos = () => {
         let i = colunas.indexOf(opcao);
         if (e !== "") {
             setSolicitacoes(solicitacoes.filter(
-                (ele) => String(ele[propriedades[i]]).includes(e)
+                (ele) => String(ele[propriedades[i]]).toLowerCase().includes(e.toLowerCase())
             ));
         } else {
             filtrar();
