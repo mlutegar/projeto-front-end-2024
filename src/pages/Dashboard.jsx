@@ -34,6 +34,9 @@ const Dashboard = () => {
     // atualizacoes: estado para armazenar as atualizações
     const [atualizacoes, setAtualizacoes] = useState(dadosAtualizacoes);
 
+    // solicitacoesNaoConcluidas: estado derivado para armazenar as solicitações não concluídas
+    const [solicitacoesNaoConcluidas, setSolicitacoesNaoConcluidas] = useState([]);
+
     // Função que adiciona o filtro
     const adicionarTipoConsulta = (tipo) => {
         if(!tipoConsulta.includes(tipo)){
@@ -58,7 +61,11 @@ const Dashboard = () => {
 
     useEffect(() => {
         filtrarSolicitacao();
-    }, [tipoConsulta]);
+        // Atualiza solicitacoesNaoConcluidas quando solicitacoes muda
+        setSolicitacoesNaoConcluidas(
+            solicitacoes.filter((solicitacao) => solicitacao.status !== "Concluído")
+        );
+    }, [tipoConsulta, solicitacoes]); // Adicione 'solicitacoes' como dependência
 
     // filtrarSolicitacao: Filtragem dos dados a partir do tipo de consulta filtrada selecionada
     const filtrarSolicitacao = () => {
@@ -78,7 +85,7 @@ const Dashboard = () => {
                           onClick={() => adicionarTipoConsulta(tipo)}
                           text={tipo}
                       />
-                  )} solicitacoes={solicitacoes} prop3={(solicitacao) => (
+                  )} solicitacoes={solicitacoesNaoConcluidas} prop3={(solicitacao) => (
                       <SolicitacaoCard
                           key={solicitacao.id}
                           id={solicitacao.status === "Pendente" ? "Pendente" :

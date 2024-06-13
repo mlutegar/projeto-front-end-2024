@@ -35,8 +35,8 @@ const InformacoesPerfil = (props) => (
                 <div id="item5">
                     <ComponenteInput
                         label="Data de Nascimento"
-                        placeholder={props.Endereco}
-                        nome={props.Endereco}
+                        placeholder={props.DataNascimento}
+                        nome={props.DataNascimento}
                     />
                 </div>
                 <div id="item6">

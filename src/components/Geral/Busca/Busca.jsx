@@ -35,7 +35,7 @@ const Busca = (props) => (
         <div className="search-box">
             <div>
                 <input onChange={props.onChance} type="text" className="input-busca"
-                       placeholder="Digite para pesquisar..."/>
+                       placeholder="Digite..."/>
             </div>
 
             <div>
