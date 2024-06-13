@@ -2,12 +2,10 @@ import {Link, useParams} from 'react-router-dom';
 import Base from './Base';
 import InformacoesServico from "../components/ServicoDetalhado/InformacoesServico/InformacoesServico";
 import dadosSolicitacoes from "../data/solicitacoes.json";
-import SecaoGenerio from "../components/Geral/Secoes/SecaoGenerico/SecaoGenerio";
 import Botao from "../components/Geral/Botoes/Botao/Botao";
-import {useRef, useState} from "react";
+import {useState} from "react";
 import ArquivoServico from "../components/ServicoDetalhado/ArquivosServico/ArquivoServico";
 import styled from "styled-components";
-import {BsBellFill} from "react-icons/bs";
 import {MdOutlineWarning} from "react-icons/md";
 
 const BotoesPaginasServicoPageStyle = styled.div`

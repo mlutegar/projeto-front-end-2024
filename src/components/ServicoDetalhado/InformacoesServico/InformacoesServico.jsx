@@ -1,25 +1,6 @@
 import {InformacoesServicoStyle} from "./Style";
 import {useState} from "react";
-
-import styled from 'styled-components';
-
-const ComponenteInputStyle = styled.div`
-
-`;
-
-const ComponenteInput = (props) => {
-    return (
-        <ComponenteInputStyle>
-            <label htmlFor="Analyses">{props.label}</label>
-            <input
-                type="text"
-                placeholder={props.placeholder}
-                name={props.nome}
-            />
-        </ComponenteInputStyle>
-    );
-};
-
+import {ComponenteInput} from "./ComponenteInput";
 
 const statusOptions = [
     "Não iniciado",

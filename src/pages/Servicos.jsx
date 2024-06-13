@@ -72,6 +72,8 @@ const Servicos = () => {
 
     const [tipoConsulta, setTipoConsulta] = useState(tipos);
     const [solicitacoes, setSolicitacoes] = useState(dadosSolicitacoes);
+    const [boolOrdenado, setBoolOrdenado] = useState(false);
+    const [boolOrdenadoCrescente, setBoolOrdenadoCrescente] = useState(false);
     const [opcao, setOpcao] = useState(colunas[0]);
     const [opcaoStatus, setOpcaoStatus] = useState("");
     const [currentPage, setCurrentPage] = useState(0);
@@ -79,7 +81,11 @@ const Servicos = () => {
 
     useEffect(() => {
         filtrar();
-        ordenarStatus();
+        if (!boolOrdenado) {
+            ordenarStatus();
+            setBoolOrdenado(true);
+        }
+
     }, [tipoConsulta]);
 
     const filtrar = () => {
@@ -133,10 +139,26 @@ const Servicos = () => {
             });
     };
 
-    const ordenarStatus = () => {
+    const ordenarStatusDecrescente = () => {
+        const solicitacoesOrdenadas = [...solicitacoes].sort((a, b) => a.status.localeCompare(b.status));
+        setSolicitacoes(solicitacoesOrdenadas);
+    }
+
+    const ordenarStatusCrescente = () => {
         const solicitacoesOrdenadas = [...solicitacoes].sort((b, a) => a.status.localeCompare(b.status));
         setSolicitacoes(solicitacoesOrdenadas);
     };
+
+    const ordenarStatus = () => {
+        if (!boolOrdenadoCrescente) {
+            ordenarStatusCrescente();
+            setBoolOrdenadoCrescente(true);
+        } else {
+            ordenarStatusDecrescente();
+            setBoolOrdenadoCrescente(false);
+        }
+    }
+
 
     const avancar = () => {
         if ((currentPage + 1) * itemsPerPage < solicitacoes.length) {

@@ -4,22 +4,20 @@ const BotaoAtencaoStyle = styled.div`
     button {
         background-color: #b44f4f;
         color: white;
-        padding: 15px;
-        border-radius: 10px;
-        width: 200px;
-        height: 50px;
-        font-weight: bold;
         border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, transform 0.2s ease;
     }
 
-    button:hover {
-        background-color: #771515;
-        color: white;
+    &:hover {
+        transform: scale(1.05);
     }
 
-    button:active {
-        background-color: #e51515;
-        color: white;
+    &:active {
+        transform: scale(0.95);
     }
 `;
 

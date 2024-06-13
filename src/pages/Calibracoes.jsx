@@ -10,6 +10,7 @@ import Cartao, {CartaoServicosStyle} from "../components/Cartao";
 import {Link} from "react-router-dom";
 import {uploadArquivo} from "../utils/TabelaUtils";
 import {AiFillDelete} from "react-icons/ai";
+import SolicitacoesCardList from "../components/SolicitacoesCardList/SolicitacesCardList";
 
 const Calibracoes = () => {
     // Array com os nomes das colunas da tabela
