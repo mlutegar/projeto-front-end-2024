@@ -1,16 +1,12 @@
 import Base from "./Base"
-import Secao from "../components/Geral/Secoes/Secao/Secao";
 import SolicitacaoCard from "../components/SolicitacaoCard/SolicitacaoCard";
 import dadosSolicitacoes from "../data/solicitacoes.json";
-import dadosCalibracoes from "../data/calibracoes.json";
 import dadosAtualizacoes from "../data/atualizacoes.json";
-import Tabela from "../components/Geral/Tabela/Tabela";
 import {useEffect, useState} from "react";
 import Botao from "../components/Geral/Botoes/Botao/Botao";
 import DashboadLayout from "../components/Dashboard/DashboadLayout/DashboadLayout";
 import AtualizacaoCard from "../components/Dashboard/Cards/AtualizacaoCard/AtualizacaoCard";
 import SecaoInformacao from "../components/Dashboard/SecaoInformacao/SecaoInformacao";
-import BotaoAvancarVoltar from "../components/Geral/Botoes/BotaoAvancarVoltar/BotaoAvancarVoltar";
 import SecaoCalibracao from "../components/Dashboard/SecaoCalibracao/SecaoCalibracao";
 import SecaoAtualizacao from "../components/Dashboard/SecaoAtualizacao/SecaoAtualizacao";
 import SecaoSolicitacao from "../components/Dashboard/SecaoSolicitacao/SecaoSolicitacao";
@@ -25,16 +21,9 @@ const Dashboard = () => {
         "Segmentação"
     ]
 
-    // Criação de um estado para armazenar o tipo de consulta
     const [tipoConsulta, setTipoConsulta] = useState(tipos)
-
-    // solicitacoes: estado para armazenar as solicitações
     const [solicitacoes , setSolicitacoes] = useState(dadosSolicitacoes);
-
-    // atualizacoes: estado para armazenar as atualizações
     const [atualizacoes, setAtualizacoes] = useState(dadosAtualizacoes);
-
-    // solicitacoesNaoConcluidas: estado derivado para armazenar as solicitações não concluídas
     const [solicitacoesNaoConcluidas, setSolicitacoesNaoConcluidas] = useState([]);
 
     // Função que adiciona o filtro

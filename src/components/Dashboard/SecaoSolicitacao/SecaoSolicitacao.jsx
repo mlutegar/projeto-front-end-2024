@@ -8,6 +8,7 @@ function SecaoSolicitacao(props) {
 
     const ITENS_POR_PAGINA_AMPLO = 5; // Constante para telas amplas
     const ITENS_POR_PAGINA_NORMAL = 4; // Constante para telas normais
+    const ITENS_POR_PAGINA_PEQUENO = 3; // Constante para telas pequenas
 
     const [currentStartIndex, setCurrentStartIndex] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(ITENS_POR_PAGINA_NORMAL); // Estado para controlar a quantidade de itens
@@ -25,16 +26,29 @@ function SecaoSolicitacao(props) {
         }
     };
 
+    const getItemsPerPage = () => {
+        if (window.innerWidth > 1700) {
+            return ITENS_POR_PAGINA_AMPLO;
+        } else if (window.innerWidth > 1280) {
+            return ITENS_POR_PAGINA_NORMAL;
+        } else {
+            return ITENS_POR_PAGINA_PEQUENO;
+        }
+    };
+
+    const handleResize = () => {
+        setItemsPerPage(getItemsPerPage());
+    };
+
     useEffect(() => {
-        const handleResize = () => {
-            setItemsPerPage(window.innerWidth > 1700 ? ITENS_POR_PAGINA_AMPLO : ITENS_POR_PAGINA_NORMAL);
-        };
+        window.addEventListener('resize', handleResize);
 
-        handleResize(); // Executa na primeira renderização
-        window.addEventListener("resize", handleResize); // Adiciona o listener
+        // Chamada inicial para garantir que o valor está correto na montagem
+        handleResize();
 
+        // Limpeza do evento ao desmontar o componente
         return () => {
-            window.removeEventListener("resize", handleResize); // Remove o listener ao desmontar
+            window.removeEventListener('resize', handleResize);
         };
     }, []); // Array vazio para executar apenas uma vez
 
