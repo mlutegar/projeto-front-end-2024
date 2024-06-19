@@ -37,7 +37,7 @@ const BaseStyle = styled.div`
     
     #container h1 {
         margin-bottom: 1.5rem;
-        font-size: 2rem;
+        font-size: 1.7rem;
         font-weight: normal;
         color: #232526;
     }

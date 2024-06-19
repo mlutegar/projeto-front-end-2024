@@ -23,7 +23,7 @@ const SecaoStyle = styled.article`
         flex-wrap: wrap;
         
         justify-content: space-between;
-        align-items: center;
+        align-items: baseline;
         margin-top: 2rem;
         margin-left: 3rem;
         margin-right: 3rem;
@@ -31,7 +31,6 @@ const SecaoStyle = styled.article`
         .navbar{
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
         }
         
         .acessarButton{

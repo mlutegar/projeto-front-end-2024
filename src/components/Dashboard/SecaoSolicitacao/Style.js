@@ -8,7 +8,7 @@ const SecaoSolicitacaoStyle = styled.div`
     
     .filtro{
         display: flex;
-        gap: 4rem;
+        gap: 10px;
         flex-wrap: wrap;
         
         button {

@@ -73,7 +73,7 @@ const SecaoCalibracaoStyle = styled.div`
 
     @media only screen and (max-width: 1250px) {
         table{
-            font-size: 0.9rem;
+            font-size: 0.7rem;
         }
     }
 

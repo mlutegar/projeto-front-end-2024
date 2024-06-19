@@ -4,22 +4,20 @@ const AtualizacaoCardStyle = styled.article`
     
     
     .container{
-        padding: .5rem;
+        padding: .4rem;
         display: grid;
         grid-template-areas:
             "icone id    linha"
             ".     acao  linha"
             ".     tempo linha"
         ;
-        grid-template-columns: .1fr 1fr .3fr;
+        grid-template-columns: .1fr 1fr .25fr;
         grid-template-rows: 1fr 1fr 1fr;
         gap: 1px;
         background-color: white;
         border-radius: 35px;
         font-size: 1rem;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: .6rem;
-        
     }
     
     .icone{
